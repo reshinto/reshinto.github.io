@@ -5,7 +5,6 @@
     <title></title>
     <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
     <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
-    <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
@@ -20,11 +19,13 @@
         <a target="_blank" href="https://github.com/reshinto">GitHub</a>
       </p>
     </div>
+
     <h1>
       <a class="previous" href="#">&larr;</a>
       <b>Project</b>
       <a class="next" href="#">&rarr;</a>
     </h1>
+
     <a-scene>
       <!-- set images -->
       <a-assets>
@@ -32,22 +33,14 @@
         <img id="proj2" src="./imgs/bDayGreeting.gif" />
         <img
           id="skyTexture"
-          src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg"
+          src="https://live.staticflickr.com/65535/48396828686_0da9a8ef2b_k.jpg"
         />
-        <img
-          id="groundTexture"
-          src="https://cdn.aframe.io/a-painter/images/floor.jpg"
-        />
+        <!-- <img -->
+        <!--   id="groundTexture" -->
+        <!--   src="https://cdn.aframe.io/a-painter/images/floor.jpg" -->
+        <!-- /> -->
       </a-assets>
 
-      <!-- draw box -->
-      <!-- <a-box -->
-      <!--   src="#boxTexture" -->
-      <!--   position="0 2 -5" -->
-      <!--   rotation="0 0 0" -->
-      <!--   scale="2.5 4 0.1" -->
-      <!--   animation="property: object3D.position.y; to: 2.2; dir: alternate; dur: 2000; loop: true" -->
-      <!-- ></a-box> -->
       <a-entity
         id="proj1"
         geometry="primitive:box;"
@@ -91,12 +84,13 @@
       <a-sky src="#skyTexture"></a-sky>
 
       <!-- set floor -->
-      <a-plane
-        src="#groundTexture"
-        rotation="-90 0 0"
-        width="30"
-        height="30"
-      ></a-plane>
+      <!-- <a-plane -->
+      <!--   src="#groundTexture" -->
+      <!--   rotation="-90 0 0" -->
+      <!--   width="30" -->
+      <!--   height="30" -->
+      <!-- ></a-plane> -->
+
       <!-- Red directional light shining from the top left. -->
       <!-- <a-light color="red" position="-1 1 0"></a-light> -->
 
@@ -105,7 +99,6 @@
 
       <!-- Dim ambient lighting. -->
       <a-light type="ambient" color="#222"></a-light>
-      <!-- <a-entity environment="preset: forest; dressingAmount: 500"></a-entity> -->
 
       <a-camera>
         <a-cursor
@@ -116,6 +109,21 @@
         ></a-cursor>
       </a-camera>
     </a-scene>
+
+    <!-- <a href="#"> -->
+    <!--   <svg -->
+    <!--     width="48" -->
+    <!--     height="55" -->
+    <!--     viewBox="0 0 48 55" -->
+    <!--     style="fill:#222; color:#fff; position: absolute; top: 0; border: 0; left: 0;" -->
+    <!--   > -->
+    <!--     <path -->
+    <!--       fill="none" -->
+    <!--       d="M35.437 12.205H11.953l1.054 12.75h21.828l-.753 13.575-10.086 3.225-9.935-3.225-.335-4.284m10.273 19.66l-18.817-6L.964.656h46.064l-4.215 47.25-18.817 6" -->
+    <!--     ></path> -->
+    <!--   </svg> -->
+    <!-- </a> -->
+
     <!-- GitHub Corner. -->
     <a href="https://github.com/reshinto" class="github-corner" target="_blank">
       <svg

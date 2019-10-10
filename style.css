@@ -12,13 +12,16 @@
   padding: 1rem;
   box-sizing: border-box;
 }
+
 #about b {
   font-weight: bold;
   font-family: monospace;
 }
+
 #about p:last-child {
   margin: 0;
 }
+
 #about a {
   font-size: 14px;
   color: #000;
@@ -29,9 +32,17 @@
   background: rgba(255, 255, 255, 0.4);
   padding: 0 3px;
 }
+
 #about a:hover {
   background: rgba(255, 255, 255, 1);
 }
+
+/* #html { */
+/*   z-index: 2; */
+/*   stroke: #666; */
+/*   stroke-dasharray: 300; */
+/*   stroke-dashoffset: 300; */
+/* } */
 
 h1 {
   position: absolute;

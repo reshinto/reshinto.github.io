@@ -1,10 +1,567 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title></title>
-</head>
-<body>
-  My Portfolio
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script>
+    <script src="https://rawgit.com/mayognaise/aframe-gif-shader/master/dist/aframe-gif-shader.min.js"></script>
+    <script src="https://unpkg.com/aframe-environment-component/dist/aframe-environment-component.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div id="about">
+      <b>Welcome to Terence's CRAPPY portfolio website</b>
+      <p>
+        Ababcabcabcabcabbacbabbabcab
+        <a target="_blank" href="#">Abc</a> demos and experiences.
+      </p>
+      <p>aaa <b>bbb</b> ccc.</p>
+      <p>
+        <a target="_blank" href="https://github.com/reshinto">GitHub</a>
+      </p>
+    </div>
+    <h1>
+      <a class="previous" href="#">&larr;</a>
+      <b>Project</b>
+      <a class="next" href="#">&rarr;</a>
+    </h1>
+    <a-scene>
+      <!-- set images -->
+      <a-assets>
+        <img id="proj1" src="./imgs/mazeDemo.gif" />
+        <img
+          id="proj2"
+          src="https://raw.githubusercontent.com/reshinto/BirthdayGreeting/master/imgs/happyBirthday.png"
+        />
+        <img
+          id="skyTexture"
+          src="https://cdn.aframe.io/360-image-gallery-boilerplate/img/sechelt.jpg"
+        />
+        <img
+          id="groundTexture"
+          src="https://cdn.aframe.io/a-painter/images/floor.jpg"
+        />
+      </a-assets>
+
+      <!-- draw box -->
+      <!-- <a-box -->
+      <!--   src="#boxTexture" -->
+      <!--   position="0 2 -5" -->
+      <!--   rotation="0 0 0" -->
+      <!--   scale="2.5 4 0.1" -->
+      <!--   animation="property: object3D.position.y; to: 2.2; dir: alternate; dur: 2000; loop: true" -->
+      <!-- ></a-box> -->
+      <a-entity
+        id="proj1"
+        geometry="primitive:box;"
+        position="0 2 -10"
+        scale="2 2 0.1"
+        material="shader:gif;src:#proj1;"
+        animation="property: object3D.position.y; to: 2.2; dir: alternate; dur: 2000; loop: true"
+        animation__mouseenter="property: scale; to: 4 4 0.1; dur: 300; startEvents: mouseenter"
+        animation__mouseleave="property: scale; to: 2 2 0.1; dur: 300; startEvents: mouseleave"
+      >
+        <a-entity
+          class="proj1"
+          text="value: Maze Runner; color: #BBB; align: center; width: 2;"
+          link="href:https://reshinto.github.io/maze_runner/"
+          position="0 0 1"
+          scale="1.5 1.5 1.5"
+        >
+        </a-entity>
+      </a-entity>
+
+      <a-entity
+        id="proj2"
+        geometry="primitive:box;"
+        position="4 2 -10"
+        scale="2 2 0.1"
+        material="shader:flat;src:#proj2;"
+        animation="property: object3D.position.y; to: 2.2; dir: alternate; dur: 2000; loop: true"
+        animation__mouseenter="property: scale; to: 4 4 0.1; dur: 300; startEvents: mouseenter"
+        animation__mouseleave="property: scale; to: 2 2 0.1; dur: 300; startEvents: mouseleave"
+      >
+        <a-entity
+          text="value: Birthday Card; color: #BBB; align: center; width: 2;"
+          link="href:https://reshinto.github.io/BirthdayGreeting/"
+          target="_blank"
+          position="0 0 1"
+          scale="1.5 1.5 1.5"
+        >
+        </a-entity>
+      </a-entity>
+      <!-- set sky -->
+      <a-sky src="#skyTexture"></a-sky>
+
+      <!-- set floor -->
+      <a-plane
+        src="#groundTexture"
+        rotation="-90 0 0"
+        width="30"
+        height="30"
+      ></a-plane>
+      <!-- Red directional light shining from the top left. -->
+      <!-- <a-light color="red" position="-1 1 0"></a-light> -->
+
+      <!-- Blue point light, 5 meters in the air. -->
+      <a-light type="point" position="0 5 0"></a-light>
+
+      <!-- Dim ambient lighting. -->
+      <a-light type="ambient" color="#222"></a-light>
+      <!-- <a-entity environment="preset: forest; dressingAmount: 500"></a-entity> -->
+
+      <a-camera>
+        <a-cursor
+          id="cursor"
+          color="#FAFAFA"
+          animation__click="property: scale; from: 0.1 0.1 0.1; to: 1 1 1; easing: easeInCubic; dur: 150; startEvents: click"
+          animation__fusing="property: scale; from: 1 1 1; to: 0.1 0.1 0.1; easing: easeInCubic; dur: 150; startEvents: fusing"
+        ></a-cursor>
+      </a-camera>
+    </a-scene>
+    <!-- GitHub Corner. -->
+    <a href="https://github.com/reshinto" class="github-corner" target="_blank">
+      <svg
+        width="80"
+        height="80"
+        viewBox="0 0 250 250"
+        style="fill:#222; color:#fff; position: absolute; top: 0; border: 0; right: 0;"
+      >
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path
+          d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+          fill="currentColor"
+          style="transform-origin: 130px 106px;"
+          class="octo-arm"
+        ></path>
+        <path
+          d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+          fill="currentColor"
+          class="octo-body"
+        ></path>
+      </svg>
+    </a>
+    <style>
+      .github-corner:hover .octo-arm {
+        animation: octocat-wave 560ms ease-in-out;
+      }
+      @keyframes octocat-wave {
+        0%,
+        100% {
+          transform: rotate(0);
+        }
+        20%,
+        60% {
+          transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+          transform: rotate(10deg);
+        }
+      }
+      @media (max-width: 500px) {
+        .github-corner:hover .octo-arm {
+          animation: none;
+        }
+        .github-corner .octo-arm {
+          animation: octocat-wave 560ms ease-in-out;
+        }
+      }
+    </style>
+    <!-- End GitHub Corner. -->
+  </body>
 </html>
+
+<!-- <!DOCTYPE html> -->
+<!-- <html> -->
+<!--   <head> -->
+<!--     <title>Terence Portfolio</title> -->
+<!--     <meta name="description" content="Terence Portfolio" /> -->
+<!--     <script src="https://aframe.io/releases/0.5.0/aframe.min.js"></script> -->
+<!--   </head> -->
+<!--   <body> -->
+<!--     <a-scene> -->
+<!--       <a-assets> -->
+<!--         <img -->
+<!--           id="boxTexture" -->
+<!--           src="https://raw.githubusercontent.com/reshinto/maze_runner/master/public/images/recursive.png" -->
+<!--         /> -->
+<!--         <img -->
+<!--           id="boxTexture2" -->
+<!--           src="https://raw.githubusercontent.com/reshinto/BirthdayGreeting/master/imgs/happyBirthday.png" -->
+<!--         /> -->
+<!--         <img -->
+<!--           id="groundTexture" -->
+<!--           src="https://cdn.aframe.io/a-painter/images/floor.jpg" -->
+<!--         /> -->
+<!--         <img -->
+<!--           id="skyTexture" -->
+<!--           src="https://cdn.aframe.io/a-painter/images/sky.jpg" -->
+<!--         /> -->
+<!--       </a-assets> -->
+
+<!--       <a-box -->
+<!--         position="0 2 -5" -->
+<!--         rotation="22 21 0" -->
+<!--         scale="1 1 1" -->
+<!--         src="#boxTexture" -->
+<!--         navigate-on-click="url: https://reshinto.github.io/maze_runner/" -->
+<!--       > -->
+<!--         <a-animation -->
+<!--           attribute="position" -->
+<!--           direction="alternate" -->
+<!--           dur="2000" -->
+<!--           repeat="indefinite" -->
+<!--           to="0 2.2 -5" -->
+<!--         ></a-animation> -->
+<!--         <a-animation -->
+<!--           attribute="rotation" -->
+<!--           begin="click" -->
+<!--           dur="2000" -->
+<!--           to="360 405 45" -->
+<!--         ></a-animation> -->
+<!--         <a-animation -->
+<!--           attribute="scale" -->
+<!--           begin="mouseenter" -->
+<!--           dur="300" -->
+<!--           to="2 2 2" -->
+<!--         ></a-animation> -->
+<!--         <a-animation -->
+<!--           attribute="scale" -->
+<!--           begin="mouseleave" -->
+<!--           dur="300" -->
+<!--           to="1 1 1" -->
+<!--         ></a-animation> -->
+<!--       </a-box> -->
+
+<!--       <a-box -->
+<!--         position="6 2 -5" -->
+<!--         rotation="22 -21 0" -->
+<!--         scale="1 1 1" -->
+<!--         src="#boxTexture2" -->
+<!--       > -->
+<!--         <a-animation -->
+<!--           attribute="position" -->
+<!--           direction="alternate" -->
+<!--           dur="2000" -->
+<!--           repeat="indefinite" -->
+<!--           to="6 2.2 -5" -->
+<!--         ></a-animation> -->
+<!--         <a-animation -->
+<!--           attribute="rotation" -->
+<!--           begin="click" -->
+<!--           dur="2000" -->
+<!--           to="360 405 45" -->
+<!--         ></a-animation> -->
+<!--         <a-animation -->
+<!--           attribute="scale" -->
+<!--           begin="mouseenter" -->
+<!--           dur="300" -->
+<!--           to="2 2 2" -->
+<!--         ></a-animation> -->
+<!--         <a-animation -->
+<!--           attribute="scale" -->
+<!--           begin="mouseleave" -->
+<!--           dur="300" -->
+<!--           to="1 1 1" -->
+<!--         ></a-animation> -->
+<!--       </a-box> -->
+
+<!--       <a-sky -->
+<!--         height="2048" -->
+<!--         radius="30" -->
+<!--         src="#skyTexture" -->
+<!--         theta-length="90" -->
+<!--         width="2048" -->
+<!--       ></a-sky> -->
+<!--       <a-light type="ambient" color="#445451"></a-light> -->
+<!--       <a-light type="point" intensity="2" position="2 4 4"></a-light> -->
+<!--       <a-plane -->
+<!--         src="#groundTexture" -->
+<!--         rotation="-90 0 0" -->
+<!--         height="100" -->
+<!--         width="100" -->
+<!--       ></a-plane> -->
+<!--       <a-text -->
+<!--         value="Welcome to Terence's CRAPPY Website" -->
+<!--         color="#BBB" -->
+<!--         position="-2.5 5 -5" -->
+<!--         scale="1.5 1.5 1.5" -->
+<!--       ></a-text> -->
+<!--       <a-text -->
+<!--         value="Maze Runner" -->
+<!--         color="#BBB" -->
+<!--         position="-0.4 0.5 -3" -->
+<!--         scale="1 1 1" -->
+<!--         navigate-on-click="url: https://reshinto.github.io/maze_runner/" -->
+<!--       ></a-text> -->
+
+<!--       <a-camera> -->
+<!--         <a-cursor color="#FAFAFA"></a-cursor> -->
+<!--       </a-camera> -->
+<!--     </a-scene> -->
+<!--     <script> -->
+<!--       AFRAME.registerComponent("navigate-on-click", { -->
+<!--         schema: { -->
+<!--           url: {default: ""}, -->
+<!--         }, -->
+
+<!--         init: function() { -->
+<!--           var data = this.data; -->
+<!--           var el = this.el; -->
+
+<!--           el.addEventListener("click", function() { -->
+<!--             window.location.href = data.url; -->
+<!--           }); -->
+<!--         }, -->
+<!--       }); -->
+<!--     </script> -->
+<!--   </body> -->
+<!-- </html> -->
+
+<!-- <!DOCTYPE html> -->
+<!-- <html> -->
+<!--   <head> -->
+<!--     <script src="https://aframe.io/releases/0.9.2/aframe.min.js"></script> -->
+<!--     <script src="../build.js"></script> -->
+<!--     <link -->
+<!--       href="https://fonts.googleapis.com/css?family=Roboto&display=swap" -->
+<!--       rel="stylesheet" -->
+<!--     /> -->
+<!--     <style> -->
+<!--       body { -->
+<!--         font-family: "Roboto", sans-serif; -->
+<!--         text-shadow: 0px 0px 10px #00d2ff; -->
+<!--         color: #fff; -->
+<!--         font-size: 32px; -->
+<!--       } -->
+<!--       h1 { -->
+<!--         font-size: 52px; -->
+<!--       } -->
+<!--       .dark { -->
+<!--         background-color: rgba(0, 0, 0, 0.2); -->
+<!--         border-radius: 50px; -->
+<!--         background-repeat: no-repeat; -->
+<!--         background-position: bottom right; -->
+<!--         padding: 40px; -->
+<!--       } -->
+<!--       .main { -->
+<!--         width: 1024px; -->
+<!--         height: 768px; -->
+<!--         overflow: hidden; -->
+<!--       } -->
+<!--       .menu { -->
+<!--         width: 256px; -->
+<!--         height: 768px; -->
+<!--         text-align: center; -->
+<!--       } -->
+<!--       .menu ul { -->
+<!--         list-style-type: none; -->
+<!--         margin: 0; -->
+<!--         padding: 0; -->
+<!--       } -->
+<!--       a.button { -->
+<!--         display: inline-block; -->
+<!--         width: 100%; -->
+<!--         border-radius: 20px; -->
+<!--         background-color: #000; -->
+<!--         color: #fff; -->
+<!--         text-decoration: none; -->
+<!--         text-align: center; -->
+<!--         padding: 10px 0; -->
+<!--         margin-bottom: 20px; -->
+<!--       } -->
+<!--       a.button:hover { -->
+<!--         background-color: #fff; -->
+<!--         color: #888; -->
+<!--       } -->
+<!--       a.button:active { -->
+<!--         background-color: #fff; -->
+<!--         color: #888; -->
+<!--         box-shadow: 0px 0px 50px #00d2ff; -->
+<!--       } -->
+<!--       a.imgLink { -->
+<!--         width: 100%; -->
+<!--         border-radius: 20px; -->
+<!--         color: #fff; -->
+<!--         text-decoration: none; -->
+<!--         text-align: center; -->
+<!--         padding: 10px 0; -->
+<!--         margin-bottom: 20px; -->
+<!--         background-color: #444; -->
+<!--         border: 3px solid #444; -->
+<!--         text-shadow: none; -->
+<!--         display: block; -->
+<!--       } -->
+<!--       a.imgLink:hover { -->
+<!--         border: 3px solid #fff; -->
+<!--         background-color: #444; -->
+<!--       } -->
+<!--       .code { -->
+<!--         white-space: pre; -->
+<!--         font-size: 0.7em; -->
+<!--         background-color: #000; -->
+<!--         margin-bottom: 30px; -->
+<!--       } -->
+<!--       .next, -->
+<!--       .prev { -->
+<!--         position: absolute; -->
+<!--         bottom: 0px; -->
+<!--         right: 30px; -->
+<!--         display: inline-block; -->
+<!--         width: auto !important; -->
+<!--         padding: 20px 30px !important; -->
+<!--       } -->
+<!--       .prev { -->
+<!--         right: auto; -->
+<!--         left: 30px; -->
+<!--       } -->
+<!--       #page1 { -->
+<!--         position: relative; -->
+<!--         height: 100%; -->
+<!--       } -->
+<!--       #page2, -->
+<!--       #page3, -->
+<!--       #page4 { -->
+<!--         display: none; -->
+<!--         position: relative; -->
+<!--         height: 100%; -->
+<!--       } -->
+<!--       .slide { -->
+<!--         height: 100%; -->
+<!--       } -->
+<!--       .slide:target #page1 { -->
+<!--         display: none; -->
+<!--       } -->
+<!--       #slide2:target #page2 { -->
+<!--         display: block; -->
+<!--       } -->
+<!--       #slide3:target #page3 { -->
+<!--         display: block; -->
+<!--       } -->
+<!--       #slide4:target #page4 { -->
+<!--         display: block; -->
+<!--       } -->
+<!--       #page4 ul { -->
+<!--         list-style-type: square; -->
+<!--         font-size: 0.8em; -->
+<!--       } -->
+<!--     </style> -->
+<!--     <script> -->
+<!--       AFRAME.registerComponent("showbutton", { -->
+<!--         schema: { -->
+<!--           "target": {type: "selector"}, -->
+<!--         }, -->
+<!--         init: function() { -->
+<!--           var show = false; -->
+<!--           this.el.addEventListener("click", () => { -->
+<!--             if (show) { -->
+<!--               this.data.target.setAttribute("visible", "false"); -->
+<!--               this.el.querySelector("a").innerHTML = "Show Box"; -->
+<!--             } else { -->
+<!--               this.data.target.setAttribute("visible", "true"); -->
+<!--               this.el.querySelector("a").innerHTML = "Hide Box"; -->
+<!--             } -->
+<!--             show = !show; -->
+<!--           }); -->
+<!--         }, -->
+<!--       }); -->
+<!--     </script> -->
+<!--   </head> -->
+<!--   <body> -->
+<!--     <div id="slide2" class="slide"> -->
+<!--       <div id="slide3" class="slide"> -->
+<!--         <div id="slide4" class="slide"> -->
+<!--           <a-scene fog="type: linear; color: #222222; far: 20;"> -->
+<!--             <a-assets> -->
+<!--               <img id="floor" src="assets/floor.png" /> -->
+<!--               <img id="tex1" src="assets/box.png" /> -->
+<!--             </a-assets> -->
+<!--             <a-plane -->
+<!--               material="src:#floor; repeat: 700 700; transparent: true;" -->
+<!--               height="200" -->
+<!--               width="500" -->
+<!--               rotation="-90 0 0" -->
+<!--             ></a-plane> -->
+<!--             <a-sky color="#222222"></a-sky> -->
+<!--             <a-entity id="cameraRig"> -->
+<!--               <a-camera id="camera"> </a-camera> -->
+<!--               <a-entity -->
+<!--                 id="mouseCursor" -->
+<!--                 cursor="rayOrigin: mouse" -->
+<!--                 raycaster="objects: .screen" -->
+<!--               ></a-entity> -->
+<!--               <a-entity laser-controls raycaster="objects: .screen;"></a-entity> -->
+<!--             </a-entity> -->
+<!--             <a-entity -->
+<!--               id="menu" -->
+<!--               class="screen menu dark" -->
+<!--               htmlembed="ppu:256" -->
+<!--               position="-2.712 2.5 -4.476" -->
+<!--               rotation="0 45 0" -->
+<!--             > -->
+<!--               <h2>Menu</h2> -->
+<!--               <ul> -->
+<!--                 <li><a href="#" class="button">Home</a></li> -->
+<!--                 <li><a href="#slide2" class="button">Project 1</a></li> -->
+<!--                 <li><a href="#slide2" class="button">Project 2</a></li> -->
+<!--                 <li><a href="#slide2" class="button">Project 4</a></li> -->
+<!--               </ul> -->
+<!--             </a-entity> -->
+<!--             <a-entity -->
+<!--               id="main" -->
+<!--               class="screen dark main" -->
+<!--               htmlembed="ppu:256" -->
+<!--               position="0 2.5 -5" -->
+<!--             > -->
+<!--               <div id="page1"> -->
+<!--                 <h1>Welcome to Terence's crappy website</h1> -->
+<!--                 <p> -->
+<!--                   This is soooo cool -->
+<!--                 </p> -->
+<!--                 <a href="#slide2" class="button next">Next Page</a> -->
+<!--               </div> -->
+<!--               <div id="page2"> -->
+<!--                 <h1>Maze Runner</h1> -->
+<!--                 <img -->
+<!--                   src="https://raw.githubusercontent.com/reshinto/maze_runner/master/public/images/recursive.png" -->
+<!--                   alt="" -->
+<!--                   width="500" -->
+<!--                 /> -->
+<!--                 <img -->
+<!--                   src="https://raw.githubusercontent.com/reshinto/maze_runner/master/public/images/bombRandom.png" -->
+<!--                   alt="" -->
+<!--                   width="500" -->
+<!--                 /> -->
+<!--                 <a href="#" class="button prev">Prev Page</a> -->
+<!--               </div> -->
+<!--             </a-entity> -->
+<!--             <a-entity -->
+<!--               id="menu" -->
+<!--               class="screen menu dark" -->
+<!--               htmlembed="ppu:256" -->
+<!--               position="2.712 2.5 -4.476" -->
+<!--               rotation="0 -45 0" -->
+<!--             > -->
+<!--               <h2>Links</h2> -->
+<!--               <a -->
+<!--                 class="imgLink" -->
+<!--                 href="https://github.com/reshinto" -->
+<!--                 target="_blank" -->
+<!--                 ><img src="assets/github.png" width="80" height="80" /> -->
+<!--                 <div>Github</div></a -->
+<!--               > -->
+<!--             </a-entity> -->
+<!--             <a-box -->
+<!--               material="src:#tex1" -->
+<!--               scale="0.5 0.5 0.5" -->
+<!--               position="0 0.5 -4" -->
+<!--               id="box" -->
+<!--               visible="false" -->
+<!--             ></a-box> -->
+<!--           </a-scene> -->
+<!--         </div> -->
+<!--       </div> -->
+<!--     </div> -->
+<!--   </body> -->
+<!-- </html> -->

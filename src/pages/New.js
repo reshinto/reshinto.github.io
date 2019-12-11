@@ -44,6 +44,7 @@ class New extends React.Component {
       imgURL,
       deployedURL
     }
+    console.log(projectsArr);
     projectsArr.push(newProject);
     this.props.addProject(category, projectsArr);
     alert(`${projectName} has been added successfully!`);

@@ -14,10 +14,17 @@ const useStyles = makeStyles(theme => ({
   card: {
     maxWidth: 345,
     margin: theme.spacing(2),
+    backgroundColor: "#2C2C2C"
   },
   media: {
     height: 190,
   },
+  title: {
+    color: "#CFCFCF"
+  },
+  text: {
+    color: "#6F6F6F"
+  }
 }));
 
 function Media(props) {
@@ -27,6 +34,7 @@ function Media(props) {
   return (
     <Card className={classes.card}>
       <CardHeader
+        className={classes.title}
         title={loading ? (
           <Skeleton
             height={10} width="80%" style={{marginBottom: 6 }} />
@@ -34,7 +42,7 @@ function Media(props) {
         subheader={loading ? (
           <Skeleton height={10} width="40%" />
         ) : (
-          `Built with ${p.tech}`
+          <span className={classes.text}>Built with {p.tech}</span>
         )}
       />
       {loading ? (
@@ -55,7 +63,7 @@ function Media(props) {
           </React.Fragment>
         ) : (
           <>
-            <Typography variant="body2" color="textSecondary" component="p">
+            <Typography className={classes.text} variant="body2" color="textSecondary" component="p">
               {p.projectDescription}
             </Typography>
             <Typography
@@ -72,18 +80,20 @@ function Media(props) {
                 target="_blank"
                 rel="noopener noreferrer"
                 href={p.projectURL}
-                style={{color: "black"}}
+                style={{color: "#6F6F6F"}}
               >
                 <GitHubIcon />
               </a>
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href={p.deployedURL}
-                style={{color: "black"}}
-              >
-                <LanguageIcon />
-              </a>
+              {p.deployedURL !== "" ? (
+                <a
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href={p.deployedURL}
+                  style={{color: "#6F6F6F"}}
+                >
+                  <LanguageIcon />
+                </a>
+              ) : ""}
             </Typography>
           </>
         )}

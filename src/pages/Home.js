@@ -4,6 +4,7 @@ import { getPortfolios } from "../redux/actions/portfolioAction";
 import {capsStr} from "../utility";
 import Grid from '@material-ui/core/Grid';
 import Card from "../components/Card";
+import Aboutme from "../components/aboutme/Aboutme";
 
 class Home extends React.Component {
   componentDidMount() {
@@ -16,11 +17,12 @@ class Home extends React.Component {
     categoryArr = Object.keys(portfolios);
     return (
       <div>
+        <Aboutme />
         {categoryArr.length !== 0 ? (
           categoryArr.map((cat, i) => (
             <div key={i}>
-              <h2 style={{textAlign: "center"}}>{capsStr(cat)}</h2>
               <hr />
+              <h2 style={{textAlign: "center", color: "#CFCFCF"}}>{capsStr(cat)}</h2>
               <Grid container spacing={2}>
                 <Grid item xs={12}>
                   <Grid container justify="center" spacing={2}>

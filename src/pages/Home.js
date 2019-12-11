@@ -15,6 +15,7 @@ class Home extends React.Component {
     const {portfolios} = this.props;
     let categoryArr = [];
     categoryArr = Object.keys(portfolios);
+    categoryArr.sort().reverse();
     return (
       <div>
         <Aboutme />

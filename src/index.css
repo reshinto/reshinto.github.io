@@ -12,3 +12,12 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.blink {
+  animation: blink 0.5s infinite;
+}
+@keyframes blink {
+  to {
+    opacity: 0;
+  }
+}

@@ -15,7 +15,13 @@ class Home extends React.Component {
   }
 }
 const slider = (
-  <AwesomeSlider organicArrows={true} fillParent={true} cssModule={AwesomeSliderStyles}>
+  <AwesomeSlider
+    bullets={false}
+    infinite={false}
+    fillParent={true}
+    cssModule={AwesomeSliderStyles}
+    // selected={2}
+  >
     <div>
       <Aboutme />
     </div>

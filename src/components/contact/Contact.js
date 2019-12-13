@@ -14,6 +14,7 @@ const theme = createMuiTheme({
   // For Underline Color After Click
   palette: {
     primary: {main: "#CFCFCF"},
+    linkedin: "blue",
   },
   // For Underline Hover Color
   overrides: {
@@ -32,6 +33,28 @@ const theme = createMuiTheme({
 const styles = theme => ({
   text: {
     color: "#CFCFCF",
+  },
+  sendEmail: {
+    color: "#CFCFCF",
+    backgroundColor: "#00877A",
+    "&:hover": {
+      backgroundColor: "#007787",
+    },
+  },
+  linkedin: {
+    color: "#CFCFCF",
+    backgroundColor: "#036BA2",
+    "&:hover": {
+      backgroundColor: "#035aa2",
+    },
+  },
+  github: {
+    marginLeft: "1rem",
+    color: "#CFCFCF",
+    backgroundColor: "#4F4F4F",
+    "&:hover": {
+      backgroundColor: "#454545",
+    },
   },
 });
 
@@ -60,7 +83,7 @@ class Contact extends React.Component {
     else this.setState({messageError: false});
     if (email !== "" && name !== "" && subject !== "" && message !== "") {
       const msg = message.replace(/\r?\n/g, "<br />");
-      let newSubject = `by: ${name}, sub: ${subject}`
+      let newSubject = `by: ${name}, sub: ${subject}`;
       this.props.sendEmail(email, newSubject, msg);
       this.setState({
         emailError: false,
@@ -70,7 +93,7 @@ class Contact extends React.Component {
         email: "",
         name: "",
         subject: "",
-        message: ""
+        message: "",
       });
       alert(`message has been sent successfully!`);
     }
@@ -87,14 +110,16 @@ class Contact extends React.Component {
       emailError,
       nameError,
       subjectError,
-      messageError
+      messageError,
     } = this.state;
     const {classes} = this.props;
 
     return (
       <div>
         <MuiThemeProvider theme={theme}>
-          <h1 style={{textAlign: "center", color: "#CFCFCF"}}>Drop me an email</h1>
+          <h1 style={{textAlign: "center", color: "#CFCFCF"}}>
+            Drop me an email
+          </h1>
           <form style={{width: "80vw"}} onSubmit={this.handleSubmit}>
             <DialogContent>
               <TextField
@@ -182,30 +207,42 @@ class Contact extends React.Component {
                 justifyContent: "center",
               }}
             >
-              <Button color="primary" type="submit">
+              <Button
+                variant="contained"
+                className={classes.sendEmail}
+                type="submit"
+              >
                 Send email
               </Button>
             </DialogActions>
           </form>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              margin: "2rem auto",
+            }}
+          >
+            <Button
+              variant="contained"
+              className={classes.linkedin}
+              target="_blank"
+              href="https://www.linkedin.com/in/terence-kong/"
+            >
+              <LinkedInIcon />
+              &nbsp;LINKEDIN
+            </Button>
+            <Button
+              variant="contained"
+              className={classes.github}
+              target="_blank"
+              href="https://github.com/reshinto"
+            >
+              <GitHubIcon />
+              &nbsp;GitHub
+            </Button>
+          </div>
         </MuiThemeProvider>
-        <div style={{display: "flex", justifyContent: "center", margin: "2rem auto"}}>
-          <Button
-            style={{backgroundColor: "#036BA2"}}
-            color="primary"
-            target="_blank"
-            href="https://www.linkedin.com/in/terence-kong/"
-          >
-            <LinkedInIcon />&nbsp;LINKEDIN
-          </Button>
-          <Button
-            style={{backgroundColor: "#4F4F4F", marginLeft: "1rem"}}
-            color="primary"
-            target="_blank"
-            href="https://github.com/reshinto"
-          >
-              <GitHubIcon />&nbsp;GitHub
-          </Button>
-        </div>
       </div>
     );
   }

@@ -1,9 +1,9 @@
 import React from "react";
-import { connect } from "react-redux";
-import { openMenu, closeMenu } from "../../redux/actions/menuAction";
+import {connect} from "react-redux";
+import {openMenu, closeMenu} from "../../redux/actions/menuAction";
 import {Link} from "react-router-dom";
-import MenuIcon from '@material-ui/icons/Menu';
-import CloseIcon from '@material-ui/icons/Close';
+import MenuIcon from "@material-ui/icons/Menu";
+import CloseIcon from "@material-ui/icons/Close";
 import Button from "@material-ui/core/Button";
 
 const styles = {
@@ -12,7 +12,7 @@ const styles = {
     fontSize: "4rem",
     position: "fixed",
     zIndex: 2,
-    margin: "2rem"
+    margin: "2rem",
   },
   close: {
     right: 0,
@@ -20,9 +20,9 @@ const styles = {
     fontSize: "4rem",
     position: "fixed",
     zIndex: 2,
-    margin: "2rem"
+    margin: "2rem",
   },
-}
+};
 
 function Header(props) {
   const {menu} = props;
@@ -52,13 +52,10 @@ const mapDispatchToProps = {
   closeMenu: () => closeMenu(),
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(Header);
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
 
-    // <h1 style={{textAlign: "center", position: "fixed", zIndex: 2, margin: "2rem"}}>
-    //   {/*
-    //   <Link to="/new">Add project</Link>
-    //   */}
-    // </h1>
+// <h1 style={{textAlign: "center", position: "fixed", zIndex: 2, margin: "2rem"}}>
+//   {/*
+//   <Link to="/new">Add project</Link>
+//   */}
+// </h1>

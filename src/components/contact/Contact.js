@@ -156,7 +156,7 @@ class Contact extends React.Component {
                 margin="dense"
                 label="Your name"
                 error={nameError}
-                helperText={nameError ? "Subject cannot be empty!" : ""}
+                helperText={nameError ? "Name cannot be empty!" : ""}
                 fullWidth
               />
             </DialogContent>

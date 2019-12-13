@@ -1,5 +1,5 @@
 import React from "react";
-import { connect } from "react-redux";
+import {connect} from "react-redux";
 import Aboutme from "../components/aboutme/Aboutme";
 import Contact from "../components/contact/Contact";
 import Projects from "../components/projects/Projects";
@@ -9,7 +9,7 @@ import AwesomeSliderStyles from "react-awesome-slider/src/styled/cube-animation"
 
 class Home extends React.Component {
   render() {
-    const { menu } = this.props;
+    const {menu} = this.props;
     return (
       <div>
         {menu === false ? (
@@ -40,7 +40,9 @@ class Home extends React.Component {
               </div>
             </AwesomeSlider>
           </div>
-        ) : <Menu />}
+        ) : (
+          <Menu />
+        )}
       </div>
     );
   }
@@ -53,7 +55,4 @@ const mapStateToProps = state => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  null
-)(Home);
+export default connect(mapStateToProps, null)(Home);

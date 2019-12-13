@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "@material-ui/core/Button"
+import Button from "@material-ui/core/Button";
 
 let i = 0;
 
@@ -8,32 +8,29 @@ class Aboutme extends React.Component {
     text: ["Software Engineer", "Full-Stack Developer"],
     count: 0,
     show: "",
-    isDeleting: false
-  }
+    isDeleting: false,
+  };
 
   componentDidMount() {
-    this.timerID = setInterval(
-      () => this.update(),
-      250
-    );
+    this.timerID = setInterval(() => this.update(), 250);
   }
 
   componentWillUnmount() {
     clearInterval(this.timerID);
   }
 
-  update(){
+  update() {
     const {isDeleting, show} = this.state;
     const counter = this.state.count;
     const letter = this.state.text[i].charAt(counter);
     const textlength = this.state.text[i].length;
 
-    if(counter <= textlength && isDeleting === false){
+    if (counter <= textlength && isDeleting === false) {
       this.setState({
         show: show + letter,
         count: this.state.count + 1,
       });
-    }else{
+    } else {
       if (show.length === 0) {
         this.setState({
           isDeleting: false,
@@ -43,7 +40,7 @@ class Aboutme extends React.Component {
       } else {
         this.setState({
           isDeleting: true,
-          show: show.slice(0, show.length-1),
+          show: show.slice(0, show.length - 1),
           count: 0,
         });
       }
@@ -62,39 +59,52 @@ class Aboutme extends React.Component {
     // }
     // void(0);
     const s = document.createElement("script");
-    s.type="text/javascript";
+    s.type = "text/javascript";
     document.body.appendChild(s);
-    s.src="//hi.kickassapp.com/kickass.js";
-    void(0);
-
-  }
+    s.src = "//hi.kickassapp.com/kickass.js";
+    void 0;
+  };
 
   render() {
     return (
       <div style={{margin: "2rem", textAlign: "center", color: "#CFCFCF"}}>
-        <h1 style={{fontSize: "3rem"}}>
-          Hey! I am Terence Kong
-        </h1>
-        <h2 style={{fontSize: "2.5rem"}}>I am a {this.state.show}<span ref="word" className="blink">|</span></h2>
+        <h1 style={{fontSize: "3rem"}}>Hey! I am Terence Kong</h1>
+        <h2 style={{fontSize: "2.5rem"}}>
+          I am a {this.state.show}
+          <span ref="word" className="blink">
+            |
+          </span>
+        </h2>
         <p style={{margin: "2rem 4rem", fontSize: "1rem"}}>
-          Self-taught software engineer who is passionate about devising elegant problem-solving methods on top of learning new technologies and tools.
+          Self-taught software engineer who is passionate about devising elegant
+          problem-solving methods on top of learning new technologies and tools.
         </p>
-        <h3 style={{fontSize: "2rem"}}>
-          How it all began.
-        </h3>
+        <h3 style={{fontSize: "2rem"}}>How it all began.</h3>
         <p style={{margin: "2rem 4rem", fontSize: "1rem"}}>
-          Software engineering has always been an interest of mine. I wrote my first line of code in C++ during polytechnic (High School equivalent) and had graduated with a Diploma in Electronics, Computer, and Communications Engineering.
-        </p>
-        <p style={{margin: "2rem 4rem", fontSize: "1rem"}}>
-          After that, I wanted to acquire a broad and varied knowledge of the arts and sciences, which led me to pursue an International Liberal Arts Degree.
-        </p>
-        <p style={{margin: "2rem 4rem", fontSize: "1rem"}}>
-          During my job experience, I had witnessed the usefulness of programming, especially in the area of workflow automation. Wanting to know more, I delve into expanding my understanding of software engineering, which led me to discover new technologies such as mobile, data science, web, VR / AR, and many more.
+          Software engineering has always been an interest of mine. I wrote my
+          first line of code in C++ during polytechnic (High School equivalent)
+          and had graduated with a Diploma in Electronics, Computer, and
+          Communications Engineering.
         </p>
         <p style={{margin: "2rem 4rem", fontSize: "1rem"}}>
-          In all the experiences I went through have cemented my interest in craving the ability to create applications of my own.
+          After that, I wanted to acquire a broad and varied knowledge of the
+          arts and sciences, which led me to pursue an International Liberal
+          Arts Degree.
         </p>
-        <Button variant="contained" color="secondary" onClick={this.activate}>Destroy website!</Button>
+        <p style={{margin: "2rem 4rem", fontSize: "1rem"}}>
+          During my job experience, I had witnessed the usefulness of
+          programming, especially in the area of workflow automation. Wanting to
+          know more, I delve into expanding my understanding of software
+          engineering, which led me to discover new technologies such as mobile,
+          data science, web, VR / AR, and many more.
+        </p>
+        <p style={{margin: "2rem 4rem", fontSize: "1rem"}}>
+          In all the experiences I went through have cemented my interest in
+          craving the ability to create applications of my own.
+        </p>
+        <Button variant="contained" color="secondary" onClick={this.activate}>
+          Destroy website!
+        </Button>
       </div>
     );
   }

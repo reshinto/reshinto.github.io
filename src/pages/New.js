@@ -1,6 +1,6 @@
 import React from "react";
-import { connect } from "react-redux";
-import { addProject } from "../redux/actions/portfolioAction";
+import {connect} from "react-redux";
+import {addProject} from "../redux/actions/portfolioAction";
 import Button from "@material-ui/core/Button";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
@@ -14,8 +14,8 @@ class New extends React.Component {
     projectURL: "",
     tech: [],
     imgURL: "",
-    deployedURL: ""
-  }
+    deployedURL: "",
+  };
 
   handleSubmit = e => {
     e.preventDefault();
@@ -26,7 +26,7 @@ class New extends React.Component {
       projectURL,
       tech,
       imgURL,
-      deployedURL
+      deployedURL,
     } = this.state;
     const {portfolios} = this.props;
     let projectsArr;
@@ -34,7 +34,7 @@ class New extends React.Component {
     if (portfolios[category] === undefined) {
       projectsArr = [];
     } else {
-      projectsArr = portfolios[category]
+      projectsArr = portfolios[category];
     }
     const newProject = {
       projectName,
@@ -42,15 +42,15 @@ class New extends React.Component {
       projectURL,
       tech,
       imgURL,
-      deployedURL
-    }
+      deployedURL,
+    };
     console.log(projectsArr);
     projectsArr.push(newProject);
     this.props.addProject(category, projectsArr);
     alert(`${projectName} has been added successfully!`);
   };
 
-  onChange = prop => e => this.setState({ [prop]: e.target.value });
+  onChange = prop => e => this.setState({[prop]: e.target.value});
 
   render() {
     const {
@@ -60,7 +60,7 @@ class New extends React.Component {
       projectURL,
       tech,
       imgURL,
-      deployedURL
+      deployedURL,
     } = this.state;
 
     return (
@@ -148,7 +148,7 @@ class New extends React.Component {
           <DialogActions
             style={{
               display: "flex",
-              justifyContent: "center"
+              justifyContent: "center",
             }}
           >
             <Button color="primary" type="submit">
@@ -168,10 +168,7 @@ const mapStateToProps = state => {
 };
 
 const mapDispatchToProps = {
-  addProject: (category, projectsArr) => addProject(category, projectsArr)
+  addProject: (category, projectsArr) => addProject(category, projectsArr),
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(New);
+export default connect(mapStateToProps, mapDispatchToProps)(New);

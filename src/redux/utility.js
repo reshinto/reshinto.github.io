@@ -5,4 +5,4 @@ export const updateObject = (oldObject, updatedProperties) => {
   };
 };
 
-export const db = "https://asia-east2-portfolio-server-65b51.cloudfunctions.net/api/portfolios";
+export const db = "https://asia-east2-portfolio-server-65b51.cloudfunctions.net/api";

@@ -8,19 +8,20 @@ import Button from "@material-ui/core/Button";
 
 const styles = {
   open: {
+    right: 0,
     color: "#CFCFCF",
-    fontSize: "4rem",
+    fontSize: "6rem",
     position: "fixed",
     zIndex: 2,
-    margin: "2rem",
+    margin: "5rem",
   },
   close: {
     right: 0,
     color: "#CFCFCF",
-    fontSize: "4rem",
+    fontSize: "6rem",
     position: "fixed",
     zIndex: 2,
-    margin: "2rem",
+    margin: "5rem",
   },
 };
 

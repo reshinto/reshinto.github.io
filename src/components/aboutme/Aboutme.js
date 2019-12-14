@@ -1,6 +1,7 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
 import MessengerCustomerChat from 'react-messenger-customer-chat';
+import MessengerPlugin from "react-messenger-plugin"
 
 let i = 0;
 
@@ -106,12 +107,10 @@ class Aboutme extends React.Component {
         <Button variant="contained" color="secondary" onClick={this.activate}>
           Destroy website!
         </Button>
-            <MessengerCustomerChat
-              pageId="105385870961919"
-              appId=""
-              htmlRef="https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js
-"
-            />
+          <react-messenger-plugin
+            pageId="105385870961919"
+            appId=""
+          />
       </div>
     );
   }

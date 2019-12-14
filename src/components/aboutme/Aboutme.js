@@ -52,7 +52,7 @@ class Aboutme extends React.Component {
             color="secondary"
             onClick={this.activate}
           >
-            Destroy this lengthy website! (PC only)
+            Destroy this lengthy website!
           </Button>
         ) : (
           ""

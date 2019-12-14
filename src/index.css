@@ -22,3 +22,38 @@ code {
     opacity: 0;
   }
 }
+
+hr {
+  width: 70vw;
+  margin: 30px auto;
+  border: 2px solid #CFCFCF;
+  border-radius: 5px;
+  box-shadow: 0 0 5px #CFCFCF;
+  padding: 0;
+  animation: glow 1.5s ease-in-out infinite;
+  -webkit-animation: glow 1.5s ease-in-out infinite;
+}
+
+@keyframes glow {
+  0% {
+    box-shadow: 0 0 2px #CFCFCF;
+  }
+  50% {
+    box-shadow: 0 0 8px #CFCFCF;
+  }
+  100% {
+    box-shadow: 0 0 2px #CFCFCF;
+  }
+}
+
+@-webkit-keyframes glow {
+  0% {
+    box-shadow: 0 0 2px #CFCFCF;
+  }
+  50% {
+    box-shadow: 0 0 8px #CFCFCF;
+  }
+  100% {
+    box-shadow: 0 0 2px #CFCFCF;
+  }
+}

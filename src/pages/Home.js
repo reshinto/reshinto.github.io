@@ -30,7 +30,7 @@ class Home extends React.Component {
                   overflow: "auto",
                   display: "flex",
                   flexDirection: "column",
-                  justifyContent: "flex-start",
+                  justifyContent: "center",
                 }}
               >
                 <Aboutme />

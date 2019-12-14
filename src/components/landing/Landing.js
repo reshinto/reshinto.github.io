@@ -62,9 +62,9 @@ class Aboutme extends React.Component {
           justifyContent: "space-around",
         }}
       >
-        <h1 style={{fontSize: "4rem"}}>Hey! I am Terence Kong</h1>
+        <h1 style={{fontSize: "4rem"}}>Hey! I'm Terence Kong.</h1>
         <h2 style={{fontSize: "2.5rem"}}>
-          I am a self-taught {this.state.show}
+          I'm a {this.state.show}
           <span ref="word" className="blink">
             |
           </span>

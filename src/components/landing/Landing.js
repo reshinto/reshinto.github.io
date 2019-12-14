@@ -52,7 +52,16 @@ class Aboutme extends React.Component {
 
   render() {
     return (
-      <div style={{margin: "2rem", textAlign: "center", color: "#CFCFCF", display: "flex", flexDirection: "column", justifyContent: "space-around"}}>
+      <div
+        style={{
+          margin: "2rem",
+          textAlign: "center",
+          color: "#CFCFCF",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "space-around",
+        }}
+      >
         <h1 style={{fontSize: "4rem"}}>Hey! I am Terence Kong</h1>
         <h2 style={{fontSize: "2.5rem"}}>
           I am a self-taught {this.state.show}
@@ -61,8 +70,8 @@ class Aboutme extends React.Component {
           </span>
         </h2>
         <p style={{margin: "2rem 4rem", fontSize: "2rem"}}>
-          who's passionate about devising elegant
-          problem-solving methods and learning new technologies.
+          who's passionate about devising elegant problem-solving methods and
+          learning new technologies.
         </p>
       </div>
     );
@@ -70,4 +79,3 @@ class Aboutme extends React.Component {
 }
 
 export default Aboutme;
-

@@ -4,6 +4,7 @@ import {capsStr} from "../../utility";
 import {getPortfolios} from "../../redux/actions/portfolioAction";
 import Grid from "@material-ui/core/Grid";
 import Card from "../../components/Card";
+import Loading from "../Loading";
 
 class Projects extends React.Component {
   componentDidMount() {
@@ -18,25 +19,29 @@ class Projects extends React.Component {
 
     return (
       <div>
-        {categoryArr.length !== 0
-          ? categoryArr.map((cat, i) => (
-              <div key={i}>
-                {i > 0 ? <hr /> : ""}
-                <h2 style={{textAlign: "center", color: "#CFCFCF"}}>
-                  {capsStr(cat)}
-                </h2>
-                <Grid container spacing={2}>
-                  <Grid item xs={12}>
-                    <Grid container justify="center" spacing={2}>
-                      {portfolios[cat].map((project, j) => (
-                        <Card key={j} p={project} />
-                      ))}
-                    </Grid>
+        {categoryArr.length !== 0 ? (
+          categoryArr.map((cat, i) => (
+            <div key={i}>
+              {i > 0 ? <hr /> : ""}
+              <h2 style={{textAlign: "center", color: "#CFCFCF"}}>
+                {capsStr(cat)}
+              </h2>
+              <Grid container spacing={2}>
+                <Grid item xs={12}>
+                  <Grid container justify="center" spacing={2}>
+                    {portfolios[cat].map((project, j) => (
+                      <Card key={j} p={project} />
+                    ))}
                   </Grid>
                 </Grid>
-              </div>
-            ))
-          : "loading..."}
+              </Grid>
+            </div>
+          ))
+        ) : (
+          <div style={{display: "flex", height: "100vh", alignItems: "center"}}>
+            <Loading />
+          </div>
+        )}
       </div>
     );
   }

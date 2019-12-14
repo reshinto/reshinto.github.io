@@ -4,6 +4,7 @@ import Aboutme from "../components/aboutme/Aboutme";
 import Contact from "../components/contact/Contact";
 import Projects from "../components/projects/Projects";
 import Menu from "../components/headers/Menu";
+import LandingPage from "../components/landing/Landing";
 import AwesomeSlider from "react-awesome-slider";
 import AwesomeSliderStyles from "react-awesome-slider/src/styled/cube-animation";
 
@@ -22,10 +23,19 @@ class Home extends React.Component {
               selected={this.props.page}
             >
               <div>
+                <LandingPage />
+              </div>
+              <div
+                style={{
+                  overflow: "auto",
+                  display: "flex",
+                  flexDirection: "column",
+                  justifyContent: "flex-start",
+                }}
+              >
                 <Aboutme />
               </div>
               <div
-                name="Projects"
                 style={{
                   overflow: "auto",
                   display: "flex",

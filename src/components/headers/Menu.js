@@ -1,9 +1,9 @@
 import React from "react";
 import {connect} from "react-redux";
 import {closeMenu, setPage} from "../../redux/actions/menuAction";
-import {Link} from "react-router-dom";
-import MenuIcon from "@material-ui/icons/Menu";
 import Button from "@material-ui/core/Button";
+// import {Link} from "react-router-dom";
+// import MenuIcon from "@material-ui/icons/Menu";
 
 const styles = {
   body: {
@@ -21,24 +21,32 @@ const styles = {
 };
 
 class Menu extends React.Component {
-  redirectAbout = () => {
+  redirectHome = () => {
     this.props.setPage(0);
     this.props.closeMenu();
   };
 
-  redirectPortfolio = () => {
+  redirectAbout = () => {
     this.props.setPage(1);
     this.props.closeMenu();
   };
 
-  redirectContact = () => {
+  redirectPortfolio = () => {
     this.props.setPage(2);
+    this.props.closeMenu();
+  };
+
+  redirectContact = () => {
+    this.props.setPage(3);
     this.props.closeMenu();
   };
 
   render() {
     return (
       <div style={styles.body}>
+        <Button style={styles.button} onClick={this.redirectHome} fullWidth>
+          Home
+        </Button>
         <Button style={styles.button} onClick={this.redirectAbout} fullWidth>
           about
         </Button>

@@ -48,6 +48,7 @@ class Home extends React.Component {
   }
 }
 
+
 const mapStateToProps = state => {
   return {
     menu: state.menuReducer.menu,

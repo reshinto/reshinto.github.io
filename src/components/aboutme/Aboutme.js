@@ -109,6 +109,8 @@ class Aboutme extends React.Component {
             <MessengerCustomerChat
               pageId="105385870961919"
               appId=""
+              htmlRef="https://connect.facebook.net/en_US/sdk/xfbml.customerchat.js
+"
             />
       </div>
     );

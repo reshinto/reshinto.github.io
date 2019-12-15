@@ -9,6 +9,7 @@ import Typography from "@material-ui/core/Typography";
 import Skeleton from "@material-ui/lab/Skeleton";
 import GitHubIcon from "@material-ui/icons/GitHub";
 import LanguageIcon from "@material-ui/icons/Language";
+import Tooltip from "@material-ui/core/Tooltip";
 
 const useStyles = makeStyles(theme => ({
   card: {
@@ -92,7 +93,9 @@ function Media(props) {
                 href={p.projectURL}
                 style={{color: "#6F6F6F"}}
               >
-                <GitHubIcon />
+                <Tooltip title="View project at GitHub" aria-label="github">
+                  <GitHubIcon />
+                </Tooltip>
               </a>
               {p.deployedURL !== "" ? (
                 <a
@@ -101,7 +104,9 @@ function Media(props) {
                   href={p.deployedURL}
                   style={{color: "#6F6F6F"}}
                 >
-                  <LanguageIcon />
+                  <Tooltip title="View demo" aria-label="demo">
+                    <LanguageIcon />
+                  </Tooltip>
                 </a>
               ) : (
                 ""

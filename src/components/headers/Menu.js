@@ -2,6 +2,7 @@ import React from "react";
 import {connect} from "react-redux";
 import {closeMenu, setPage} from "../../redux/actions/menuAction";
 import Button from "@material-ui/core/Button";
+import Tooltip from "@material-ui/core/Tooltip";
 // import {Link} from "react-router-dom";
 // import MenuIcon from "@material-ui/icons/Menu";
 
@@ -44,22 +45,34 @@ class Menu extends React.Component {
   render() {
     return (
       <div style={styles.body}>
-        <Button style={styles.button} onClick={this.redirectHome} fullWidth>
-          Home
-        </Button>
-        <Button style={styles.button} onClick={this.redirectAbout} fullWidth>
-          about
-        </Button>
-        <Button
-          style={styles.button}
-          onClick={this.redirectPortfolio}
-          fullWidth
-        >
-          Portfolio
-        </Button>
-        <Button style={styles.button} onClick={this.redirectContact} fullWidth>
-          Contact
-        </Button>
+        <Tooltip title="Go to home page" aria-label="home">
+          <Button style={styles.button} onClick={this.redirectHome} fullWidth>
+            Home
+          </Button>
+        </Tooltip>
+        <Tooltip title="Go to about page" aria-label="about">
+          <Button style={styles.button} onClick={this.redirectAbout} fullWidth>
+            about
+          </Button>
+        </Tooltip>
+        <Tooltip title="Go to portfolio page" aria-label="portfolio">
+          <Button
+            style={styles.button}
+            onClick={this.redirectPortfolio}
+            fullWidth
+          >
+            Portfolio
+          </Button>
+        </Tooltip>
+        <Tooltip title="Go to contact page" aria-label="contact">
+          <Button
+            style={styles.button}
+            onClick={this.redirectContact}
+            fullWidth
+          >
+            Contact
+          </Button>
+        </Tooltip>
       </div>
     );
   }

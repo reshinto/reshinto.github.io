@@ -1,10 +1,11 @@
 import React from "react";
 import {connect} from "react-redux";
 import {openMenu, closeMenu} from "../../redux/actions/menuAction";
-import {Link} from "react-router-dom";
 import MenuIcon from "@material-ui/icons/Menu";
 import CloseIcon from "@material-ui/icons/Close";
 import Button from "@material-ui/core/Button";
+import Tooltip from "@material-ui/core/Tooltip";
+// import {Link} from "react-router-dom";
 
 const styles = {
   open: {
@@ -31,11 +32,15 @@ function Header(props) {
     <>
       {menu === false ? (
         <Button onClick={props.openMenu}>
-          <MenuIcon style={styles.open} />
+          <Tooltip title="Open Menu" aria-label="menu">
+            <MenuIcon style={styles.open} />
+          </Tooltip>
         </Button>
       ) : (
         <Button onClick={props.closeMenu}>
+          <Tooltip title="Close Menu" aria-label="close">
           <CloseIcon style={styles.close} />
+          </Tooltip>
         </Button>
       )}
     </>

@@ -1,7 +1,13 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
+import {connect} from "react-redux";
+import {setPage} from "../../redux/actions/menuAction";
 
 class Aboutme extends React.Component {
+  componentDidMount() {
+    this.props.setPage(1);
+  }
+
   activate = () => {
     const s = document.createElement("script");
     s.type = "text/javascript";
@@ -62,4 +68,8 @@ class Aboutme extends React.Component {
   }
 }
 
-export default Aboutme;
+const mapDispatchToProps = {
+  setPage: page => setPage(page),
+};
+
+export default connect(null, mapDispatchToProps)(Aboutme);

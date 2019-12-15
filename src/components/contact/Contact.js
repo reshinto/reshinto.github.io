@@ -9,6 +9,7 @@ import {withStyles} from "@material-ui/styles";
 import {MuiThemeProvider, createMuiTheme} from "@material-ui/core/styles";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import GitHubIcon from "@material-ui/icons/GitHub";
+import {setPage} from "../../redux/actions/menuAction";
 
 const theme = createMuiTheme({
   // For Underline Color After Click
@@ -69,6 +70,10 @@ class Contact extends React.Component {
     subjectError: false,
     messageError: false,
   };
+
+  componentDidMount() {
+    this.props.setPage(3);
+  }
 
   handleSubmit = e => {
     e.preventDefault();
@@ -250,6 +255,7 @@ class Contact extends React.Component {
 
 const mapDispatchToProps = {
   sendEmail: (email, subject, message) => sendEmail(email, subject, message),
+  setPage: page => setPage(page),
 };
 
 export default connect(null, mapDispatchToProps)(withStyles(styles)(Contact));

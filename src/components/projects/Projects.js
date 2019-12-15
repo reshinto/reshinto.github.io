@@ -5,9 +5,11 @@ import {getPortfolios} from "../../redux/actions/portfolioAction";
 import Grid from "@material-ui/core/Grid";
 import Card from "../../components/Card";
 import Loading from "../Loading";
+import {setPage} from "../../redux/actions/menuAction";
 
 class Projects extends React.Component {
   componentDidMount() {
+    this.props.setPage(2);
     this.props.getPortfolios();
   }
 
@@ -55,6 +57,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
   getPortfolios: () => getPortfolios(),
+  setPage: page => setPage(page),
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Projects);

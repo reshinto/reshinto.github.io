@@ -1,9 +1,10 @@
 import React from "react";
-import Button from "@material-ui/core/Button";
+import {connect} from "react-redux";
+import {setPage} from "../../redux/actions/menuAction";
 
 let i = 0;
 
-class Aboutme extends React.Component {
+class Landing extends React.Component {
   state = {
     text: ["Software Engineer", "Full-Stack Developer"],
     count: 0,
@@ -13,6 +14,7 @@ class Aboutme extends React.Component {
 
   componentDidMount() {
     this.timerID = setInterval(() => this.update(), 250);
+    this.props.setPage(0);
   }
 
   componentWillUnmount() {
@@ -78,4 +80,8 @@ class Aboutme extends React.Component {
   }
 }
 
-export default Aboutme;
+const mapDispatchToProps = {
+  setPage: page => setPage(page),
+};
+
+export default connect(null, mapDispatchToProps)(Landing);

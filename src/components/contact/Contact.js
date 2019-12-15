@@ -9,6 +9,7 @@ import {withStyles} from "@material-ui/styles";
 import {MuiThemeProvider, createMuiTheme} from "@material-ui/core/styles";
 import LinkedInIcon from "@material-ui/icons/LinkedIn";
 import GitHubIcon from "@material-ui/icons/GitHub";
+import Alert from "../Alert";
 import {setPage} from "../../redux/actions/menuAction";
 
 const theme = createMuiTheme({
@@ -69,6 +70,7 @@ class Contact extends React.Component {
     nameError: false,
     subjectError: false,
     messageError: false,
+    emailSent: false,
   };
 
   componentDidMount() {
@@ -99,8 +101,8 @@ class Contact extends React.Component {
         name: "",
         subject: "",
         message: "",
+        emailSent: "true",
       });
-      alert(`message has been sent successfully!`);
     }
   };
 
@@ -120,17 +122,28 @@ class Contact extends React.Component {
     const {classes} = this.props;
 
     return (
-      <div style={{
-        height: "95vh",
-        display: "flex",
-        flexDirection: "column",
-        justifyContent: "center",
-        alignItems: "center",
-      }}>
+      <div
+        style={{
+          height: "95vh",
+          display: "flex",
+          flexDirection: "column",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
         <MuiThemeProvider theme={theme}>
           <h1 style={{textAlign: "center", color: "#CFCFCF"}}>
             Drop me an email
           </h1>
+          <p style={{textAlign: "center", color: "#CFCFCF"}}>
+            or email me directly at{" "}
+            <a
+              style={{color: "#CFCFCF", textDecoration: "none"}}
+              href="mailto:terencekong2002@gmail.com"
+            >
+              terencekong2002@gmail.com
+            </a>
+          </p>
           <form style={{width: "80vw"}} onSubmit={this.handleSubmit}>
             <DialogContent>
               <TextField
@@ -254,6 +267,11 @@ class Contact extends React.Component {
             </Button>
           </div>
         </MuiThemeProvider>
+        {this.state.emailSent ? (
+          <Alert message="A cc copy has been sent to you. If no copy exist, server is down temporarily." />
+        ) : (
+          ""
+        )}
       </div>
     );
   }

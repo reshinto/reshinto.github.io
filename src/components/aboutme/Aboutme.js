@@ -32,7 +32,7 @@ class Aboutme extends React.Component {
           alignItems: "center"
         }}
       >
-        <h3 style={{fontSize: "3rem"}}>My Story</h3>
+        <h3 style={{fontSize: "3rem", width: "50vw"}}>My Story</h3>
         <p style={{margin: "2rem 4rem", fontSize: "1.5rem"}}>
           Software engineering has always had a place in my life. My first
           experience with code was back in Singapore polytechnic (High School

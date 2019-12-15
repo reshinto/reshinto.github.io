@@ -5,6 +5,8 @@ import MenuIcon from "@material-ui/icons/Menu";
 import CloseIcon from "@material-ui/icons/Close";
 import Button from "@material-ui/core/Button";
 import Tooltip from "@material-ui/core/Tooltip";
+import LeftArrow from "../LeftArrow";
+import RightArrow from "../RightArrow";
 // import {Link} from "react-router-dom";
 
 const styles = {
@@ -43,6 +45,8 @@ function Header(props) {
           </Tooltip>
         </Button>
       )}
+      <LeftArrow />
+      <RightArrow />
     </>
   );
 }

@@ -120,7 +120,13 @@ class Contact extends React.Component {
     const {classes} = this.props;
 
     return (
-      <div>
+      <div style={{
+        height: "95vh",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+      }}>
         <MuiThemeProvider theme={theme}>
           <h1 style={{textAlign: "center", color: "#CFCFCF"}}>
             Drop me an email

@@ -20,7 +20,7 @@ class Projects extends React.Component {
     categoryArr.sort().reverse();
 
     return (
-      <div>
+      <div style={{height: "95vh", overflow: "auto"}}>
         {categoryArr.length !== 0 ? (
           categoryArr.map((cat, i) => (
             <div key={i}>
@@ -40,7 +40,14 @@ class Projects extends React.Component {
             </div>
           ))
         ) : (
-          <div style={{display: "flex", height: "100vh", alignItems: "center"}}>
+          <div
+            style={{
+              display: "flex",
+              height: "100vh",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
             <Loading />
           </div>
         )}

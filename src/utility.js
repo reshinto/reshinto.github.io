@@ -6,3 +6,5 @@ export const capsStr = (oldStr) => {
   });
   return newStrArr.join(" ");
 }
+
+export const pagesArr = ["Home", "About", "Portfolio", "Contact"];

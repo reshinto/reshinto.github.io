@@ -56,12 +56,13 @@ class Landing extends React.Component {
     return (
       <div
         style={{
-          margin: "2rem",
+          margin: "0 6rem",
           textAlign: "center",
           color: "#CFCFCF",
           display: "flex",
           flexDirection: "column",
-          justifyContent: "space-around",
+          justifyContent: "center",
+          height: "100vh",
         }}
       >
         <h1 style={{fontSize: "4rem"}}>Hey! I'm Terence Kong.</h1>

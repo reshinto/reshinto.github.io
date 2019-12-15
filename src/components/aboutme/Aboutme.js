@@ -1,8 +1,6 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
 
-let i = 0;
-
 class Aboutme extends React.Component {
   activate = () => {
     const s = document.createElement("script");
@@ -14,7 +12,9 @@ class Aboutme extends React.Component {
 
   render() {
     return (
-      <div style={{margin: "2rem", textAlign: "center", color: "#CFCFCF"}}>
+      <div
+        style={{padding: "2rem auto", textAlign: "center", color: "#CFCFCF"}}
+      >
         <h3 style={{fontSize: "2rem"}}>My Story ...</h3>
         <p style={{margin: "2rem 4rem", fontSize: "1rem"}}>
           Software engineering has always had a place in my life. My first

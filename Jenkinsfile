@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('Setup') {
             steps {
-                sh 'ssh reshinto@206.189.91.229'
+                sh 'ssh -tt reshinto@206.189.91.229'
             }
         }
         

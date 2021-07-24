@@ -1,7 +1,9 @@
 #!/usr/bin/env groovy
 
 pipeline {
-    agent none
+    agent any
+    
+    tools {nodejs "nodejs"}
     
     stages {
         stage('build') {

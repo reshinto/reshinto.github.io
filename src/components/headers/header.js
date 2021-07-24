@@ -31,7 +31,7 @@ const styles = {
 function Header(props) {
   const {menu} = props;
   return (
-    <>
+    <React.Fragment>
       {menu === false ? (
         <Button onClick={props.openMenu}>
           <Tooltip title="Open Menu" aria-label="menu">
@@ -41,13 +41,13 @@ function Header(props) {
       ) : (
         <Button onClick={props.closeMenu}>
           <Tooltip title="Close Menu" aria-label="close">
-          <CloseIcon style={styles.close} />
+            <CloseIcon style={styles.close} />
           </Tooltip>
         </Button>
       )}
       <LeftArrow />
       <RightArrow />
-    </>
+    </React.Fragment>
   );
 }
 

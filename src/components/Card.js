@@ -68,7 +68,7 @@ function Media(props) {
             <Skeleton height={10} width="80%" />
           </React.Fragment>
         ) : (
-          <>
+          <React.Fragment>
             <Typography
               className={classes.text}
               variant="body2"
@@ -112,7 +112,7 @@ function Media(props) {
                 ""
               )}
             </Typography>
-          </>
+          </React.Fragment>
         )}
       </CardContent>
     </Card>

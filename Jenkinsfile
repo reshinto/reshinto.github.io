@@ -8,19 +8,19 @@ pipeline {
     stages {
         stage('Setup') {
             steps {
-                sh 'npm i'
+                sh 'ssh reshinto@206.189.91.229'
             }
         }
         
         stage('Buid and deploy to github') {
             steps {
-                sh 'npm run predeploy'
+                sh 'ls -a'
             }
         }
         
         stage('Check path') {
             steps {
-                sh 'cd .. && ls -a'
+                sh 'ls -a'
             }
         }
     }

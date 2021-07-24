@@ -6,9 +6,14 @@ pipeline {
     tools {nodejs "nodejs"}
     
     stages {
-        stage('Buid and deploy to github') {
+        stage('Setup') {
             steps {
                 sh 'npm i'
+            }
+        }
+        
+        stage('Buid and deploy to github') {
+            steps {
                 sh 'npm run deploy'
             }
         }

@@ -8,6 +8,7 @@ pipeline {
     stages {
         stage('Buid and deploy to github') {
             steps {
+                sh 'npm i'
                 sh 'npm run deploy'
             }
         }

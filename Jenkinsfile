@@ -14,7 +14,7 @@ pipeline {
         
         stage('Buid and deploy to github') {
             steps {
-                sh 'npm run deploy'
+                sh 'npm run predeploy'
             }
         }
         

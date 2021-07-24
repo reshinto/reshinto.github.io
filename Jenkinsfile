@@ -1,12 +1,14 @@
 #!/usr/bin/env groovy
 
 pipeline {
-    agent any
+    agent {
+        label 'node'
+    }
     
     stages {
         stage('build') {
             steps {
-                sh 'which npm'
+                sh 'npm -v'
             }
         }
     }

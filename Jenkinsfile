@@ -1,7 +1,10 @@
 #!/usr/bin/env groovy
 
 pipeline {
-    agent { docker { image 'node:14-alpine' } }
+    agent {
+        label 'docker' 
+    }
+    
     stages {
         stage('build') {
             steps {

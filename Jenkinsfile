@@ -2,10 +2,7 @@
 
 pipeline {
     agent {
-        docker {
-            image 'node'
-            args '-u root'
-        }
+        label 'DSLAVE2'
     }
     
     stages {

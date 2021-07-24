@@ -1,21 +1,11 @@
 #!/usr/bin/env groovy
 
 pipeline {
-    agent {
-        label 'DSLAVE2'
-    }
-    
+    agent { docker { image 'node:14-alpine' } }
     stages {
-        stage('Build') {
+        stage('build') {
             steps {
-                echo 'Building...'
-                sh 'npm install'
-            }
-        }
-        stage('Test') {
-            steps {
-                echo 'Testing...'
-                sh 'npm test'
+                sh 'npm --version'
             }
         }
     }

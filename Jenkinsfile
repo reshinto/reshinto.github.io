@@ -1,9 +1,7 @@
 #!/usr/bin/env groovy
 
 pipeline {
-    agent {
-        label 'node'
-    }
+    agent none
     
     stages {
         stage('build') {

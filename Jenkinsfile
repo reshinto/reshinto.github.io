@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                sh 'npm -v'
+                sh 'which npm'
             }
         }
     }

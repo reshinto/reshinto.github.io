@@ -9,7 +9,6 @@ pipeline {
         stage('Setup') {
             steps {
                 sh 'cat ~/.ssh/id_ed25519.pub'
-                sh 'ssh -tt reshinto@206.189.91.229'
             }
         }
         

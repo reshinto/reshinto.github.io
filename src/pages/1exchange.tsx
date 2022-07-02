@@ -91,7 +91,7 @@ fn('https://brave.com')`,
     It is a Higher order function because it returns the function as output
     It is also a closure because it gives access to an outer function's scope from an inner function
     - The maker is synchronous and returns an Asynchronous function
-    - It takes in an argument x which is used to update the string value inside the annoynmous function that is being returned
+    - It takes in an argument x which is used to update the string value inside the anonymous function that is being returned
     - It allows modification of the inner function contents from the outer function
     - It allows access to the inner function before being executed, which also allows us to modify the contents of the inner function
     `,

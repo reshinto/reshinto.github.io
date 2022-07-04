@@ -809,35 +809,32 @@ fun main(args: Array<String>) {
 function Contents({isVisible}) {
   return (
     <>
-      {questionsAndAnswers.map(
-        ({mainQuestion, subQuestions, codeExample, answer, codeAnswer}) => (
-          <div style={{borderBottom: "1px solid red"}}>
-            <h2>{mainQuestion}</h2>
-            {codeExample && (
-              <pre>
-                <code>{codeExample}</code>
-              </pre>
-            )}
-            {isVisible && answer && (
-              <p style={{whiteSpace: "pre-line"}}>{answer}</p>
-            )}
-            {subQuestions.length > 0 &&
-              subQuestions.map(({question, ans}) => (
-                <>
-                  <h4>{question}</h4>
-                  {isVisible && ans && (
-                    <p style={{whiteSpace: "pre-line"}}>{ans}</p>
-                  )}
-                </>
-              ))}
-            {isVisible && codeAnswer && (
-              <pre>
-                <code>{codeAnswer}</code>
-              </pre>
-            )}
-          </div>
-        )
-      )}
+      {isVisible &&
+        questionsAndAnswers.map(
+          ({mainQuestion, subQuestions, codeExample, answer, codeAnswer}) => (
+            <div style={{borderBottom: "1px solid red"}}>
+              <h2>{mainQuestion}</h2>
+              {codeExample && (
+                <pre>
+                  <code>{codeExample}</code>
+                </pre>
+              )}
+              {answer && <p style={{whiteSpace: "pre-line"}}>{answer}</p>}
+              {subQuestions.length > 0 &&
+                subQuestions.map(({question, ans}) => (
+                  <>
+                    <h4>{question}</h4>
+                    {ans && <p style={{whiteSpace: "pre-line"}}>{ans}</p>}
+                  </>
+                ))}
+              {codeAnswer && (
+                <pre>
+                  <code>{codeAnswer}</code>
+                </pre>
+              )}
+            </div>
+          )
+        )}
     </>
   );
 }

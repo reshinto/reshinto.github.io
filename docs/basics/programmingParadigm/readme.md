@@ -76,16 +76,59 @@ finished:
   - means that the behavior of a program can be changed just by replacing an object
 - same objects as building blocks could be reused in other parts of the same system
 
-```python
-result = []
+```ts
+class Task {
+  public createdDate: string;
+  public completed: boolean;
+  public completedDate?: string;
 
-for p in people {
-  if p.name.length > 5 {
-    result.add(p.name.toUpper);
+  constructor(public name: string) {
+    this.completed = false;
+    this.createdDate = new Date().toString();
   }
 }
 
-return result.sort;
+class TasksList {
+  private tasks: Task[] = [];
+
+  addTask(name: string): void {
+    this.tasks.push(new Task(name));
+  }
+
+  completeTaskByName(name: string): Task | never {
+    const task = this.getTodoTasks().find((task) => task.name === name);
+
+    if (!task) {
+      throw new Error("The task is not found");
+    }
+
+    task.completed = true;
+    task.completedDate = new Date().toString();
+
+    return task;
+  }
+
+  getTodoTasks(): Task[] {
+    return this.tasks.filter((task) => !task.completed);
+  }
+
+  getCompletedTasks(): Task[] {
+    return this.tasks.filter((task) => Boolean(task.completed));
+  }
+}
+
+const tasksList = new TasksList();
+
+tasksList.addTask('Study "Principles of OOP" theory');
+tasksList.addTask('Complete "Principles of OOP" home task');
+
+console.log(tasksList.getTodoTasks());
+console.log(tasksList.getCompletedTasks());
+
+tasksList.completeTaskByName('Study "Principles of OOP" theory');
+
+console.log(tasksList.getTodoTasks());
+console.log(tasksList.getCompletedTasks());
 ```
 
 ## Functional Programming
@@ -120,11 +163,27 @@ return result.sort;
     - this indicates that the function is impure, having a `side effect`
   - functional programming assumes that the functions are pure and should follow the principle of single responsibility
     - each function should have a single responsibility
-    - because the essense of functional programming is in the combination of various functions with different responsibilities to achieve the result
+    - because the essence of functional programming is in the combination of various functions with different responsibilities to achieve the result
 
-```
-sort(
-  filter(λs.length s > 5,
-    map(λp.to_upper(name p),
-      people)))
+```ts
+import {flow, map, entries, groupBy, orderBy, take, sumBy} from "lodash/fp";
+
+const driverStandings = [
+  {name: "Carlos Sainz", car: "FERRARI", points: 127},
+  {name: "Charles Leclerc", car: "FERRARI", points: 138},
+  {name: "George Russell", car: "MERCEDES", points: 111},
+  {name: "Sergio Perez", car: "RED BULL RACING RBPT", points: 147},
+  {name: "Lewis Hamilton", car: "MERCEDES", points: 93},
+  {name: "Max Verstappen", car: "RED BULL RACING RBPT", points: 181},
+];
+
+const getTop2CarConstructorStandings = flow(
+  groupBy("car"),
+  entries,
+  map(([car, driver]) => ({car, points: sumBy("points")(driver)})),
+  orderBy("points", "desc"),
+  take(2)
+);
+
+console.log(getTop2CarConstructorStandings(driverStandings));
 ```

@@ -93,3 +93,12 @@ PasswordAuthentication yes
 > sudo hostnamectl set-hostname new-host-name
 
 - exit from SSH and re-enter again for changes to take effect
+
+### disable sudo for docker
+
+- add your username to the docker group
+  > sudo usermod -aG docker ${USER}
+- apply the new group membership, log out of the server and back in
+  > su - ${USER}
+- Confirm that your user is now added to the docker group
+  > groups

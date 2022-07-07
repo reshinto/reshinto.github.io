@@ -2,7 +2,7 @@
 
 - the speed and memory usage of an algorithm aren't necessarily fixed
   - they might change depending on the input
-- it is a powerl tool that allow us to generalize the space-time complexity of an algorithm as a function of its input size
+- it is a powerful tool that allow us to generalize the space-time complexity of an algorithm as a function of its input size
 - variables used in Big O notation denote the sizes of inputs to algorithms
   - e.g.: O(n) might be the time complexity of an algorithm that traverses through an array of length n
   - similarly, O(n + m) might be the time complexity of an algorithm that traverses through an array of length n and through a string of length m
@@ -13,6 +13,8 @@
     - similarly, an algorithm that takes in a string and performs special operations on uppercase characters might have a different time complexity when run on a input string of only uppercase characters vs on an input string with just a few uppercase characters
 
 ## common complexities and their Big O notations ordered from fastest to slowest
+
+![Big O Complexity](../../images//big_o_complexity.png)
 
 ### Constant: O(1)
 

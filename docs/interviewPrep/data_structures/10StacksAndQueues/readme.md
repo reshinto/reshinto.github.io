@@ -48,3 +48,19 @@
 ### Priority queue
 
 - keeps track of an element with high priority
+- min heap is used for building a priority queue
+- it is a data structure for maintaining a set S of elements, each with an associated value called a key
+- A max-priority queue supports the following operations
+  - `INSERT(S, x)` inserts the element x into the set S
+  - `MAXIMUM(S)` returns the element of S with the largest key
+  - `EXTRACT-MAX(S)` removes and returns the element of S with the largest key
+  - `INCREASE-KEY(S, x, k)` increases the value of element xs key to the new value k, which is assumed to be at least as large as xs current key value
+- This is a very good sort, but in most cases it is not the most optimal sort - reason why we are considering it is because on the basis of the heap
+  - it is very good to build a queue with priority
+  - For example, where you can use this queue
+    - schedule a job on the server or use an event-driven approach when modeling physical processes with great complexity
+    - For example, an event occurs with a minimum priority, it is executed, the time is recalculated, inserted into the queue, and the event we need appears at the top
+    - Also, there are queues with the highest priority or with the lowest
+      - You can insert an element into it, take the maximum element, extract the maximum element, and change the priority of some element
+      - For example, processor time, there is a queue of tasks that it executes in one clock cycle, it performs a task, the priority changes
+        - we insert it into the queue and take it with the next priority

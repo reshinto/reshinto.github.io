@@ -1,11 +1,14 @@
 # Graphs
 
-- a collection of nodes or values called verticles that might be related
-  - relations between vertices are called edges
+- All types of trees are special cases of graphs
+- a collection of nodes or values called `vertices` that might be related
+  - relations between vertices are called `edges`
+  - `G = (V, E)`
 - many things in life can be represented by graphs
   - e.g. a social network can be represented by a graph whose vertices are users and whose edges are friendships between the users
   - similarly, a city map can be represented by a graph whose vertices are locations in the city and whose edges are roads between the locations
 - typically, we represent a graph as an `adjacency list`
+  - `|V|`
   - it can store a list of nodes in the graph
     - every node stores value and a list of it's edges (or a list of it's adjacencies)
 - a graph can also be represented by a 2 dimensional array
@@ -38,6 +41,10 @@
 - for e.g. a graph of airports and flights would likely be directed
   - since a flight specifically goes from 1 airport to another (has a direction)
     - without necessarily implying the presence of a flight in the opposite direction
+
+### Directed Graph with Weights
+
+![Directed Graph with Weights](../../../images/directedGraphWeights.jpg)
 
 ## Undirected Graph
 
@@ -79,3 +86,39 @@
 #### Breath First Search (BFS)
 
 - traversing the graph wider before going deep
+- it is one of the simplest algorithms for searching a graph and the archetype for many important graph algorithms
+- The algorithm works on both directed and undirected graphs
+- example: assumes that the input graph `G = (V, E)` is represented using adjacency lists
+
+  ```ts
+  function BFS(Graph, source) {
+    let u, vertex;
+
+    for (u of Graph) {
+      u.color = "WHITE";
+      u.dist = Number.POSITIVE_INFINITY;
+      u.parent = null;
+    }
+
+    source.color = "GRAY";
+    source.dist = 0;
+    source.parent = null;
+    Queue = [];
+    Queue.push(source);
+
+    while (Queue.length > 0) {
+      u = Queue.unshift();
+
+      for (vertex of Graph.Adj[u]) {
+        if (vertex.color === "WHITE") {
+          vertex.color = "GRAY";
+          vertex.dist = u.dist + 1;
+          vertex.parent = u;
+          Queue.push(Queue, vertex);
+        }
+      }
+
+      u.color = "BLACK";
+    }
+  }
+  ```

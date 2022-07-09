@@ -1,5 +1,7 @@
 # Linked Lists
 
+- it is a data structure in which the objects are arranged in a linear order
+- order in a linked list is determined by a pointer in each object
 - consists of nodes, each with some value and a pointer to the next node in the linked list
 - a linked list node's value and next node are typically stored in `value` and `next` properties
 - the 1st node in a linked list is referred to as the `head` of the linked list
@@ -10,10 +12,33 @@
     - each node and their respective pointers are not stored back to back with the other nodes and pointers in the memory
     - they are linked together via their pointers
     - in the case of a singly linked list, the last node would point to the memory address that contains the null value
+- The advantage of this data structure is usage of pointers
+  - In languages with manual memory allocation this allows data structures to allocate memory dynamically
+  - In javascript, this advantage is mitigated in general, but other features of a double linked list could be used
+
+```ts
+class Node<T> {
+  constructor(public element: T, public next?: Node<T>) {}
+}
+```
+
+```ts
+class DoublyNode<T> extends Node<T> {
+  constructor(
+    public element: T,
+    public next?: DoublyNode<T>,
+    public prev?: DoublyNode<T>
+  ) {
+    super(element, next);
+  }
+}
+```
 
 ## Singly Linked List
 
-- visual representation of a singly linked list whoses nodes hold integer values
+![Linked list](../../../images/linked_list.jpg)
+
+- visual representation of a singly linked list whose nodes hold integer values
   - `0 -> 1 -> 2 -> 3 -> null`
 - a singly linked list typically exposes its head to its user for easy access
   - while finding a node in a singly linked list involves traversing through all of the nodes leading up to the node in question (as opposed to instant access with an array)
@@ -43,6 +68,7 @@
 #### Inserting / Removing the head: O(1) time, O(1) space
 
 - none of the nodes are required to be shifted, therefore it only requires changing of the head reference which is only for 1 node making it constant time and space effort
+- With add operation, memory is allocated for a new node and then the pointer in the last element is updated to point to the new node.
 
 #### Inserting / Removing the tail: O(n) to access + O(1) to modify time, O(1) space
 
@@ -62,10 +88,12 @@
 
 ## Doubly Linked List
 
+![Double linked list](../../../images/double_linked_list.jpg)
+
 - similar to a singly linked list, except that each node in a doubly linked list also has a pointer to the previous node
   - the previous node is typically stored in a `prev` property
 - just as the `next` property of a doubly linked list's `tail` points to the `null` value, the `prev` property of a doubly linked list `head` also points to the `null` value
-- visual representation of a doubly linked list whoses nodes hold integer values
+- visual representation of a doubly linked list whose nodes hold integer values
   - `null <-> 0 <-> 1 <-> 2 <-> 3 <-> null`
 - a doubly linked list typically exposes both its head and tail to its user
   - it also behaves very similarly to a singly linked list
@@ -97,9 +125,17 @@
 
 #### Copy a linked list: O(n) time, O(n) space
 
-## Circular Linked List
+## Circular Linked List / Cyclic Linked List
+
+![Cyclic linked list](../../../images/cyclic_linked_list.jpg)
 
 - a linked list that has no clear `head` or `tail`
   - because its `tail` points to its `head`
   - forming a closed circle
 - it can be either singly circular linked list or a doubly circular linked list
+
+## Circular Double Linked List / Cyclic Double Linked List
+
+![Cyclic double linked list](../../../images/cyclic_double_linked_list.jpg)
+
+- the last element is pointing to the first and first points to the last

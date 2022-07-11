@@ -2,8 +2,6 @@ import React, {useState} from "react";
 import Layout from "@theme/Layout";
 import HomepageFeatures from "@site/src/components/HomepageFeatures";
 
-const password = "1exvictor";
-
 const questionsAndAnswers = [
   {
     mainQuestion:
@@ -615,195 +613,6 @@ fun main(args: Array<String>) {
     answer: "",
     codeAnswer: "",
   },
-  {
-    mainQuestion: "Tech stack",
-    subQuestions: [
-      {
-        question: "What tools do you use to write/implement code?",
-        ans: "Vim / Vs Code",
-      },
-      {
-        question: "What’s your favourite tech stack like?",
-        ans: "Depends on the problem, if it is Front-end, I would prefer React",
-      },
-      {
-        question:
-          "Are you open to using things out of your favourite tech stack, in the course of work?",
-        ans: "Yes",
-      },
-    ],
-    codeExample: ``,
-    answer: "",
-    codeAnswer: "",
-  },
-  {
-    mainQuestion: "Your highlights/portfolio (optional)",
-    subQuestions: [
-      {
-        question:
-          "It’s probably stated in your CV already to some extent, but if you’d like, you can describe more in detail any key highlights, projects, portfolio, that you are proud of, or would like to showcase.",
-        ans: (
-          <>
-            <p>
-              Personal Project:{" "}
-              <a
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://github.com/reshinto/online_trading_platform"
-              >
-                Online Trading Platform
-              </a>
-              <span>
-                {" "}
-                because this was my first time building a full stack app by
-                myself while learning React and Django
-              </span>
-            </p>
-            <img
-              width={"50%"}
-              style={{marginBottom: "2rem"}}
-              src="https://raw.githubusercontent.com/reshinto/online_trading_platform/master/images/demo.gif"
-            />
-            <p>
-              Professional Project: Auto Repository Generator, I built this from
-              end to end (Frontend, Devops, Backend), learnt FastAPI and Groovy,
-              and delivered POC in 1 week, MVP 1 in the 2nd week, completion in
-              around 2 months
-            </p>
-          </>
-        ),
-      },
-    ],
-    codeExample: ``,
-    answer: "",
-    codeAnswer: "",
-  },
-  {
-    mainQuestion: "Technical strength",
-    subQuestions: [
-      {
-        question:
-          "Even though you are full-stack, which one are you stronger at, or lean towards, frontend or backend?",
-        ans: "Frontend",
-      },
-    ],
-    codeExample: ``,
-    answer: "",
-    codeAnswer: "",
-  },
-  {
-    mainQuestion:
-      "Give us an introduction about yourself, where you are from, and perhaps a bit of an intro of the culture/country where you came from.",
-    subQuestions: [],
-    codeExample: ``,
-    answer:
-      "I'm a more or less self-taught software engineer. A Singaporean, studied in Singapore but did my university in Japan and worked there for a few years that has nothing related to Technology. Then I came back to Singapore to do a career switch and I'm currently working as a software engineer in Singapore",
-    codeAnswer: "",
-  },
-  {
-    mainQuestion: "What made you decide to apply for a role with us?",
-    subQuestions: [],
-    codeExample: ``,
-    answer:
-      "I want to be in an environment where I can contribute on projects that has a high level of impact and also be able to grow together as a team",
-    codeAnswer: "",
-  },
-  {
-    mainQuestion:
-      "What is your asking salary for the role you have applied with us? Is it negotiable?",
-    subQuestions: [],
-    codeExample: ``,
-    answer: "Something that is fair for both sides, negotiable",
-    codeAnswer: "",
-  },
-  {
-    mainQuestion: "Do you need a work visa?",
-    subQuestions: [],
-    codeExample: ``,
-    answer: "No (Singaporean)",
-    codeAnswer: "",
-  },
-  {
-    mainQuestion: "If you are currently at another job role,",
-    subQuestions: [
-      {
-        question: "Any reason for wanting to move on from it?",
-        ans: "Looking to work on projects that have higher level of impact, larger in scale, and something different",
-      },
-      {question: "What is your notice period?", ans: "2 months"},
-    ],
-    codeExample: ``,
-    answer: "",
-    codeAnswer: "",
-  },
-  {
-    mainQuestion:
-      "What are your expectations like for the role you have applied with us, in terms of the work culture, daily work, work hours, expectations of your potential new supervisor/boss, and/or anything else that matters to you?",
-    subQuestions: [],
-    codeExample: ``,
-    answer: `\
-    - work on meaningful projects that has a high level of impact
-    - own the project and have the responsibility to deliver the product
-    - learn new things and grow as a team
-    - will be nice if it is fully remote and perhaps go to the office when collaboration and system design disscussions are required
-    - best if boss set reasonable goals by first discussing with the team on the deadlines and requirements before commiting
-    - ideal if no mandatory work hours is required as long as work is done properly with quality on time
-    - as a software engineer, learning new things is a must, would be nice if these expenses are covered by the company
-    `,
-    codeAnswer: "",
-  },
-  {
-    mainQuestion:
-      "Why did you choose to be a software engineer? What were the motivations like, that led you to become one?",
-    subQuestions: [],
-    codeExample: ``,
-    answer: (
-      <>
-        <p>
-          I wrote this reason at my homepage{" "}
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="http://terencekong.net"
-          >
-            Link 1
-          </a>
-          {" or "}
-          <a
-            target="_blank"
-            rel="noopener noreferrer"
-            href="https://reshinto.github.io"
-          >
-            Link 2
-          </a>
-        </p>
-        <HomepageFeatures />
-      </>
-    ),
-    codeAnswer: "",
-  },
-  {
-    mainQuestion:
-      "Why did you choose to use the format/method you have decided to use to convey your answers to us?",
-    subQuestions: [],
-    codeExample: ``,
-    answer:
-      "Easier to read, format, and access without having to download a file",
-    codeAnswer: "",
-  },
-  {
-    mainQuestion:
-      "Anything you would like to ask us about, regarding the role you have applied, the company, or anything else that you wish to ask us about?",
-    subQuestions: [],
-    codeExample: ``,
-    answer: `\
-    - What is the tech stack being used and why?
-    - What does the company expect from me when I work there?
-    - What is the engineering culture?
-    - How big is the engineering team?
-    `,
-    codeAnswer: "",
-  },
 ];
 
 function Contents({isVisible}) {
@@ -851,13 +660,7 @@ export default function oneExchange(): JSX.Element {
           rowGap: "1vh",
         }}
       >
-        <label>Key in the password to display the answers</label>
-        <input
-          style={{width: "300px", height: "30px"}}
-          value={pw}
-          onChange={(e) => setPw(e.target.value)}
-        />
-        <Contents isVisible={pw === password} />
+        <Contents isVisible={pw === ""} />
       </div>
     </Layout>
   );

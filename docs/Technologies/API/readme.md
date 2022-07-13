@@ -1,6 +1,4 @@
-# Difference between REST and SOAP APIs
-
-## API (Application Programming Interface)
+# API (Application Programming Interface)
 
 - It makes it possible to transfer data from an application to other applications
 - API receives requests and sends back responses through internet protocols such as HTTP, SMTP, etc.

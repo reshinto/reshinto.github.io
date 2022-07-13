@@ -1,4 +1,6 @@
-# [Enzyme](https://enzymejs.github.io/enzyme/)
+# Enzyme
+
+- [url](https://enzymejs.github.io/enzyme/)
 
 - Creates virtual DOM for testing
 - Allows testing without a browser
@@ -6,7 +8,7 @@
   - have jQuery style selector
 - Can simulate simple events
 - Has shallow rendering
-  - render componenets only 1 level deep
+  - render components only 1 level deep
   - render parent, but use placeholders for children
     - children components won't be rendered
       - allows cleaner & quicker testing

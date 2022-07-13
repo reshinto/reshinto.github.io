@@ -136,7 +136,7 @@ new User("Dave").sayHi();
 
 ## Writing Inheritable Code
 
-![Mixins call stack](../../../images/mixinsCallStack.png)
+![Mixins call stack](../../../../images/mixinsCallStack.png)
 
 - mixins adds additional levels to the call stack
   - this makes understanding and debugging of the application less obvious
@@ -169,4 +169,4 @@ new User("Dave").sayHi();
     - You should avoid deep and wide hierarchies, they create a long path to target method or property which is missing in a target class
     - Such hierarchies are difficult to maintain, and they create a high risk of application failure
 
-  ![Different Hierarchies](../../../images/differentHierarchies.png)
+  ![Different Hierarchies](../../../../images/differentHierarchies.png)

@@ -66,7 +66,7 @@
   - stores the behaviour which is common to all subclasses
     - subclasses inherited an abstract class should fully use its functionality, otherwise you need to review the inheritance structure
 
-![Bicycle Abstract Class](../../../images/bicycleAbstractClass.png)
+![Bicycle Abstract Class](../../../../images/bicycleAbstractClass.png)
 
 - solution: use Abstract class and inherit
 

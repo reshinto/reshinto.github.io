@@ -17,7 +17,7 @@
   - Cloud Specific technologies
     - e.g.: Amazon EC2 Container service, Google Anthos
 
-![Orchestrator Guidelines](../../images/orchestratorGuidelines.png)
+![Orchestrator Guidelines](../../../images/orchestratorGuidelines.png)
 
 ## Features
 
@@ -96,7 +96,7 @@
 
 ### Kubernetes cluster architecture
 
-![Kubernetes Cluster Architecture](../../images/kubernetesClusterArchitecture.png)
+![Kubernetes Cluster Architecture](../../../images/kubernetesClusterArchitecture.png)
 
 #### master node
 

@@ -38,7 +38,7 @@
 
 ## What is Design?
 
-![Software development project lifecycle](../../../images/softwareDevelopmentProjectLifecycle.png)
+![Software development project lifecycle](../../../../images/softwareDevelopmentProjectLifecycle.png)
 
 - lifecycle
   - final product?

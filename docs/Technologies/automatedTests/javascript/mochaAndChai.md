@@ -1,4 +1,6 @@
-# [Mocha](https://mochajs.org/) and [Chai](https://www.chaijs.com/) unit testing
+# Mocha & Chai
+
+- [mocha](https://mochajs.org/) and [Chai](https://www.chaijs.com/) unit testing
 
 ## Basic setup
 
@@ -60,7 +62,9 @@
 
 - Use to group similar tests together
 - it is a function that takes 2 basic arguments
+
   - 1st arg is a string used to describe the group of tests we are running
+
     - example:
 
       ```javascript
@@ -68,7 +72,9 @@
 
       describe("getLetterCount - basic functionality");
       ```
+
   - 2nd arg is a function that contains the actual tests we wanna run
+
     - inside this function, we can write more describes to curther categorize our tests
     - or write a mocha function called "it"
 
@@ -86,7 +92,9 @@
 
 - use to denote individual tests / individual pieces of functionality that we want to test
 - it is a function that takes 2 basic arguments
+
   - 1st arg is a string to tell us what exact piece of functionality this test will be covering
+
     - example:
 
       ```javascript
@@ -96,7 +104,9 @@
         it("returns an empty object when passed an empty string");
       });
       ```
+
   - 2nd arg is a function that contains the actual claims (assertions) we want to make about our code
+
     - Need to use the "expect" keyword from chai library to make the assertions
 
       - example:

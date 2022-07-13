@@ -1,4 +1,6 @@
-# How to compile and run files of different languages in the terminal
+# Programming Languages
+
+- How to compile and run files of different languages in the terminal
 
 # Run C++ files
 

@@ -14,7 +14,7 @@
 - for visualizing your classes
 - example: class diagrams
 
-  ![UML diagram](../images/umlDiagram.png)
+  ![UML diagram](../../images/umlDiagram.png)
 
   - top is the class name
   - middle is the list of properties
@@ -34,11 +34,11 @@
 
 - example: UML relations
 
-  ![UML relations](../images/umlRelations.png)
+  ![UML relations](../../images/umlRelations.png)
 
 - example: UML relationship
 
-  ![UML relationsip](../images/umlRelationship.png)
+  ![UML relationsip](../../images/umlRelationship.png)
 
 ## Association
 
@@ -66,11 +66,11 @@
   - In this case the CustomService uses the CustomRepository component, and not vice versa
   - example: Directed association
 
-    ![Directed association](../images/directedAssociation.png)
+    ![Directed association](../../images/directedAssociation.png)
 
 ## Inheritance
 
-![Inheritance relationship](../images/inheritanceRelationship.png)
+![Inheritance relationship](../../images/inheritanceRelationship.png)
 
 - A more precise type of relationship is the public inheritance relationship (`IS A Relationship`)
   - which says that everything that is true for the base class is true for its successor
@@ -105,7 +105,7 @@
   - relationships such as composition and aggregation come to our rescue
   - They both model a `HAS-A Relationship` and are usually expressed in that the class of a whole contains the fields (or properties) of its constituent parts
 
-![Composition and Aggregation](../images/compositionAndAggregation.png)
+![Composition and Aggregation](../../images/compositionAndAggregation.png)
 
 - the diamond is always on the side of the whole, and the simple line is on the side of the component
 - a filled rhombus indicates a stronger bond - composition

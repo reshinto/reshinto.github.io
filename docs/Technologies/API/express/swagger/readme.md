@@ -72,7 +72,7 @@ app.listen(port, () => {
 
 - verify at `http://localhost:5000/api-docs/`
 - result
-  ![Basic Swagger Setup](../../../images/basicSwaggerSetup.png)
+  ![Basic Swagger Setup](../../../../images/basicSwaggerSetup.png)
 
 ### Add route infos into Swagger
 
@@ -145,5 +145,5 @@ app.listen(port, () => {
 });
 ```
 
-![Swagger Route Example](../../../images/swaggerRouteExample.png)
-![Swagger Route Content Example](../../../images/swaggerRouteContentExample.png)
+![Swagger Route Example](../../../../images/swaggerRouteExample.png)
+![Swagger Route Content Example](../../../../images/swaggerRouteContentExample.png)

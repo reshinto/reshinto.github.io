@@ -27,6 +27,7 @@
       - Every Operating System has a different JVM
         - but the output they produce after the execution of bytecode is the same across all the operating systems
     - This makes java highly portable as its bytecodes can be run on any machine by an interpreter called the [Java Virtual Machine (JVM)](https://www.geeksforgeeks.org/jvm-works-jvm-architecture/) thus it provides ‘reusability of code’
+      - [How JVM works - JVM architecture](https://www.geeksforgeeks.org/jvm-works-jvm-architecture/)
       - each java app executes within its own instance of the JVM
       - the operating system treats that JVM instance as a separate, independent process
       - thus if multiple java apps were run at the same time, they will each execute in a separate JVM process with their own independent memory space
@@ -49,14 +50,21 @@
 
 - Java Development Kit (JDK)
 
-  - it is a complete Java development kit that includes everything including compiler, Java Runtime Environment (JRE), java debuggers, java docs, etc.
+  ![JDK](https://media.geeksforgeeks.org/wp-content/uploads/20210218150010/JDK.png)
+
+  - it is a complete Java development kit that includes tools such as the compiler, Java Runtime Environment (JRE), java debuggers, java docs, Jar, etc.
   - For the program to execute in java, we need to install JDK on our computer in order to create, compile and run the java program
 
 - Java Runtime Environment (JRE)
 
-  - JDK includes JRE. JRE installation on our computers allows the java program to run
-    - however, we cannot compile it
-  - JRE includes a browser, JVM, applet supports, and plugins. For running the java program, a computer needs JRE
+  - JDK includes JRE
+    - JRE installation on our computers allows the java program to run
+      - however, we cannot compile it
+    - it contains the parts of the Java libraries required to run Java programs and is intended for end-users
+  - JRE includes a browser, JVM, applet supports, and plugins
+    - For running the java program, a computer needs JRE
+
+- [Differences between JDK, JRE and JVM](https://www.geeksforgeeks.org/differences-jdk-jre-jvm/)
 
 - Garbage Collector
   - programmers can’t delete the objects
@@ -73,10 +81,14 @@
 
 - [Primary/Main Features of Java](https://www.geeksforgeeks.org/introduction-to-java/#Primary/Main%20Features%20of%20Java:~:text=Primary/Main%20Features%20of%20Java)
 
+- Java keywords
+  - words in a language that are used for some internal process or represent some predefined actions
+  - These words are not allowed to use as variable names or objects
+  - `abstract` `assert` `boolean` `break` `byte` `case` `catch` `char` `class` `const` `continue` `default` `do` `double` `else` `enum` `extends` `final` `finally` `float` `for` `goto` `if` `implements` `import` `instanceof` `int` `interface` `long` `native` `new` `package` `private` `protected` `public` `return` `short` `static` `strictfp` `super` `switch` `synchronized` `this` `throw` `throws` `transient` `try` `void` `volatile` `while`
+
 ## Table of Contents
 
 - [Compiled Language](#compiled-language)
-- [Accessibility](#accessibility)
 - [Hello World](#hello-world)
 - [Comments](#comments)
 - [Print](#print)
@@ -85,14 +97,15 @@
 - [Variable declaration int](#variable-declaration-int)
 - [Variable declaration float](#variable-declaration-float)
 - [Variable declaration None](#variable-declaration-none)
-- [Strings](#strings)
 - [Boolean](#boolean)
+- [Strings](#strings)
+- [String Concatenation](#string-concatenation)
 - [Arithmetic Operators](#arithmetic-operators)
 - [Comparison Operators](#comparison-operators)
 - [Logical Operators](#logical-operators)
-- [Getting Input](#getting-input)
 - [Bitwise Operators](#bitwise-operators)
 - [Increment](#increment)
+- [Getting Input](#getting-input)
 - [Arrays and Lists](#arrays-and-lists)
 - [Conditional Statement](#conditional-statement)
 - [Loops](#loops)
@@ -108,7 +121,6 @@
 - [Importing Libraries](#importing-libraries)
 - [Type Conversions](#type-conversions)
 - [Find Data Type](#find-data-type)
-- [String Concatenation](#string-concatenation)
 - [JSON](#json)
 - [Program Entry Point](#program-entry-point)
 - [Swapping values](#swapping-values)
@@ -132,6 +144,7 @@
 #### trying to access a method that is not defined in an object when compiling the app will get an immediate error feedback
 
 - Java: compiled to bytecode then interpreted by Java virtual machine into machine code
+
   - Features
     - not compatible with other languages
     - calls to native functions go through Java Native Interface (JNI)
@@ -151,26 +164,33 @@
     - Java FX
       - Desktop application framework (windows, mac, linux)
   - Automatic memory management
+
     - memory for objects are allocated automatically
     - local variables & function calls are stored in stack
     - objects & member variables are stored in heap
     - objects are retained in memory until dereferenced
     - object is eligible for collection when all references expire
+
       - when do references expire
+
         - variables local to methods or code blocks expire with scope
-        ```java
-        void changeString() {
-          String localVar = "Won't be around for long!";
-          System.out.println("In function: " + localVar);
-        }
-        ```
+
+          ```java
+          void changeString() {
+            String localVar = "Won't be around for long!";
+            System.out.println("In function: " + localVar);
+          }
+          ```
+
         - explicitly dereference variables with null keyword
-        ```java
-        void changeString() {
-          String localVar = "Won't be around for long!";
-          tempVar = null;
-        }
-        ```
+
+          ```java
+          void changeString() {
+            String localVar = "Won't be around for long!";
+            tempVar = null;
+          }
+          ```
+
     - when Java Virtual Machine runs out of memory for a newly requested object
       - the system throws `OutOfMemoryError`
       - Tips for managing memory
@@ -182,6 +202,7 @@
             - set initial heap size `java -Xms256s HelloWord`
             - set max heap size `java -Xmx256m HelloWord`
             - set heap size for new objects `java -Xmn256n HelloWord`
+
   - Java Garbage Collector
     - runs in its own thread
     - allocates & deallocates memory
@@ -200,17 +221,6 @@
   - methods and variables are Camel case `void doSomething(String withThis) {}`
   - constants are all uppercase `public static final String FIRSTNAME="Myname";`
     - `final` means once it has been set, it can't be changed
-
-[back to top](#table-of-contents)
-
-## Accessibility
-
-| modifier                          | same class | same package | subclass | everywhere else |
-| --------------------------------- | ---------- | ------------ | -------- | --------------- |
-| public                            | Y          | Y            | Y        | Y               |
-| protected                         | Y          | Y            | Y        | N               |
-| no modifier aka "package private" | Y          | Y            | N        | N               |
-| private                           | Y          | N            | N        | N               |
 
 [back to top](#table-of-contents)
 
@@ -258,7 +268,7 @@ multi-line comments
 */
 
 /**
- * javadoc <b>comments</b> for classes, javadocs can be used to auto generate documentation documents for code commented with javadocs
+ * javadoc <b>documentation comments</b> for classes, javadocs can be used to auto generate documentation documents for code commented with javadocs
  */
 
  /**
@@ -360,9 +370,13 @@ System.out.printf("%1$td.%1$tm.%1$ty %n", date);  // 22.11.18
 
 ### java 8
 
+![data types](https://media.geeksforgeeks.org/wp-content/cdn-uploads/20191105111644/Data-types-in-Java.jpg)
+
 #### 2 major data types
 
 1. Primitive data types
+
+   ![primitive data types](https://media.geeksforgeeks.org/wp-content/cdn-uploads/20191105122725/Primitive-Data-Types-in-Java-4.jpg)
 
    - stored in fastest available memory
    - names are all camel case
@@ -371,18 +385,20 @@ System.out.printf("%1$td.%1$tm.%1$ty %n", date);  // 22.11.18
      - `import java.lang.Byte;` import not required from java.lang libraries
    - all primitive numeric variables default to 0
 
-   ```java
-   public class Main {
-     private static int myInt;  // must be declared as static of a class to have default value
+     ```java
+     public class Main {
+       private static int myInt;  // must be declared as static of a class to have default value
 
-     public static void main(String args[]) {
-       System.out.println(myInt);  // 0
+       public static void main(String args[]) {
+         System.out.println(myInt);  // 0
+       }
      }
-   }
-   ```
+     ```
 
    - data types
+
      - numbers
+
        - byte
          - 8 bits
          - -128 to 127
@@ -398,61 +414,155 @@ System.out.printf("%1$td.%1$tm.%1$ty %n", date);  // 22.11.18
          - -2,147,483,648 to 2,147,483,647
          - default value `0`
          - helper class `Integer`
+         - from JAVA 8 onwards, it can be used to represent an unsigned 32-bit integer
        - long
          - 64 bits
          - -9.22337E+18 to 9.22337E+18
          - default value `0L`
          - helper class `Long`
+         - from JAVA 8 onwards, it can be used to represent an unsigned 64-bit long
        - float
          - 32 bits
+         - up to 7 decimal digits
          - default value `0.0f` or `0.0F` or `.0f` or `.0F`
          - helper class `Float`
+         - use `BigDecimal` class if accuracy is required
        - double
+
          - 64 bits
+         - up to 16 decimal digits
          - default value `0.0d` or `0.0D` or `.0d` or `.0D`
          - helper class `Double`
+         - use `BigDecimal` class if accuracy is required
+
          ```java
          double doubleValue = 156.5d;
          Double doubleObj = new Double(doubleValue);  // declare instance of the double class
          int intValue = doubleObj.intValue();  // 156, use helper object to convert to desired numeric data type
          ```
+
      - characters
-       - '\u0000' (or 0) to '\uffff' (or 65,535 inclusive)
-       - default value `'\u0000'`
+       - 16 bits
+       - `\u0000` (or 0) to `\uffff` (or 65,535 inclusive)
+       - default value `\u0000`
+       - java uses the `Unicode system` and not the `ASCII code system` where 8 bits is enough
+         - Unicode defines a fully international character set that can represent most of the world’s written languages
+         - It is a unification of dozens of character sets, such as Latin, Greeks, Cyrillic, Katakana, Arabic, and many more
+         - that's why 8 bits is not enough to represent all characters
      - booleans
        - default value `false`
 
-2. Objects
-   - an object is an instance of a class
-   - nonprimitive variables are references to objects
-   - objects can have multiple references
-   - Object data types
-     - String
-       - a complex object
-       - is an instance of the string class
-       - is an array of characters
-       - string objects are immutable
-       - reasigning the string value creates a new object
-         - the old object can be cleared from memory thrown garbage collection process
-       - helper class is `java.lang.String`, thus import not required
-       ```java
-       String string1 = new String("Hello");
-       ```
+2. Non-primitive data type or Reference Data Types
+
+   - it contain a memory address of variable values because the reference types won’t store the variable value directly in memory
+
+   - `String`
+
+     - a complex object
+     - is an instance of the string class
+     - is an array of characters
+       - string is designed to hold a sequence of characters in a single variable
+         - whereas, a character array is a collection of separate char type entities
+       - Unlike C/C++, Java strings are not terminated with a null character
+     - string objects are immutable
+     - reassigning the string value creates a new object
+       - the old object can be cleared from memory thrown garbage collection process
+     - helper class is `java.lang.String`, thus import not required
+
+     ```java
+     String string1 = new String("Hello");
+     ```
+
+   - `Class`
+
+     - it is a user-defined blueprint or prototype from which objects are created
+     - It represents the set of properties or methods that are common to all objects of one type
+     - In general, class declarations can include these components, in order:
+
+       - `Modifiers` A class can be public or has default access
+       - `Class name` The name should begin with an initial letter (capitalized by convention)
+       - `Superclass` The name of the class’s parent (superclass), if any, preceded by the keyword extends
+         - A class can only extend (subclass) one parent
+       - `Interfaces` A comma-separated list of interfaces implemented by the class, if any, preceded by the keyword implements
+         - A class can implement more than one interface
+       - `Body` The class body is surrounded by braces, { }
+
+   - `Object`
+
+     - It is a basic unit of Object-Oriented Programming and represents real-life entities
+     - An object consists of
+       - `State` It is represented by the attributes of an object
+         - It also reflects the properties of an object
+       - `Behavior` It is represented by the methods of an object
+         - It also reflects the response of an object to other objects
+       - `Identity` It gives a unique name to an object and enables one object to interact with other objects
+
+   - `Interface`
+
+     - it can have methods and variables, but the methods declared in an interface are by default abstract (only method signature, nobody)
+     - Interfaces specify what a class must do and not how
+       - It is the blueprint of the class
+     - An Interface is about capabilities like a Player may be an interface and any class implementing Player must be able to (or must implement) a method called move
+       - So it specifies a set of methods that the class has to implement
+     - If a class implements an interface and does not provide method bodies for all functions specified in the interface, then the class must be declared abstract
+     - A Java library example is Comparator Interface
+       - If a class implements this interface, then it can be used to sort a collection
+
+   - `Array`
+
+     - An array is a group of like-typed variables that are referred to by a common name
+     - Arrays in Java work differently than they do in C/C++. The following are some important points about Java arrays
+       - In Java, all arrays are dynamically allocated
+       - Since arrays are objects in Java, we can find their length using member length
+         - This is different from C/C++ where we find length using size
+       - A Java array variable can also be declared like other variables with [] after the data type
+       - The variables in the array are ordered and each has an index beginning from 0
+       - Java array can also be used as a static field, a local variable, or a method parameter
+       - The size of an array must be specified by an int value and not long or short
+       - The direct superclass of an array type is `Object`
+       - Every array type implements the interfaces Cloneable and java.io.Serializable
 
 [back to top](#table-of-contents)
 
 ## Variable declaration
 
+![Variable declaration](https://media.geeksforgeeks.org/wp-content/uploads/Variables-in-Java.png)
+
+![Types of variables](https://media.geeksforgeeks.org/wp-content/uploads/20220216012050/variabletypes.png)
+
+- also referred to as identifiers
+- Identifiers are the names of local variables, instance and class variables, and labels
+  - it is also the names for classes, packages, modules and methods
+  - All Unicode characters are valid, not just the ASCII subset
+- All identifiers can begin with a letter, a currency symbol or an underscore `_`
+- According to the convention, a letter should be lower case for variables
+- The first character of identifiers can be followed by any combination of letters, digits, currency symbols and the underscore
+- The underscore is not recommended for the names of variables
+- Constants (static final attributes and enums) should be in all Uppercase letters
+- identifiers are case-sensitive
+- A keyword cannot be used as an identifier since it is a reserved word and has some special meaning
+- example
+
+  ```
+  Legal identifiers: MinNumber, total, ak74, hello_world, $amount, _under_value
+  Illegal identifiers: 74ak, -amount
+  ```
+
 - multi variables declaration
+
   ```java
   double num1, num2, num3;
   ```
+
 - type inference: starting from `java 10`
+
   - use `var` key word
   - type is derived from assigned value
+
   ```java
   var myVar = 5;  // data type becomes integer
   ```
+
 - primitive numbers are always signed
 - `long` and `integer` methods support unsigned operations
 
@@ -468,7 +578,33 @@ System.out.printf("%1$td.%1$tm.%1$ty %n", date);  // 22.11.18
 
   int result2 = Integer.divideUnsigned(unsigned2, 2);
   System.out.println(result2);  // 150
-  ``
+  ```
+
+- if a variable has already been declared in the outer scope first, the same variable cannot be declared again in the inner scope
+
+  ```java
+  class Test {
+      public static void main(String args[]) {
+          int a = 5;
+          for (int a = 0; a < 5; a++) {  // will raise an error that a is already defined
+              System.out.println(a);
+          }
+      }
+  }
+  ```
+
+- if a variable was declared in the inner scope first before the same variable name was declared in the outer scope, it will work
+
+  ```java
+  class Test {
+    public static void main(String args[]) {
+      for (int i = 1; i <= 10; i++) {
+        System.out.println(i);
+      }
+      int i = 20;
+      System.out.println(i);
+    }
+  }
   ```
 
 [back to top](#table-of-contents)
@@ -479,13 +615,6 @@ System.out.printf("%1$td.%1$tm.%1$ty %n", date);  // 22.11.18
 
 ```java
 // public/private/protected static final byte/short/int/long integerName = 123;
-/*
-public: visible to all classes
-protected: visible to class they belong and any subclasses
-private (most restricted): visible only to class they belong
-static: can be accessed without creating a class instance
-final: constant value, value cannot be changed
-*/
 
 // byte: -128 ~ 127, 8 bits
 // wrapper class: Byte
@@ -569,99 +698,7 @@ System.out.println(2.0 / 0);  // Infinity
 
 // set infinity value
 double inf = Double.POSITIVE_INFINITY;  // Infinity
-double inf = Double.NEGATIVE_INFINITY;  // -Infinty
-```
-
-[back to top](#table-of-contents)
-
-## Strings
-
-- characters
-
-```java
-// character: 16 bits, 2 bytes, only 1 letter or symbol, must use single quotes ''
-// wrapper class: Character
-char charName1 = 'a';
-char charName2 = '\u0061';  // unicode character for the letter a
-
-// modify character cases
-Character.toUpperCase(charName1);  // 'A'
-Character.toLowerCase(charName1);  // 'a'
-
-// convert Char Array to a string
-char[] chars = {'H', 'e', 'l', 'l', 'o'};
-String s = new String(chars);  // "Hello"
-
-// convert string to char array
-char[] chars2 = s.toCharArray();
-for (char c : chars2) {  // for each loop
-  System.out.print(c);  // "Hello"
-}
-```
-
-- strings
-
-```java
-// convert primitive values to string
-int intValue = 42;
-String fromInt = Integer.toString(intValue);  // "42"
-
-boolean boolValue = true;
-String fromBool = Boolean.toString(boolValue);  // "true"
-
-
-// strings: must use double quotes ""
-String stringName = new String("Hello");  // method 1
-String stringName1 = "string";  // method 2
-String stringName2 = "multi-line " +
-                     "string";
-
-
-// get character of string with index
-char charName = stringName1.charAt(0);  // 's'
-
-// get character code
-int charCode = (int) charName;  // 115
-
-// get character code difference
-System.out.println('b' - 'a');  // 98 - 97 = 1
-
-// modify string cases
-String stringName3 = stringName1.toUpperCase();  // "STRING"
-String stringName4 = stringName3.toLowerCase();  // "string"
-
-
-// get length of string
-stringName4.length();  // 6
-
-// get index of substring
-int index = stringName4.indexOf("ng");  // 4
-
-// get substring with index
-String sub1 = stringName4.substring(4);  // "ng"
-String sub2 = stringName4.substring(4, 6);  // "ng" from starting index to but exclude last index
-
-// trim whitespaces from beginning and ending of string
-String trimStr = "  test  ";
-String newStr = trimStr.trim();  // "test"
-
-
-// toString method: convert primitive numeric values to string
-double doubleValue = .5d;
-String stringName5 = Double.toString(doubleValue);  // "0.5"
-
-// comparing strings
-String str1 = "Hello";  // object 1
-String str2 = "Hello";  // str2 points to str1, thus is still object 1
-str1 == str2;  // true
-
-String part1 = "Hello ";
-String part2 = "World";
-String str3 = part1 + part2;  // object 1
-String str4 = "Hello World";  // object 2
-str3 == str4;  // false
-// need to use .equals()
-str3.equals(str4);  // true
+double inf = Double.NEGATIVE_INFINITY;  // -Infinity
 ```
 
 [back to top](#table-of-contents)
@@ -681,13 +718,325 @@ boolean booleanName4 = Boolean.parseBoolean(sBoolean);  // true
 
 [back to top](#table-of-contents)
 
+## Strings
+
+- characters
+
+  ```java
+  // character: 16 bits, 2 bytes, only 1 letter or symbol, must use single quotes ''
+  // wrapper class: Character
+  char charName1 = 'a';
+  char charName2 = '\u0061';  // unicode character for the letter a
+
+  // modify character cases
+  Character.toUpperCase(charName1);  // 'A'
+  Character.toLowerCase(charName1);  // 'a'
+
+  // convert Char Array to a string
+  char[] chars = {'H', 'e', 'l', 'l', 'o'};
+  String s = new String(chars);  // "Hello"
+
+  // convert string to char array
+  char[] chars2 = s.toCharArray();
+  for (char c : chars2) {  // for each loop
+    System.out.print(c);  // "Hello"
+  }
+  ```
+
+- strings
+
+  ![JVM Memory Area](https://media.geeksforgeeks.org/wp-content/uploads/20210711152428/JVMMemoryArea2.png)
+
+  - Strings in Java are Objects that are backed internally by a char array
+  - Since arrays are immutable(cannot grow), Strings are immutable as well
+  - Whenever a change to a String is made, an entirely new String is created
+  - memory allotment of string
+    - Whenever a String Object is created as a literal, the object will be created in String constant pool
+    - This allows JVM to optimize the initialization of String literal
+  - The cache which stores these string instances is known as the String Constant pool or String Pool
+    - In earlier versions of Java up to JDK 6 String pool was located inside PermGen(Permanent Generation) space
+    - But in JDK 7 it is moved to the main heap area
+      - Why did the String pool move from PermGen to the normal heap area?
+        - PermGen space is limited, the default size is just 64 MB
+        - it was a problem with creating and storing too many string objects in PermGen space
+        - To make Java more memory efficient, the concept of string literal is used
+        - By the use of the `new` keyword, The JVM will create a new string object in the normal heap area even if the same string object is present in the string pool
+
+```java
+// convert primitive values to string
+int intValue = 42;
+String fromInt = Integer.toString(intValue);  // "42"
+
+boolean boolValue = true;
+String fromBool = Boolean.toString(boolValue);  // "true"
+
+
+// strings: must use double quotes ""
+String stringName = new String("Hello");  // method 1, dynamically allocated, assigned a new memory location in heap
+// use "intern" method to store string in constant pool
+String internedString = stringName.intern();
+
+// this is preferred as it allows JVM to optimize memory allocation
+String stringName1 = "string";  // method 2: string literal, created in String constant pool
+String stringName2 = "multi-line " +
+                    "string";
+
+
+// get character of string with index
+char charName = stringName1.charAt(0);  // 's'
+
+// get character code
+int charCode = (int) charName;  // 115
+
+// get character code difference
+System.out.println('b' - 'a');  // 98 - 97 = 1
+
+// modify string cases
+String stringName3 = stringName1.toUpperCase();  // "STRING"
+String stringName4 = stringName3.toLowerCase();  // "string"
+
+
+// get length of string
+stringName4.length();  // 6
+
+// Returns the index within the string of the first occurrence of the specified string
+int index = stringName4.indexOf("ng");  // 4
+
+// Returns the index within the string of the first occurrence of the specified string, starting at the specified index
+String s = "Learn Share Learn";
+int output = s.indexOf("ea", 3);  // returns 13
+
+// Returns the index within the string of the last occurrence of the specified string
+int output = s.lastIndexOf("a"); // returns 14
+
+// get substring with index
+String sub1 = stringName4.substring(4);  // "ng"
+String sub2 = stringName4.substring(4, 6);  // "ng" from starting index to but exclude last index
+
+// trim whitespaces from beginning and ending of string
+String trimStr = "  test  ";
+String newStr = trimStr.trim();  // "test"
+
+
+// Returns new string by replacing all occurrences of oldChar with newChar
+String s1 = “feeksforfeeks“;
+String s2 = “feeksforfeeks”.replace(‘f’ ,’g’); // returns “geeksgorgeeks”
+
+// toString method: convert primitive numeric values to string
+double doubleValue = .5d;
+String stringName5 = Double.toString(doubleValue);  // "0.5"
+
+
+// comparing strings
+String str1 = "Hello";  // object 1
+String str2 = "Hello";  // str2 points to str1, thus is still object 1
+str1 == str2;  // true
+
+String part1 = "Hello ";
+String part2 = "World";
+String str3 = part1 + part2;  // object 1
+String str4 = "Hello World";  // object 2
+str3 == str4;  // false
+// need to use .equals()
+str3.equals(str4);  // true
+
+// Compares string to another string, ignoring case considerations
+str3.equalsIgnoreCase(str4);
+
+// Compares two string lexicographically
+/*
+This returns difference s1-s2. If:
+out < 0  // s1 comes before s2
+out = 0  // s1 and s2 are equal.
+out > 0   // s1 comes after s2.
+*/
+str3.compareTo(str4);
+
+// Compares two string lexicographically, ignoring case considerations
+str3.compareToIgnoreCase(str4);
+```
+
+- [StringTokenizer library](https://www.geeksforgeeks.org/stringtokenizer-class-in-java/)
+  - used to break a string into tokens
+- [StringJoiner](https://www.geeksforgeeks.org/stringjoiner-class-in-java/)
+
+  - a class in java.util package which is used to construct a sequence of characters(strings) separated by a delimiter and optionally starting with a supplied prefix and ending with a supplied suffix
+
+- string constructors
+
+  - `String(byte[] byte_arr)` Construct a new String by decoding the byte array
+
+    - uses the platform’s default character set for decoding
+
+    ```java
+    byte[] b_arr = {71, 101, 101, 107, 115};
+    String s_byte = new String(b_arr); // Geeks
+    ```
+
+  - `String(byte[] byte_arr, Charset char_set)` Construct a new String by decoding the byte array
+
+    - It uses the char_set for decoding
+
+    ```java
+    byte[] b_arr = {71, 101, 101, 107, 115};
+    Charset cs = Charset.defaultCharset();
+    String s_byte_char = new String(b_arr, cs); // Geeks
+    ```
+
+  - `String(byte[] byte_arr, String char_set_name)` Construct a new String by decoding the byte array
+
+    - It uses the char_set_name for decoding
+
+    ```java
+    byte[] b_arr = {71, 101, 101, 107, 115};
+    String s = new String(b_arr, "US-ASCII"); // Geeks
+    ```
+
+  - `String(byte[] byte_arr, int start_index, int length)` Construct a new string from the bytes array depending on the start_index(Starting location) and length(number of characters from starting location)
+
+    ```java
+    byte[] b_arr = {71, 101, 101, 107, 115};
+    String s = new String(b_arr, 1, 3); // eek
+    ```
+
+  - `String(byte[] byte_arr, int start_index, int length, Charset char_set)` Construct a new string from the bytes array depending on the start_index(Starting location) and length(number of characters from starting location).Uses char_set for decoding
+
+    ```java
+    byte[] b_arr = {71, 101, 101, 107, 115};
+    Charset cs = Charset.defaultCharset();
+    String s = new String(b_arr, 1, 3, cs); // eek
+    ```
+
+  - `String(byte[] byte_arr, int start_index, int length, String char_set_name)` Construct a new string from the bytes array depending on the start_index(Starting location) and length(number of characters from starting location).Uses char_set_name for decoding
+
+    ```java
+    byte[] b_arr = {71, 101, 101, 107, 115};
+    String s = new String(b_arr, 1, 4, "US-ASCII"); // eeks
+    ```
+
+  - `String(char[] char_arr)` Allocates a new String from the given Character array
+
+    ```java
+    char char_arr[] = {'G', 'e', 'e', 'k', 's'};
+    String s = new String(char_arr); //Geeks
+    ```
+
+    - `String(char[] char_array, int start_index, int count)` Allocates a String from a given character array but choose count characters from the start_index
+
+      ```java
+      char char_arr[] = {'G', 'e', 'e', 'k', 's'};
+      String s = new String(char_arr , 1, 3); //eek
+      ```
+
+    - `String(int[] uni_code_points, int offset, int count)` Allocates a String from a uni_code_array but choose count characters from the start_index
+
+      ```java
+      int[] uni_code = {71, 101, 101, 107, 115};
+      String s = new String(uni_code, 1, 3); //eek
+      ```
+
+    - `String(StringBuffer s_buffer)` Allocates a new string from the string in s_buffer
+
+      ```java
+      StringBuffer s_buffer = new StringBuffer("Geeks");
+      String s = new String(s_buffer); //Geeks
+      ```
+
+    - `String(StringBuilder s_builder)` Allocates a new string from the string in s_builder
+
+      ```java
+      StringBuilder s_builder = new StringBuilder("Geeks");
+      String s = new String(s_builder); //Geeks
+      ```
+
+[back to top](#table-of-contents)
+
+## String Concatenation
+
+- method 1
+
+  ```java
+  String string1 = "string";
+  int num1 = 1;
+
+  String stringName1 = string1 + num1;  // "string1"
+
+  // method 2 (concat value must be string type)
+  String newString1 = string1.concat(Integer.toString(num1));  // "string1"
+
+  // method 3 (%s = string, %d = "byte, short, int, long, bigint", %c = char)
+  String newString2 = String.format("%s%d", string1, num1);  // "string1"
+  ```
+
+- method 4: [StringBuilder](https://www.geeksforgeeks.org/stringbuilder-class-in-java-with-examples/) represents a mutable sequence of characters
+
+  - it is not synchronized, which means that it is not thread-safe
+  - The advantage of StringBuilder is faster performance
+
+  ```java
+  String string1 = "string";
+  int num1 = 1;
+
+  StringBuilder sb1 = new StringBuilder(string1);
+  sb1.append(num1);  // "string1"
+  // or
+  StringBuilder sb2 = new StringBuilder();
+  sb2.append(string1).append(num1);  // "string1"
+  // or
+  StringBuilder sb3 = new StringBuilder(7);
+  sb3.append("string");
+  sb3.append(num1);
+
+  sb2.delete(1, sb2.length());  // "s"
+  ```
+
+- method 5: [StringBuffer](https://www.geeksforgeeks.org/stringbuffer-class-in-java/) represents growable and writable character sequences
+
+  - when using multithreading, must use StringBuffer rather than StringBuilder
+
+    - because it is synchronized, thus is thread-safe
+
+  - methods
+    - `append` Used to add text at the end of the existing text
+    - `appendCodePoint` appends the string representation of the codePoint argument to this sequence
+    - `length`
+    - `capacity` the total allocated capacity
+    - `charAt`
+    - `delete` Deletes a sequence of characters from the invoking object
+    - `deleteCharAt` Deletes the character at the index specified by loc
+    - `ensureCapacity` Ensures capacity is at least equals to the given minimum
+    - `insert` Inserts text at the specified index position
+    - `reverse` Reverse the characters within a StringBuffer object
+    - `replace` Replace one set of characters with another set inside a StringBuffer object
+
+  ```java
+  String string1 = "string";
+  int num1 = 1;
+
+  StringBuffer sBuffer1 = new StringBuffer(string1);
+  sBuffer1.append(num1);
+  sBuffer1.toString();  // "string1"
+  // or
+  StringBuffer sBuffer2 = new StringBuffer();
+  sBuffer2.append(string1).append(num1);
+  sBuffer2.toString();  // "string1"
+  // or
+  StringBuffer sBuffer3 = new StringBuffer(7);
+  sBuffer3.append("string");
+  sBuffer3.append(num1);
+  ```
+
+- [String format reference](https://www.javatpoint.com/java-string-format)
+
+[back to top](#table-of-contents)
+
 ## Arithmetic Operators
 
 - addition: `+`
 - subtraction: `-`
 - multiplication: `*`
 - division: `double double_name = 3.0/2; // output 1.5, 3/2 output 1`
-- modulus: `%`
+- modulus: `%` divides the 2 numbers and returns the remainder
 - exponent: `Math.pow(3, 2); // output 9`
 - floor division: `int integer_name = 3/2; // output 1`
 
@@ -729,14 +1078,17 @@ boolean booleanName4 = Boolean.parseBoolean(sBoolean);  // true
 - `<`
 - `>=`
 - `<=`
-- `instanceof` class membership
+- `instanceof`
 
-```java
-String s = "Hello";
-if (s instanceof java.lang.String) {
-  System.out.println(true);
-}
-```
+  - used for type checking
+  - It can be used to test if an object is an instance of a class, a subclass, or an interface
+
+  ```java
+  String s = "Hello";
+  if (s instanceof java.lang.String) {
+    System.out.println(true);
+  }
+  ```
 
 [back to top](#table-of-contents)
 
@@ -750,74 +1102,25 @@ if (s instanceof java.lang.String) {
 
 [back to top](#table-of-contents)
 
-## Getting Input
-
-- must import scanner library
-
-```java
-import java.util.Scanner;
-```
-
-```java
-// print question
-System.out.println("What's your name?");
-
-// get raw input
-Scanner scanner = new Scanner(System.in);
-// convert raw value to string type
-// can read the input only till the space
-// It can't read two words separated by a space
-// places the cursor in the same line after reading the input
-String input = scanner.next();
-// reads input including space between the words till the end of line \n
-// Once the input is read, positions the cursor in the next line
-String input1 = scanner.nextLine();
-// convert raw value to int type
-Int input2 = scanner.nextInt();
-```
-
-- single input
-
-```java
-String name;
-try (Scanner in = new Scanner(System.in)) {
-  System.out.println("Enter your name: ");
-  name = in.nextLine();
-}
-System.out.println("name is " + name);
-```
-
-- multiple inputs
-
-```java
-String firstname, surname;
-try (Scanner in = new Scanner(System.in)) {
-  System.out.println("Enter your first name and then your surname: ");
-  firstname = in.nextLine();
-  surname = in.nextLine();
-}
-System.out.println("name is " + firstname + " " + surname);
-```
-
-[back to top](#table-of-contents)
-
 ## Bitwise Operators
 
 ```java
-// & is binary AND, return 1 if both a and b are 1, count the 1s
+// & is binary AND Operator, return 1 if both a and b are 1, count the 1s
 a & b  // 12 = ...0000 1100
 
-// | is binary OR, return 1 if either a and or b HAVE a 1
+// | is binary OR Operator, return 1 if either a and or b HAVE a 1
 a | b  // 61 = ...0011 1101
 
-// ^ is binary XOR, return 1 if both a and b are not 1 or 0
+// ^ is binary XOR Operator, return 1 if both a and b are not 1 or 0
 a ^ b  // 49 = ...0011 0001
 
-// ~ is binary ones complement, invert everything, 1 change to 0 and vice versa, count the 0s
+// ~ is binary Complement Operator, invert everything, 1 change to 0 and vice versa, count the 0s
 ~a  // -61 = ...1100 0011
 
 // << is binary left shift, shift everything to the left by n digit(s)
 a << 2  // 240 = ...1111 0000
+
+// <<< is Unsigned Left shift operator
 
 // >> is Sign-propagating right shift, a binary right shift, shift everything to the right by n digit(s)
 a >> 2  // 15 = ...0000 1111
@@ -825,7 +1128,7 @@ c >> 2  // 3 = ...0000 0010, count the 1s
 c = -9  // -9 = ...1111 0111
 c >> 2  // -3 = ...1111 1101, count the 0s
 
-// >>> is Zero fill right shift, shift everything to the right by n digits(s), leftmost will add n 0s
+// >>> is Unsigned Right shift operator, shift everything to the right by n digits(s), leftmost will add n 0s
 c >>> 2  // 2 = ...0000 0010, count the 1s
 c = -9  // -9 = ...1111 0111
 c >>> 2  // 1073741821 = 0011...1111 1101, count the 0s
@@ -837,33 +1140,114 @@ c >>> 2  // 1073741821 = 0011...1111 1101, count the 0s
 
 - `x = x + 1;`
 - `x += 1;`
-- `++x;` preincrement, add 1 now
-- `x++;` postincrement, display without addition now then add 1 later when called again
+- `++x;` pre-increment, add 1 now
+- `x++;` post-increment, display without addition now then add 1 later when called again
+
+[back to top](#table-of-contents)
+
+## Getting Input
+
+- must import scanner library
+
+  ```java
+  import java.util.Scanner;
+  ```
+
+  ```java
+  // print question
+  System.out.println("What's your name?");
+
+  // get raw input
+  Scanner scanner = new Scanner(System.in);
+  // convert raw value to string type
+  // can read the input only till the space
+  // It can't read two words separated by a space
+  // places the cursor in the same line after reading the input
+  String input = scanner.next();
+  // reads input including space between the words till the end of line \n
+  // Once the input is read, positions the cursor in the next line
+  String input1 = scanner.nextLine();
+  // convert raw value to int type
+  Int input2 = scanner.nextInt();
+  ```
+
+- single input
+
+  ```java
+  String name;
+  try (Scanner in = new Scanner(System.in)) {
+    System.out.println("Enter your name: ");
+    name = in.nextLine();
+  }
+  System.out.println("name is " + name);
+  ```
+
+- multiple inputs
+
+  ```java
+  String firstname, surname;
+  try (Scanner in = new Scanner(System.in)) {
+    System.out.println("Enter your first name and then your surname: ");
+    firstname = in.nextLine();
+    surname = in.nextLine();
+  }
+  System.out.println("name is " + firstname + " " + surname);
+  ```
 
 [back to top](#table-of-contents)
 
 ## Arrays and Lists
 
 - Arrays
-  - can only have 1 data type: string, int, etc.
+  - In Java, all arrays are dynamically allocated
+    - Obtaining an array is a two-step process
+      - First, you must declare a variable of the desired array type
+      - Second, you must allocate the memory to hold the array, using new, and assign it to the array variable
+    - Thus, in Java, all arrays are dynamically allocated
+  - Arrays are stored in contagious memory [consecutive memory locations]
+  - Since arrays are objects in Java, we can find their length using the object property length
+    - This is different from C/C++, where we find length using `sizeof`
+  - A Java array variable can also be declared like other variables with `[]` after the data type
+  - The variables in the array are ordered, and each has an index beginning from 0
+  - Java array can also be used as a static field, a local variable, or a method parameter
+  - The `size` of an array must be specified by `int` or `short` value and not long
+  - The direct superclass of an array type is Object
+  - Every array type implements the interfaces Cloneable and java.io.Serializable
+  - This storage of arrays helps us in randomly accessing the elements of an array [Support Random Access]
+  - The size of the array cannot be altered(once initialized)
+    - However, an array reference can be made to point to another array
+  - can only have 1 primitive or object data type: string, int, etc.
+    - primitive data are stored in the contiguous memory locations
+    - non primitive data are stored in a heap segment
   - printing this only shows the memory
+  - The elements in the array allocated by `new` will automatically be initialized to `0` (for numeric types), `false` (for boolean), or `null` (for reference types)
 
 ```java
 // Empty string array of desired array size
-String[] string_array = new String[length_of_desired_array];
+String[] stringArray = new String[length_of_desired_array];
 // New string array with elements inside
-String [] string_array = new String [] {string1, string2,...};  // Method 1
-String[] string_array = {string1, string2,...};  // Method 2
+String [] stringArray = new String [] {string1, string2,...};  // Method 1: array literal
+String[] stringArray = {string1, string2,...};  // Method 2
 
 // Add string array element, limited to array size
 // Modify string array element value
-string_array[index] = element;
+stringArray[index] = element;
 
 // Access an element
-string_array[index];
+stringArray[index];
 
 // Find array size
-string_array.length;
+stringArray.length;
+
+// get class object information, it will return the run-time type signature "array with component type string" for this example
+stringArray.getClass();  // class [S
+
+// get superclass information
+stringArray.getClass().getSuperclass();  // class java.lang.Object
+
+// deep copy / clone for single-dimensional array
+String stringArray2 = stringArray.clone();
+System.out.println(stringArray == stringArray2);  // true
 
 // Copy array
 int sourceArrStartingIndex = 1;
@@ -872,10 +1256,15 @@ int copiedArrLen = 2;
 String[] copiedArr = new String[copiedArrLen];
 System.arraycopy(sourceArr, sourceArrStartingIndex, copiedArr, destinationArrStartingIndex, copiedArrLen);  // {"apple", "pear"}
 
-// multidimensional array
+// multidimensional array (subarrays are of the same size) / jagged arrays (subarrays can be of different sizes)
 String[][] states = new String[3][2];
 states[0][0] = "Japan";
 states[0][1] = "Tokyo";
+
+// clone for multi-dimensional array is a shallow copy
+// because it creates a new array, but the subarrays are shared
+String[][] states2 = states.clone();
+System.out.println(states == states2);  // false
 ```
 
 - Sorting an array
@@ -1015,7 +1404,7 @@ while (i<5) {  // Start from 0 to 4
     continue;  // Goes to the top of the closest enclosing loop
 }
 
-// Do while loop: execute first before setting conditions
+// Do while loop: execute first before setting conditions, it is an example of exit control loop
 // declare_initial_conditional_value
 int i = 0;
 do {  // Start from 0 to 4
@@ -1041,6 +1430,11 @@ for (int i=4; i>=0; i--) {  // Start from 4 to 0
 char[] chars = {'H', 'e', 'l', 'l', 'o'};  // an array can only have a single data type
 for (char c : chars) {  // for each element in the array
   doThis;
+}
+
+// infinite for loop
+for(;;){
+  //code to be executed
 }
 ```
 
@@ -1071,6 +1465,17 @@ public class ClassName {
 [back to top](#table-of-contents)
 
 ## Functions
+
+- All the method names should start with a lowercase letter
+- If several words are used to form the name of the method, then each first letter of the inner word should be in Uppercase
+- Underscores are allowed, but not recommended
+- Also allowed are digits and currency symbols
+- example
+
+  ```java
+  public void employeeRecords() // valid syntax
+  public void EmployeeRecords() // valid syntax, but discouraged
+  ```
 
 ```java
 // Normal functions
@@ -1506,6 +1911,24 @@ static double myFunction(String ... args) {
 
 ## Class
 
+- The first letter of the class should be in Uppercase (lowercase is allowed, but discouraged)
+- If several words are used to form the name of the class, each inner word’s first letter should be in Uppercase
+
+  - Underscores are allowed, but not recommended
+  - numbers and currency symbols are also allowed
+    - latter are also discouraged because they are used for a special purpose
+      - for inner and anonymous classes
+  - example
+
+    ```java
+    class MyJavaProgram    // valid syntax
+    class 1Program         // invalid syntax
+    class My1Program       // valid syntax
+    class $Program         // valid syntax, but discouraged
+    class My$Program       // valid syntax, but discouraged (inner class Program inside the class My)
+    class myJavaProgram    // valid syntax, but discouraged
+    ```
+
 - if no constructor has been defined, a constructor with no args will be auto generated
 - if a constructor with args has been defined, a constructor with no args will not be auto generated
 - constructor can be overloaded with multiple constructors
@@ -1912,26 +2335,47 @@ public class Main {
 
 ## Importing Libraries
 
+- Package in Java is a mechanism to encapsulate a group of classes, sub packages and interfaces
+- Packages are used for:
+  - Preventing naming conflicts
+    - For example there can be two classes with name Employee in two packages, college.staff.cse.Employee and college.staff.ee.Employee
+  - Making searching/locating and usage of classes, interfaces, enumerations and annotations easier
+  - Providing controlled access
+    - protected and default have package level access control
+    - A protected member is accessible by classes in the same package and its subclasses
+    - A default member (without any access specifier) is accessible by classes in the same package only
+  - Packages can be considered as data encapsulation (or data-hiding)
+- How packages work?
+  - Package names and directory structure are closely related
+    - For example if a package name is college.staff.cse, then there are three directories, college, staff and cse such that cse is present in staff and staff is present college
+    - Also, the directory college is accessible through CLASSPATH variable, i.e., path of parent directory of college is present in CLASSPATH
+      - The idea is to make sure that classes are easy to locate
+  - `Package naming conventions`: Packages are named in reverse order of domain names
+    - i.e., org.geeksforgeeks.practice
+    - For example, in a college, the recommended convention is college.tech.cse, college.tech.ee, college.art.history, etc.
+  - `Adding a class to a Package`: We can add more classes to a created package by using package name at the top of the program and saving it in the package directory
+    - We need a new java file to define a public class, otherwise we can add the new class to an existing .java file and recompile it
+
 ```java
 // folder name that the current file is in, all other files that are in this folder can be imported without additional code
 package com.example.demoapi.student;
 
-// importing of custom nested class
+// importing of user defined packages
 import com.example.demoapi.student.utilities.Helper;
 
 import java.time.LocalDate;
 import java.time.Period;
 
-// allows imports of all static members of the class
+// allows imports of all static members of the class (from java 5 and above)
 import static java.time.LocalDate.*;
 
-import javax.persistence.Entity;
+import javax.persistence.Entity;  // imports Entity class from the persistence package
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 
 // method 2
-import javax.persistence.*;  // allows imports of all classes
+import javax.persistence.*;  // allows imports of all classes from the persistence package
 
 @Entity
 @Table
@@ -1952,6 +2396,14 @@ public class Student {
   }
 }
 ```
+
+- common built-in packages
+  - `java.lang`: Contains language support classes(e.g classed which defines primitive data types, math operations), this package is automatically imported
+  - `java.io`: Contains classed for supporting input / output operations
+  - `java.util`: Contains utility classes which implement data structures like Linked List, Dictionary and support, for Date / Time operations
+  - `java.applet`: Contains classes for creating Applets
+  - `java.awt`: Contain classes for implementing the components for graphical user interfaces (like button, menus etc)
+  - `java.net`: Contain classes for supporting networking operations
 
 [back to top](#table-of-contents)
 
@@ -2026,47 +2478,29 @@ System.out.println(stringValue);  // "156.5"
 
 [back to top](#table-of-contents)
 
-## String Concatenation
-
-```java
-String string1 = "string";
-int num1 = 1;
-
-// method 1
-String stringName1 = string1 + num1;  // "string1"
-
-// method 2
-StringBuilder sb1 = new StringBuilder(string1);
-sb1.append(num1);  // "string1"
-// or
-StringBuilder sb2 = new StringBuilder();
-sb2.append(string1).append(num1);  // "string1"
-
-sb2.delete(1, sb2.length());  // "s"
-
-// method 3
-StringBuffer sBuffer1 = new StringBuffer(string1);
-sBuffer1.append(num1);
-sBuffer1.toString();  // "string1"
-// or
-StringBuffer sBuffer2 = new StringBuffer();
-sBuffer2.append(string1).append(num1);
-sBuffer2.toString();  // "string1"
-
-// method 4 (concat value must be string type)
-String newString1 = string1.concat(Integer.toString(num1));  // "string1"
-
-// method 5 (%s = string, %d = "byte, short, int, long, bigint", %c = char)
-String newString2 = String.format("%s%d", string1, num1);  // "string1"
-```
-
-- [String format reference](https://www.javatpoint.com/java-string-format)
-
 ## JSON
 
 [back to top](#table-of-contents)
 
 ## Program Entry Point
+
+- the signature is public static void main(String… args)
+- `public` So that JVM can execute the method from anywhere
+- `static` The main method is to be called without an object
+  - The modifiers public and static can be written in either order
+- `void` The main method doesn’t return anything
+- The method `main()` is the main entry point into a Java program
+  - must be inside the class definition
+  - The compiler executes the codes starting always from the main function
+- `String[]` The main method accepts a single argument, i.e., an array of elements of type String
+
+```java
+class SomeClassName {
+  public static void main(String[] args) {
+    System.out.println("Hello World");
+  }
+}
+```
 
 [back to top](#table-of-contents)
 
@@ -2408,19 +2842,47 @@ public class Main {
 
 ## Access modifier
 
-- use to hide the implementation details of a class
+- These modifiers control the scope of class and methods
+  - Access Modifiers:
+    - default
+    - public
+      - visible to all classes
+    - protected
+      - visible to class they belong and any subclasses
+    - private
+      - most restricted, visible only to class they belong
+  - Non-access Modifiers:
+    - final
+      - constant value, value cannot be changed
+    - abstract
+    - strictfp
+    - static
+      - can be accessed without creating a class instance
+
+| modifier                          | same class | same package | outside package by subclass | everywhere else |
+| --------------------------------- | ---------- | ------------ | --------------------------- | --------------- |
+| public                            | Y          | Y            | Y                           | Y               |
+| protected                         | Y          | Y            | Y                           | N               |
+| no modifier aka "package private" | Y          | Y            | N                           | N               |
+| private                           | Y          | N            | N                           | N               |
 
 [back to top](#table-of-contents)
 
 ## Iterators
 
+```java
+import java.util.List;
+import java.util.ArrayList;
+import java.util.Iterator;  // must import
+
+import java.util.Map;
+import java.util.HashMap;
+import java.util.Set;
+```
+
 - using iterators to loop through collections
 
 ```java
-// import java.util.List;
-// import java.util.ArrayList;
-// import java.util.Iterator;  // must import
-
 List<String> list = new ArrayList<>();
 list.add("Japan");
 list.add("China");
@@ -2442,10 +2904,6 @@ list.forEach((s) -> {System.out.println(s});  // method 2
 
 
 // loop hash maps with Iterator
-// import java.util.Map;
-// import java.util.HashMap;
-// import java.util.Set;
-// import java.Iterator;
 Map<String, String> map = new HashMap<>();
 map.put("jp", "Japan");
 map.put("sg", "Singapore");

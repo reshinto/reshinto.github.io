@@ -32,7 +32,7 @@
 - test cases are in a specifically name folder
 - `target folder` is used for the final JAR file
 
-![maven project structure](../../images/mavenProjectStructure.png)
+![maven project structure](../../../images/mavenProjectStructure.png)
 
 ### POM file
 
@@ -50,7 +50,7 @@
   - dependencies
 - POM file can be separated into multiple POM files
 
-![POM structure](../../images/pomStructure.png)
+![POM structure](../../../images/pomStructure.png)
 
 #### POM Categories
 

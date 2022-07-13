@@ -81,7 +81,7 @@
 
 - [Primary/Main Features of Java](https://www.geeksforgeeks.org/introduction-to-java/#Primary/Main%20Features%20of%20Java:~:text=Primary/Main%20Features%20of%20Java)
 
-- Java keywords
+- Java [keywords](https://www.geeksforgeeks.org/list-of-all-java-keywords/)
   - words in a language that are used for some internal process or represent some predefined actions
   - These words are not allowed to use as variable names or objects
   - `abstract` `assert` `boolean` `break` `byte` `case` `catch` `char` `class` `const` `continue` `default` `do` `double` `else` `enum` `extends` `final` `finally` `float` `for` `goto` `if` `implements` `import` `instanceof` `int` `interface` `long` `native` `new` `package` `private` `protected` `public` `return` `short` `static` `strictfp` `super` `switch` `synchronized` `this` `throw` `throws` `transient` `try` `void` `volatile` `while`
@@ -1466,6 +1466,14 @@ public class ClassName {
 
 ## Functions
 
+![Functions](https://media.geeksforgeeks.org/wp-content/uploads/methods-in-java.png)
+
+- Memory Allocation for Methods Calls
+  - Methods calls are implemented through a stack
+  - Whenever a method is called a stack frame is created within the stack area and after that
+    - the arguments passed to and the local variables and value to be returned by this called method are stored in this stack frame
+    - when execution of the called method is finished, the allocated stack frame would be deleted
+  - There is a stack pointer register that tracks the top of the stack which is adjusted accordingly
 - All the method names should start with a lowercase letter
 - If several words are used to form the name of the method, then each first letter of the inner word should be in Uppercase
 - Underscores are allowed, but not recommended
@@ -1941,18 +1949,27 @@ public class Math {
   public static final String NAME = "Math";  // declaring a constant variable
 
   // constructor (must have the same name as class name, no return data type)
-  public Math(int arg1, int arg2) {
+  public Math() {}
+
+  // overloading constructor
+  public Math(int arg0, int arg2) {
     // this keyword is not a must, however, variable name must be different from the parameter
-    this.arg1 = arg1;
+    arg1 = arg0;
     this.arg2 = arg2;
-    this.total = OuterAdd(arg1, arg2);
+    this.total = outerAdd(arg1, arg2);
   }
 
-  public int InnerAdd(int arg3) {
-    return this.arg1 + this.arg2 + arg3;
+  public int innerAdd(int arg3) {
+    // this keyword is not a must, however, variable name must be different from the parameter
+    return this.arg1 + arg2 + arg3;
   }
 
-  public static int OuterAdd(int number1, int number2) {
+  public static int outerAdd(int number1, int number2) {
+    return number1 + number2;
+  }
+
+  // An anonymous object: it is an object created without any name assigned to that object
+  int anonymousAdd(int number1, int number2) {
     return number1 + number2;
   }
 }
@@ -1962,14 +1979,100 @@ class MainClass {
     Math test = new Math(2, 4);  // instantiation
     // non-static variables or methods requires instantiation
     System.out.println(test.total);  // 6
-    System.out.println(test.InnerAdd(2));  // 8
+    System.out.println(test.innerAdd(2));  // 8
     // static variables or methods does not requires instantiation
-    System.out.println(Math.OutterAdd(4, 5));  // 9
+    System.out.println(Math.outerAdd(4, 5));  // 9
+    // works similar to static methods
+    System.out.println(new Math().anonymousAdd(3, 2));  // 5
   }
 }
 ```
 
-- private key
+### constructor chaining
+
+- the process of calling one constructor from another constructor with respect to current object
+- can be done in 2 ways
+  - Within same class: It can be done using this() keyword for constructors in the same class
+  - From base class: by using super() keyword to call the constructor from the base class
+
+```java
+// within same class Using this() keyword
+class Temp {
+	// default constructor 1
+	// default constructor will call another constructor
+	// using this keyword from same class
+	Temp() {
+		// calls constructor 2
+		this(5);
+		System.out.println("The Default constructor");
+	}
+
+	// parameterized constructor 2
+	Temp(int x) {
+		// calls constructor 3
+		this(5, 15);
+		System.out.println(x);
+	}
+
+	// parameterized constructor 3
+	Temp(int x, int y) {
+		System.out.println(x * y);
+	}
+
+	public static void main(String args[]) {
+		// invokes default constructor first
+		new Temp();
+	}
+}
+```
+
+```java
+// Java program to illustrate Constructor Chaining to
+// other class using super() keyword
+class Base {
+	String name;
+
+	// constructor 1
+	Base() {
+		this("");
+		System.out.println("No-argument constructor of" +
+										" base class");
+	}
+
+	// constructor 2
+	Base(String name) {
+		this.name = name;
+		System.out.println("Calling parameterized constructor"
+											+ " of base");
+	}
+}
+
+class Derived extends Base {
+	// constructor 3
+	Derived() {
+		System.out.println("No-argument constructor " +
+						"of derived");
+	}
+
+	// parameterized constructor 4
+	Derived(String name) {
+		// invokes base class constructor 2
+		super(name);
+		System.out.println("Calling parameterized " +
+						"constructor of derived");
+	}
+
+	public static void main(String args[]) {
+		// calls parameterized constructor 4
+		Derived obj = new Derived("test");
+
+		// Calls No-argument constructor
+		// Derived obj = new Derived();
+	}
+}
+```
+
+### private access key
 
 ```java
 public class Person {
@@ -1987,114 +2090,114 @@ public class Person {
 }
 ```
 
-- protected key
+### protected access key
+
+```java
+// class with protected method
+package p1;
+
+// Class A
+public class A {
+  protected void display() {
+    System.out.println("test");
+  }
+}
+```
+
+- Calling protected function without extending the parent class
 
   ```java
-  // class with protected method
+  package p2;
+
+  // import all classes in package p1
+  import p1.*;
+
+  class B {
+    public static void main(String args[]) {
+      B obj = new B();
+      // not be able to access the function “display” since child class has not inherited its value from the main class
+      obj.display();  // throw an exception
+    }
+  }
+  ```
+
+  - throw an error Exception in thread "main" java.lang.RuntimeException: Uncompilable source code - Erroneous sym type: p2.B.display
+
+- Accessing a protected class
+
+  ```java
   package p1;
 
   // Class A
-  public class A {
-    protected void display() {
+  protected class A {
+    void display()
+    {
       System.out.println("test");
     }
   }
   ```
 
-  - Calling protected function without extending the parent class
+  ```java
+  package p2;
 
-    ```java
-    package p2;
+  // import all classes in package p1
+  import p1.*;
 
-    // import all classes in package p1
-    import p1.*;
-
-    class B {
-      public static void main(String args[]) {
-        B obj = new B();
-        // not be able to access the function “display” since child class has not inherited its value from the main class
-        obj.display();  // throw an exception
-      }
-    }
-    ```
-
-    - throw an error Exception in thread "main" java.lang.RuntimeException: Uncompilable source code - Erroneous sym type: p2.B.display
-
-  - Accessing a protected class
-
-    ```java
-    package p1;
-
-    // Class A
-    protected class A {
-      void display()
+  // Class B is a subclass of A
+  class B extends A {
+      public static void main(String args[])
       {
-        System.out.println("test");
+          B obj = new B();
+          obj.display();  // throw an exception
       }
+  }
+  ```
+
+  - throw an error Exception in thread "main" java.lang.RuntimeException: Uncompilable source code - Erroneous sym type: p2.B.display
+
+- Accessing display function from the same package but different class
+  ```java
+  public class C {
+    public static void main(String args[]) {
+      A obj = new A();
+      obj.display();  // test
     }
-    ```
+  }
+  ```
+- Accessing display function from a different package
 
-    ```java
-    package p2;
+  ```java
+  package p2;
 
-    // import all classes in package p1
-    import p1.*;
+  // import all classes in package p1
+  import p1.*;
 
-    // Class B is a subclass of A
-    class B extends A {
-        public static void main(String args[])
-        {
-            B obj = new B();
-            obj.display();  // throw an exception
-        }
+  // Class B is a subclass of A
+  class B extends A {
+    public static void main(String args[]) {
+      B obj = new B();
+      obj.display();  // test
     }
-    ```
+  }
+  ```
 
-    - throw an error Exception in thread "main" java.lang.RuntimeException: Uncompilable source code - Erroneous sym type: p2.B.display
+- Accessing a protected class by overriding to sub-class within same package
 
-  - Accessing display function from the same package but different class
-    ```java
-    public class C {
-      public static void main(String args[]) {
-        A obj = new A();
-        obj.display();  // test
-      }
+  ```java
+  public class C extends A {
+    // overridden function
+    protected void display() {
+      System.out.println("overridden");
     }
-    ```
-  - Accessing display function from a different package
 
-    ```java
-    package p2;
-
-    // import all classes in package p1
-    import p1.*;
-
-    // Class B is a subclass of A
-    class B extends A {
-      public static void main(String args[]) {
-        B obj = new B();
-        obj.display();  // test
-      }
+    public static void main(String args[]) {
+      C obj1 = new C();
+      obj1.display();  // overridden
     }
-    ```
+  }
+  ```
 
-  - Accessing a protected class by overriding to sub-class within same package
-
-    ```java
-    public class C extends A {
-      // overridden function
-      protected void display() {
-        System.out.println("overridden");
-      }
-
-      public static void main(String args[]) {
-        C obj1 = new C();
-        obj1.display();  // overridden
-      }
-    }
-    ```
-
-- Anonymous classes
+### Anonymous classes
 
 ```java
 import java.util.Scanner;
@@ -2124,9 +2227,11 @@ public class Calculator {
 }
 ```
 
-- inheritance
-  - if a class isn't defined as `final` it can be extended
-  - superclass members are inherited unless marked private
+### inheritance
+
+- if a class isn't defined as `final` it can be extended
+- superclass members are inherited unless marked private
+- members of the grandparent class are not directly accessible
 
 ```java
 // enum
@@ -2138,6 +2243,8 @@ public enum Names {
 public class Person {
   private int age;
   private Names name;
+  public boolean isAlive = true;
+  public final String TYPE = "Mammal";
 
   public Person(int age, Names name) {
     this.age = age;
@@ -2171,6 +2278,7 @@ public class John extends Person {
   @Override  // use this even if it is not required for 2 benefits: take adv of compiler check, easier to read
   public void whoAmI() {
     System.out.println("I a John");
+    System.out.println(super.isAlive);  // use super to get parent's attributes or methods
   }
 }
 
@@ -2187,9 +2295,79 @@ public class Main {
 }
 ```
 
-- interface
-  - it is a contract that defines a set of methods with a particular signatures
-  - any class that implement that interface must implement those methods
+### Multiple inheritance
+
+- one class can have more than one superclass and inherit features from all parent classes
+- Java does not support multiple inheritances with classes
+  - we can achieve multiple inheritances only through Interfaces
+
+```java
+// Interface 1
+interface PI1 {
+	// Default method
+	default void show() {
+		// Print statement if method is called from interface 1
+		System.out.println("Default PI1");
+	}
+}
+
+// Interface 2
+interface PI2 {
+	// Default method
+	default void show() {
+		// Print statement if method is called from interface 2
+		System.out.println("Default PI2");
+	}
+}
+
+// Main class
+// Implementation class code
+class TestClass implements PI1, PI2 {
+	// Overriding default show method
+	public void show() {
+		// Using super keyword to call the show method of PI1 interface
+		PI1.super.show();
+
+		// Using super keyword to call the show method of PI2 interface
+		PI2.super.show();
+	}
+
+	// Main driver method
+	public static void main(String args[]) {
+		// Creating object of this class in main() method
+		TestClass d = new TestClass();
+		d.show();
+	}
+}
+```
+
+### interface
+
+- it is a contract that defines a set of methods with a particular signatures
+- any class that implement that interface must implement those methods
+- from Java 8 onwards
+
+  - can now add default implementation for interface methods
+    - This default implementation has a special use and does not affect the intention behind interfaces
+  - can now define static methods in interfaces that can be called independently without an object
+
+    - these methods are not inherited
+
+      ```java
+      interface In1 {
+        final int a = 10;
+        static void display() {
+          System.out.println("hello");
+        }
+      }
+
+      // A class that implements the interface.
+      class TestClass implements In1 {
+        public static void main (String[] args) {
+          In1.display();
+        }
+      }
+      ```
 
 ```java
 // enum
@@ -2243,13 +2421,172 @@ public class Person implements Human {
 }
 ```
 
-- abstract
-  - the `abstract` keyword is added
-  - it can contain a mixture of fully implemented methods & abstract methods
-    - abstract method is similar to a method in an interface
-      - no implementation & only indicates method signature
-      - any subclasses of an abstract method must implement that method
-  - cannot be instantiated directly, only their subclasses can be instantiated
+#### interface in a class
+
+```java
+import java.util.*;
+
+class Test {
+  // can have any access modifier
+	public interface Yes	{
+		void show();
+	}
+}
+
+class Testing implements Test.Yes {
+	public void show() {
+		System.out.println("show method of interface");
+	}
+}
+
+class A {
+	public static void main(String[] args) {
+		Test.Yes obj;
+		Testing t = new Testing();
+		obj=t;
+		obj.show();  // show method of interface
+	}
+}
+```
+
+#### interface in another interface
+
+```java
+import java.util.*;
+
+interface Test {
+  // must be default or public access modifier
+  interface Yes {
+    void show();
+  }
+}
+
+class Testing implements Test.Yes {
+  public void show() {
+    System.out.println("show method of interface");
+  }
+}
+
+class A {
+  public static void main(String[] args) {
+    Test.Yes obj;
+    Testing t = new Testing();
+    obj = t;
+    obj.show();  // show method of interface
+  }
+}
+```
+
+#### Marker interface
+
+- It is an empty interface (no field or methods)
+- Examples of marker interface are Serializable, Cloneable and Remote interface
+
+  - All these interfaces are empty interfaces
+
+- cloneable interface
+
+  - it is present in java.lang package
+  - There is a method clone() in Object class
+    - A class that implements the Cloneable interface indicates that it is legal for clone() method to make a field-for-field copy of instances of that class
+    - Invoking Object’s clone method on an instance of the class that does not implement the Cloneable interface results in an exception CloneNotSupportedException being thrown
+    - By convention, classes that implement this interface should override Object.clone() method
+
+  ```java
+  import java.lang.Cloneable;
+
+  // By implementing Cloneable interface we make sure that instances of class A can be cloned
+  class A implements Cloneable {
+    int i;
+    String s;
+
+    public A(int i,String s) {
+      this.i = i;
+      this.s = s;
+    }
+
+    // Overriding clone() method by simply calling Object class clone() method
+    @Override
+    protected Object clone() throws CloneNotSupportedException {
+      return super.clone();
+    }
+  }
+
+  public class Test {
+    public static void main(String[] args) throws CloneNotSupportedException {
+      A a = new A(20, "GeeksForGeeks");
+
+      // cloning 'a' and holding new cloned object reference in b
+      // down-casting as clone() return type is Object
+      A b = (A) a.clone();
+
+      System.out.println(b.i);  // 20
+      System.out.println(b.s);  // GeeksForGeeks
+    }
+  }
+  ```
+
+- Serializable interface
+
+  - Serializable interface is present in java.io package
+  - It is used to make an object eligible for saving its state into a file
+    - This is called Serialization
+    - Classes that do not implement this interface will not have any of their state serialized or deserialized
+    - All subtypes of a serializable class are themselves serializable
+
+  ```java
+  import java.io.*;
+
+  // By implementing Serializable interface we make sure that state of instances of class A can be saved in a file.
+  class A implements Serializable {
+    int i;
+    String s;
+
+    public A(int i,String s) {
+      this.i = i;
+      this.s = s;
+    }
+  }
+
+  public class Test {
+    public static void main(String[] args) throws IOException, ClassNotFoundException {
+      A a = new A(20,"GeeksForGeeks");
+
+      // Serializing 'a'
+      FileOutputStream fos = new FileOutputStream("xyz.txt");
+      ObjectOutputStream oos = new ObjectOutputStream(fos);
+      oos.writeObject(a);
+
+      // De-serializing 'a'
+      FileInputStream fis = new FileInputStream("xyz.txt");
+      ObjectInputStream ois = new ObjectInputStream(fis);
+      A b = (A)ois.readObject();//down-casting object
+
+      System.out.println(b.i+" "+b.s);  // 20 GeeksForGeeks
+
+      // closing streams
+      oos.close();
+      ois.close();
+    }
+  }
+  ```
+
+- [Remote interface](https://www.geeksforgeeks.org/remote-method-invocation-in-java/)
+  - Remote interface is present in java.rmi package
+  - A remote object is an object which is stored at one machine and accessed from another machine
+    - to make an object a remote object, we need to flag it with Remote interface
+    - Here, Remote interface serves to identify interfaces whose methods may be invoked from a non-local virtual machine
+    - Any object that is a remote object must directly or indirectly implement this interface
+    - RMI (Remote Method Invocation) provides some convenience classes that remote object implementations can extend which facilitate remote object creation
+
+### abstract
+
+- the `abstract` keyword is added
+- it can contain a mixture of fully implemented methods & abstract methods
+  - abstract method is similar to a method in an interface
+    - no implementation & only indicates method signature
+    - any subclasses of an abstract method must implement that method
+- cannot be instantiated directly, only their subclasses can be instantiated
 
 ```java
 // enum
@@ -2327,6 +2664,60 @@ public class Main {
     System.out.println(j.getAge());
     System.out.println(j.getName());
     j.whoAmI();  // "I am John"
+  }
+}
+```
+
+### Abstract classes vs Interface
+
+| Abstract classes                                                                                     | Interface                                                   |
+| ---------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
+| can have abstract and non-abstract methods. From Java 8, it can have default and static methods also | can have only abstract methods                              |
+| may contain non-final variables                                                                      | Variables declared in a Java interface are by default final |
+| can have final, non-final, static and non-static variables                                           | has only static and final variables                         |
+| can provide the implementation of the interface                                                      | can’t provide the implementation of an abstract class       |
+| can be extended using the keyword “extends”                                                          | can be implemented using the keyword “implements”           |
+| can extend another Java class and implement multiple Java interfaces                                 | can extend one or more Java interfaces                      |
+| can have class members like private, protected, etc.                                                 | are public by default                                       |
+
+### overloading
+
+```java
+public class Sum {
+  public int sum() {
+    return 0;
+  }
+
+  public int sum(int x) {
+    return 0 + x;
+  }
+
+  // Overloaded sum().
+  // This sum takes two int parameters
+  public int sum(int x, int y) {
+    return (x + y);
+  }
+
+  // Overloaded sum().
+  // This sum takes three int parameters
+  public int sum(int x, int y, int z) {
+    return (x + y + z);
+  }
+
+  // Overloaded sum().
+  // This sum takes two double parameters
+  public double sum(double x, double y) {
+    return (x + y);
+  }
+
+  // Driver code
+  public static void main(String args[]) {
+    Sum s = new Sum();
+    System.out.println(s.sum());
+    System.out.println(s.sum(10));
+    System.out.println(s.sum(10, 20));
+    System.out.println(s.sum(10, 20, 30));
+    System.out.println(s.sum(10.5, 20.5));
   }
 }
 ```
@@ -2448,7 +2839,7 @@ double d1 = Double.parseDouble(s);
 System.out.println(d1);  // 423.0
 ```
 
-```
+```java
 String doubleValue = "156.5";
 
 // convert string to double
@@ -2531,19 +2922,41 @@ System.out.printf("%d, %d %n", nums[0], nums[1]);  // 1, 0
   - catch block can be chained (specific exception with highest priority should come first)
 - finally: lets you execute code, after try and catch, regardless of the result
   - very important for closing a file when an opened file in the try block triggered an exception
+- [Built-in Exceptions](https://www.geeksforgeeks.org/types-of-exception-in-java-with-examples/)
 
-```java
-try {
-  doSomething;
-} catch(SomeSpecificException e) {
-  doSomethingIfErrorOccursRelatedToSomESpecificException;
-} catch(Exception e) {  // e is an arg (mandatory), e can be used to print general or more detailed error
-  e.printStackTrace();
-  doSomethingIfErrorOccursRelatedToAllExceptions;
-} finally {
-  doSomethingWhenTryAndCatchIsCompleted;
-}
-```
+- method 1
+
+  ```java
+  class Test {
+    public static void main(String[] args) {
+      try {
+        doSomething;
+      } catch(SomeSpecificException e) {
+        doSomethingIfErrorOccursRelatedToSomESpecificException;
+      } catch(Exception e) {  // e is an arg (mandatory), e can be used to print general or more detailed error
+        e.printStackTrace();
+        System.out.println(e.toString());  // prints exception information in the format of Name of the exception: description of the exception
+        System.out.println(e.getMessage());  // prints only the description of the exception
+        doSomethingIfErrorOccursRelatedToAllExceptions;
+      } finally {
+        doSomethingWhenTryAndCatchIsCompleted;
+      }
+    }
+  }
+  ```
+
+- method 2: Checked Exceptions
+
+  - uses the `throws` keyword
+  - exceptions that are checked at compile time
+
+  ```java
+  class Test {
+    public static void main(String[] args) throws IOException {
+      doSomething; // do something, if error occurs, an exception will be raised
+    }
+  }
+  ```
 
 - try with resources statement
   - only for java 8 or later versions, can't be used on android
@@ -2567,10 +2980,6 @@ public class Main {
 }
 
 // type 2
-import java.io.FileReader;
-import java.io.BufferedReader;
-import java.io.FileWriter;
-
 public class Main {
   public static void main(String[] args) {
     String sourceFile = "textfile";  // textfile path
@@ -2603,6 +3012,7 @@ public class Main {
 ## Custom Error
 
 - must use either try catch statements or be inside a conditional statement to work
+- uses the `throw` keyword
 
 ```java
 // if using try catch, both throw and catch must handle the same Exception type
@@ -2620,6 +3030,50 @@ try {
 if (true) {
   // raise generic exception
   throw new Exception("custom message");
+}
+```
+
+- custom exception
+  - use cases
+    - To catch and provide specific treatment to a subset of existing Java exceptions
+    - Business logic exceptions: These are the exceptions related to business logic and workflow
+      - It is useful for the application users or the developers to understand the exact problem
+
+```java
+// This program throws an exception whenever balance amount is below Rs 1000
+class MyException extends Exception {
+	//store account information
+	private static int accno[] = {1001, 1002, 1003, 1004};
+
+	private static String name[] = {"Nish", "Shubh", "Sush", "Abhi", "Akash"};
+
+	private static double bal[] =	{10000.00, 12000.00, 5600.0, 999.00, 1100.55};
+
+	MyException() { }
+	MyException(String str) { super(str); }
+
+	public static void main(String[] args) {
+		try {
+			// display the heading for the table
+			System.out.println("ACCNO" + "\t" + "CUSTOMER" +
+										"\t" + "BALANCE");
+
+			// display the actual account information
+			for (int i = 0; i < 5 ; i++) {
+				System.out.println(accno[i] + "\t" + name[i] +
+											"\t" + bal[i]);
+
+				// display own exception if balance < 1000
+				if (bal[i] < 1000) {
+					MyException me =
+					new MyException("Balance is less than 1000");
+					throw me;
+				}
+			}
+		} catch (MyException e) {
+			e.printStackTrace();
+		}
+	}
 }
 ```
 
@@ -2844,16 +3298,19 @@ public class Main {
 
 - These modifiers control the scope of class and methods
   - Access Modifiers:
-    - default
-    - public
-      - visible to all classes
-    - protected
-      - visible to class they belong and any subclasses
     - private
       - most restricted, visible only to class they belong
+    - default / package private
+      - declared / defined without using any modifier
+      - Accessible within the same class and package within which its class is defined
+    - protected
+      - visible to class they belong and any subclasses
+    - public
+      - visible to all classes
   - Non-access Modifiers:
     - final
       - constant value, value cannot be changed
+      - methods cannot be overridden
     - abstract
     - strictfp
     - static
@@ -2977,6 +3434,10 @@ public class Main {
     Person p = new Person();
     System.out.println(p.getName1());  // "JOHN"
     System.out.println(p.getName2());  // "John"
+
+    Names1 arr[] = Names1.values();
+    System.out.println(arr[0].ordinal());  // 0
+    System.out.println(Names1.valueOf("JOHN"));  // JOHN
   }
 }
 ```
@@ -2985,7 +3446,484 @@ public class Main {
 
 ## Language Specific
 
-- Number formatting
+### Functional Interfaces
+
+- it is an interface that contains only one abstract method
+  - They can have only one functionality to exhibit
+  - From Java 8 onwards, lambda expressions can be used to represent the instance of a functional interface
+  - A functional interface can have any number of default methods
+    - examples: Runnable, ActionListener, Comparable
+- it is additionally recognized as Single Abstract Method Interfaces
+  - they are also known as SAM interfaces
+  - it is the new feature that provides users with the approach of fundamental programming
+- it is included in Java SE 8 with Lambda expressions and Method references in order to make code more readable, clean, and straightforward
+  - they are interfaces that ensure that they include precisely only one abstract method
+  - they are used and executed by representing the interface with an annotation called @FunctionalInterface
+  - they can contain only one abstract method
+    - However, they can include any quantity of default and static methods
+- there is no need to use the abstract keyword as it is optional to use the abstract keyword
+  - because, by default, the method defined inside the interface is abstract only
+  - We can also call Lambda expressions as the instance of functional interface
+- Before Java 8, we had to create anonymous inner class objects or implement these interfaces
+
+```java
+class Test {
+  public static void main(String args[]) {
+    // create anonymous inner class object
+    new Thread(new Runnable() {
+      @Override public void run() {
+        System.out.println("New thread created");
+      }
+    }).start();
+  }
+}
+```
+
+- java 8
+
+  ```java
+  class Test {
+    public static void main(String args[]) {
+      // lambda expression to create the object
+      new Thread(() -> {
+          System.out.println("New thread created");
+      }).start();
+    }
+  }
+  ```
+
+#### @FunctionalInterface
+
+- it is used to ensure that the [functional interface](https://www.geeksforgeeks.org/functional-interfaces-java/) can’t have more than one abstract method
+- In case more than one abstract methods are present, the compiler flags an `Unexpected @FunctionalInterface annotation` message
+- it is not mandatory to use this annotation
+- built-in functional interfaces example
+  - `Runnable` This interface only contains the run() method
+  - `Comparable` This interface only contains the compareTo() method
+  - `ActionListener` This interface only contains the actionPerformed() method
+  - `Callable` This interface only contains the call() method
+- Java SE 8 included four main kinds of functional interfaces which can be applied in multiple situations
+
+  - Consumer
+    - the interface of the functional interface is the one that accepts only one argument or a gentrified argument
+    - it has no return value, returns nothing
+      - There are also functional variants of the Consumer
+        - example: DoubleConsumer, IntConsumer, and LongConsumer
+        - These variants accept primitive values as arguments
+        - Other than these variants, there is also one more variant of the Consumer interface known as Bi-Consumer
+  - Predicate
+
+    - a function that accepts an argument and, in return, generates a boolean value as an answer
+    - in java, it is a type of function which accepts a single value or argument and does some sort of processing on it, and returns a boolean (True/ False) answer
+    - The implementation of the Predicate functional interface also encapsulates the logic of filtering in Java
+      - a process that is used to filter stream components on the base of a provided predicate
+    - Just like the Consumer functional interface, Predicate functional interface also has some extensions
+      - example: IntPredicate, DoublePredicate, and LongPredicate
+        - These types of predicate functional interfaces accept only primitive data types or values as arguments
+
+    ```java
+    import java.util.*;
+    import java.util.function.Predicate;
+
+    class Test {
+      public static void main(String args[]) {
+        // create a list of strings
+        List<String> names = Arrays.asList(
+          "Geek", "GeeksQuiz", "g1", "QA", "Geek2");
+
+        // declare the predicate type as string and use
+        // lambda expression to create object
+        Predicate<String> p = (s) -> s.startsWith("G");
+
+        // Iterate through the list
+        for (String st : names) {
+          // call the test method
+          if (p.test(st))
+            System.out.println(st);
+            // Geek
+            // GeeksQuiz
+            // Geek2
+        }
+      }
+    }
+    ```
+
+  - Function
+
+    - A function is a type of functional interface in Java that receives only a single argument and returns a value after the required processing
+    - There are many versions of Function interfaces because a primitive type can’t imply a general type argument, so we need these versions of function interfaces
+    - Many different versions of the function interfaces are instrumental and are commonly used in primitive types like double, int, long
+    - The different sequences of these primitive types are also used in the argument
+      - The Bi-Function is substantially related to a Function
+        - it takes two arguments, whereas Function accepts one argument
+
+    ```java
+    @FunctionalInterface
+    public interface BiFunction<T, U, R> {
+      R apply(T t, U u);
+        ...
+    }
+
+    @FunctionalInterface
+    public interface UnaryOperator<T> extends Function<T, U> {
+      ...
+    }
+    ```
+
+  - Supplier
+    - The Supplier functional interface is also a type of functional interface that does not take any input or argument and yet returns a single output
+    - This type of functional interface is generally used in the lazy generation of values
+    - Supplier functional interfaces are also used for defining the logic for the generation of any sequence
+      - example: The logic behind the Fibonacci Series can be generated with the help of the Stream.generate method, which is implemented by the Supplier functional Interface
+    - The different extensions of the Supplier functional interface hold many other supplier functions
+      - example: BooleanSupplier, DoubleSupplier, LongSupplier, and IntSupplier
+      - The return type of all these further specializations is their corresponding primitives
+
+```java
+@FunctionalInterface
+interface Square {
+	int calculate(int x);
+}
+
+class Test {
+	public static void main(String args[]) {
+		int a = 5;
+
+		// lambda expression to define the calculate method
+		Square s = (int x) -> x * x;
+
+		// parameter passed and return type must be
+		// same as defined in the prototype
+		int ans = s.calculate(a);
+		System.out.println(ans);
+	}
+}
+```
+
+### Comparator Interface
+
+- it is used to order the objects of user-defined classes
+- A comparator object is capable of comparing two objects of the same class
+- Using a comparator, we can sort the elements based on data members
+- How do the sort() method of Collections class work?
+  - Internally the Sort method call Compare method of the classes it is sorting
+  - To compare two elements, it asks “Which is greater?”
+    - Compare method returns -1, 0, or 1 to say if it is less than, equal, or greater to the other
+  - It uses this result to then determine if they should be swapped for their sort
+
+```java
+import java.io.*;
+import java.lang.*;
+import java.util.*;
+
+class Student {
+  // Attributes of a student
+  int rollno;
+  String name, address;
+
+  public Student(int rollno, String name, String address) {
+    // This keyword refers to current instance itself
+    this.rollno = rollno;
+    this.name = name;
+    this.address = address;
+  }
+
+  // To print student details in main()
+  public String toString() {
+    // Returning attributes of Student
+    return this.rollno + " " + this.name + " "
+      + this.address;
+  }
+}
+
+// Helper class implementing Comparator interface
+class Sortbyroll implements Comparator<Student> {
+  // Sorting in ascending order of roll number
+  public int compare(Student a, Student b) {
+    return a.rollno - b.rollno;
+  }
+}
+
+// Helper class implementing Comparator interface
+class Sortbyname implements Comparator<Student> {
+  // Sorting in ascending order of name
+  public int compare(Student a, Student b) {
+    return a.name.compareTo(b.name);
+  }
+}
+
+// Main class
+class GFG {
+  public static void main(String[] args) {
+    // Creating an empty ArrayList of Student type
+    ArrayList<Student> ar = new ArrayList<Student>();
+
+    // Adding entries in above List
+    ar.add(new Student(111, "Mayank", "london"));
+    ar.add(new Student(131, "Anshul", "nyc"));
+    ar.add(new Student(121, "Solanki", "jaipur"));
+    ar.add(new Student(101, "Aggarwal", "Hongkong"));
+
+    System.out.println("Unsorted");
+
+    for (int i = 0; i < ar.size(); i++)
+      System.out.println(ar.get(i));
+
+    // Sorting student entries by roll number
+    Collections.sort(ar, new Sortbyroll());
+
+    System.out.println("\nSorted by rollno");
+
+    for (int i = 0; i < ar.size(); i++)
+      System.out.println(ar.get(i));
+
+    // Sorting student entries by name
+    Collections.sort(ar, new Sortbyname());
+
+    System.out.println("\nSorted by name");
+
+    for (int i = 0; i < ar.size(); i++)
+      System.out.println(ar.get(i));
+  }
+}
+```
+
+#### Sort collection by more than one field
+
+```java
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Iterator;
+import java.util.List;
+
+// Helper class representing a Student
+class Student {
+	// Attributes of student
+	String Name;
+	int Age;
+
+	// Parameterized constructor
+	public Student(String Name, Integer Age)
+	{
+		// This keyword refers to current instance itself
+		this.Name = Name;
+		this.Age = Age;
+	}
+
+	public String getName() { return Name; }
+
+	public void setName(String Name) { this.Name = Name; }
+
+	public Integer getAge() { return Age; }
+
+	public void setAge(Integer Age) { this.Age = Age; }
+
+	// Method Overriding toString() method
+	@Override
+  public String toString()
+	{
+		return "Customer{"
+			+ "Name=" + Name + ", Age=" + Age + '}';
+	}
+
+	// Helper class implementing Comparator interface
+	static class CustomerSortingComparator
+		implements Comparator<Student> {
+
+		// Method 1
+		// To compare customers
+		@Override
+		public int compare(Student customer1,
+						Student customer2)
+		{
+
+			// Comparing customers
+			int NameCompare = customer1.getName().compareTo(
+				customer2.getName());
+
+			int AgeCompare = customer1.getAge().compareTo(
+				customer2.getAge());
+
+			// 2nd level comparison
+			return (NameCompare == 0) ? AgeCompare
+									: NameCompare;
+		}
+	}
+
+	// Method 2
+	public static void main(String[] args)
+	{
+
+		// Create an empty ArrayList to store Student
+		List<Student> al = new ArrayList<>();
+
+		// Create customer objects
+		Student obj1 = new Student("Ajay", 27);
+		Student obj2 = new Student("Sneha", 23);
+		Student obj3 = new Student("Simran", 37);
+		Student obj4 = new Student("Ajay", 22);
+		Student obj5 = new Student("Ajay", 29);
+		Student obj6 = new Student("Sneha", 22);
+
+		// Adding customer objects to ArrayList
+		al.add(obj1);
+		al.add(obj2);
+		al.add(obj3);
+		al.add(obj4);
+		al.add(obj5);
+		al.add(obj6);
+
+		// Iterating using Iterator before Sorting ArrayList
+		Iterator<Student> custIterator = al.iterator();
+
+		System.out.println("Before Sorting:\n");
+
+		// Holds true till there is single element remaining in List
+		while (custIterator.hasNext()) {
+
+			// Iterating using next() method
+			System.out.println(custIterator.next());
+		}
+
+		// Sorting using sort method of Collections class
+		Collections.sort(al,
+						new CustomerSortingComparator());
+
+		System.out.println("\n\nAfter Sorting:\n");
+
+		// after Sorting ArrayList
+		for (Student customer : al) {
+			System.out.println(customer);
+		}
+	}
+}
+```
+
+### Wrapper classes
+
+![Wrapper Classes](https://media.geeksforgeeks.org/wp-content/cdn-uploads/20200806191733/Wrapper-Class-in-Java.png)
+
+- it is a class whose object wraps or contains primitive data types
+- When we create an object to a wrapper class, it contains a field and in this field, we can store primitive data types
+  - In other words, we can wrap a primitive value into a wrapper class object
+- Need of Wrapper Classes
+
+  - They convert primitive data types into objects. Objects are needed if we wish to modify the arguments passed into a method (because primitive types are passed by value)
+  - The classes in java.util package handles only objects and hence wrapper classes help in this case
+  - Data structures in the Collection framework, such as ArrayList and Vector, store only objects (reference types) and not primitive types
+  - An object is needed to support synchronization in multithreading
+
+- `autoboxing` Automatic conversion of primitive types to the object of their corresponding wrapper classes
+
+  ```java
+  import java.util.ArrayList;
+
+  class Autoboxing {
+    public static void main(String[] args) {
+      char ch = 'a';
+
+      // Autoboxing - primitive to Character object conversion
+      Character a = ch;
+
+      ArrayList<Integer> arrayList = new ArrayList<Integer>();
+
+      // Autoboxing because ArrayList stores only objects
+      arrayList.add(25);
+
+      // printing the values from object
+      System.out.println(arrayList.get(0));  // 25
+    }
+  }
+  ```
+
+- `unboxing` Automatically converting an object of a wrapper class to its corresponding primitive type
+
+  ```java
+  import java.util.ArrayList;
+
+  class Unboxing {
+    public static void main(String[] args) {
+      Character ch = 'a';
+
+      // unboxing - Character object to primitive conversion
+      char a = ch;
+
+      ArrayList<Integer> arrayList = new ArrayList<Integer>();
+      arrayList.add(24);
+
+      // unboxing because get method returns an Integer object
+      int num = arrayList.get(0);
+
+      // printing the values from primitive data types
+      System.out.println(num);
+    }
+  }
+  ```
+
+- wrapping and unwrapping
+
+  ```java
+  class WrappingUnwrapping {
+    public static void main(String args[]) {
+      // byte data type
+      byte a = 1;
+
+      // wrapping around Byte object
+      Byte byteobj = new Byte(a);
+
+      // int data type
+      int b = 10;
+
+      //wrapping around Integer object
+      Integer intobj = new Integer(b);
+
+      // float data type
+      float c = 18.6f;
+
+      // wrapping around Float object
+      Float floatobj = new Float(c);
+
+      // double data type
+      double d = 250.5;
+
+      // Wrapping around Double object
+      Double doubleobj = new Double(d);
+
+      // char data type
+      char e='a';
+
+      // wrapping around Character object
+      Character charobj=e;
+
+      // printing the values from objects
+      System.out.println("Values of Wrapper objects (printing as objects)");
+      System.out.println("Byte object byteobj: " + byteobj);
+      System.out.println("Integer object intobj: " + intobj);
+      System.out.println("Float object floatobj: " + floatobj);
+      System.out.println("Double object doubleobj: " + doubleobj);
+      System.out.println("Character object charobj: " + charobj);
+
+      // objects to data types (retrieving data types from objects)
+      // unwrapping objects to primitive data types
+      byte bv = byteobj;
+      int iv = intobj;
+      float fv = floatobj;
+      double dv = doubleobj;
+      char cv = charobj;
+
+      // printing the values from data types
+      System.out.println("Unwrapped values (printing as data types)");
+      System.out.println("byte value, bv: " + bv);
+      System.out.println("int value, iv: " + iv);
+      System.out.println("float value, fv: " + fv);
+      System.out.println("double value, dv: " + dv);
+      System.out.println("char value, cv: " + cv);
+    }
+  }
+  ```
+
+### Number formatting
 
 ```java
 long longValue = 10_000_000;
@@ -3000,7 +3938,7 @@ NumberFormat formatter = NumberFormat.getNumberInstance(locale);
 String formatted = formatter.format(lognValue);  // "10.000.000" (dk locale)
 ```
 
-- Currency formatting
+### Currency formatting
 
 ```java
 long longValue = 10_000_000.00;
@@ -3015,7 +3953,7 @@ NumberFormat formatter = NumberFormat.getCurrencyInstance(locale);
 String formatted = formatter.format(lognValue);  // "kr10.000.000,00" (dk locale)
 ```
 
-- Integer formatting
+### Integer formatting
 
 ```java
 long longValue = 10_000_000.89;
@@ -3030,166 +3968,166 @@ NumberFormat formatter = NumberFormat.getIntegerInstance(locale);
 String formatted = formatter.format(lognValue);  // "10.000.001" (dk locale)
 ```
 
-- double colon operator / method reference operator
+### double colon operator / method reference operator
 
-  - `<Class name>::<method name>`
-  - can be used for
+- `<Class name>::<method name>`
+- can be used for
 
-    - a static method
+  - a static method
 
-    ```java
-    import java.util.*;
+  ```java
+  import java.util.*;
 
-    class GFG {
-      // static function to be called
-      static void someFunction(String s)
-      {
-        System.out.println(s);
-      }
-
-      public static void main(String[] args)
-      {
-        List<String> list = new ArrayList<String>();
-        list.add("Geeks");
-        list.add("For");
-        list.add("GEEKS");
-
-        // call the static method
-        // using double colon operator
-        list.forEach(GFG::someFunction);
-      }
-    }
-    ```
-
-    - an instance method
-
-    ```java
-    import java.util.*;
-
-    class GFG {
-      // instance function to be called
-      void someFunction(String s)
-      {
-        System.out.println(s);
-      }
-
-      public static void main(String[] args)
-      {
-        List<String> list = new ArrayList<String>();
-        list.add("Geeks");
-        list.add("For");
-        list.add("GEEKS");
-
-        // call the instance method
-        // using double colon operator
-        list.forEach((new GFG())::someFunction);
-      }
-    }
-    ```
-
-    - super method
-
-    ```java
-    import java.util.*;
-    import java.util.function.*;
-
-    class Test {
-      // super function to be called
-      String print(String str)
-      {
-        return ("Hello " + str + "\n");
-      }
+  class GFG {
+    // static function to be called
+    static void someFunction(String s)
+    {
+      System.out.println(s);
     }
 
-    class GFG extends Test {
-      // instance method to override super method
-      @Override
-      String print(String s)
-      {
-        // call the super method
-        // using double colon operator
-        Function<String, String> func = super::print;
+    public static void main(String[] args)
+    {
+      List<String> list = new ArrayList<String>();
+      list.add("Geeks");
+      list.add("For");
+      list.add("GEEKS");
 
-        String newValue = func.apply(s);
-        newValue += "Bye " + s + "\n";
-        System.out.println(newValue);
-        return newValue;
-      }
-
-      // Driver code
-      public static void main(String[] args)
-      {
-        List<String> list = new ArrayList<String>();
-        list.add("Geeks");
-        list.add("For");
-        list.add("GEEKS");
-
-        // call the instance method
-        // using double colon operator
-        list.forEach(new GFG()::print);
-      }
+      // call the static method
+      // using double colon operator
+      list.forEach(GFG::someFunction);
     }
-    ```
+  }
+  ```
 
-    - Instance method of an arbitrary object of a particular type
+  - an instance method
 
-    ```java
-    import java.util.*;
+  ```java
+  import java.util.*;
 
-    class Test {
-      String str=null;
-
-      Test(String s)
-      {
-        this.str=s;
-      }
-      // instance function to be called
-      void someFunction()
-      {
-        System.out.println(this.str);
-      }
+  class GFG {
+    // instance function to be called
+    void someFunction(String s)
+    {
+      System.out.println(s);
     }
 
-    class GFG {
-      public static void main(String[] args)
-      {
-        List<Test> list = new ArrayList<Test>();
-        list.add(new Test("Geeks"));
-        list.add(new Test("For"));
-        list.add(new Test("GEEKS"));
+    public static void main(String[] args)
+    {
+      List<String> list = new ArrayList<String>();
+      list.add("Geeks");
+      list.add("For");
+      list.add("GEEKS");
 
-        // call the instance method
-        // using double colon operator
-        list.forEach(Test::someFunction);
-      }
+      // call the instance method
+      // using double colon operator
+      list.forEach((new GFG())::someFunction);
     }
-    ```
+  }
+  ```
 
-    - a constructor
+  - super method
 
-    ```java
-    import java.util.*;
+  ```java
+  import java.util.*;
+  import java.util.function.*;
 
-    class GFG {
-      // Class constructor
-      public GFG(String s)
-      {
-        System.out.println("Hello " + s);
-      }
-
-      // Driver code
-      public static void main(String[] args)
-      {
-        List<String> list = new ArrayList<String>();
-        list.add("Geeks");
-        list.add("For");
-        list.add("GEEKS");
-
-        // call the class constructor
-        // using double colon operator
-        list.forEach(GFG::new);
-      }
+  class Test {
+    // super function to be called
+    String print(String str)
+    {
+      return ("Hello " + str + "\n");
     }
-    ```
+  }
+
+  class GFG extends Test {
+    // instance method to override super method
+    @Override
+    String print(String s)
+    {
+      // call the super method
+      // using double colon operator
+      Function<String, String> func = super::print;
+
+      String newValue = func.apply(s);
+      newValue += "Bye " + s + "\n";
+      System.out.println(newValue);
+      return newValue;
+    }
+
+    // Driver code
+    public static void main(String[] args)
+    {
+      List<String> list = new ArrayList<String>();
+      list.add("Geeks");
+      list.add("For");
+      list.add("GEEKS");
+
+      // call the instance method
+      // using double colon operator
+      list.forEach(new GFG()::print);
+    }
+  }
+  ```
+
+  - Instance method of an arbitrary object of a particular type
+
+  ```java
+  import java.util.*;
+
+  class Test {
+    String str=null;
+
+    Test(String s)
+    {
+      this.str=s;
+    }
+    // instance function to be called
+    void someFunction()
+    {
+      System.out.println(this.str);
+    }
+  }
+
+  class GFG {
+    public static void main(String[] args)
+    {
+      List<Test> list = new ArrayList<Test>();
+      list.add(new Test("Geeks"));
+      list.add(new Test("For"));
+      list.add(new Test("GEEKS"));
+
+      // call the instance method
+      // using double colon operator
+      list.forEach(Test::someFunction);
+    }
+  }
+  ```
+
+  - a constructor
+
+  ```java
+  import java.util.*;
+
+  class GFG {
+    // Class constructor
+    public GFG(String s)
+    {
+      System.out.println("Hello " + s);
+    }
+
+    // Driver code
+    public static void main(String[] args)
+    {
+      List<String> list = new ArrayList<String>();
+      list.add("Geeks");
+      list.add("For");
+      list.add("GEEKS");
+
+      // call the class constructor
+      // using double colon operator
+      list.forEach(GFG::new);
+    }
+  }
+  ```
 
 [back to top](#table-of-contents)

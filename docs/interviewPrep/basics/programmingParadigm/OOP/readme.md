@@ -287,7 +287,7 @@
 - it addresses an object as either super or subtype
 - writes methods that accept supertype as arguments
 - passes instances of subtypes
-- increases code flxibility and reusability
+- increases code flexibility and reusability
 - has 2 types
 
   1.  Compile time polymorphism (static binding / static polymorphism)
@@ -379,6 +379,21 @@
   const antiHeroService = new AntiHeroService();
   const hero = antiHeroService.getHero("law");
   ```
+
+- in java
+
+  | Method Overloading                                                                                                     | Method Overriding                                                                                                         |
+  | ---------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------- |
+  | it is a compile-time polymorphism                                                                                      | it is a run-time polymorphism                                                                                             |
+  | It helps to increase the readability of the program                                                                    | It is used to grant the specific implementation of the method which is already provided by its parent class or superclass |
+  | It occurs within the class                                                                                             | It is performed in two classes with inheritance relationships                                                             |
+  | it may or may not require inheritance                                                                                  | it always needs inheritance                                                                                               |
+  | methods must have the same name and different signatures                                                               | methods must have the same name and same signature                                                                        |
+  | the return type can or can not be the same, but we just have to change the parameter                                   | the return type must be the same or co-variant                                                                            |
+  | Static binding is being used for overloaded methods                                                                    | Dynamic binding is being used for overriding methods                                                                      |
+  | It gives better performance. The reason behind this is that the binding of overridden methods is being done at runtime | Poor performance                                                                                                          |
+  | Private and final methods can be overloaded                                                                            | Private and final methods can’t be overridden                                                                             |
+  | Argument list should be different while doing method overloading                                                       | Argument list should be same in method overriding                                                                         |
 
 ## Value types vs Reference types
 

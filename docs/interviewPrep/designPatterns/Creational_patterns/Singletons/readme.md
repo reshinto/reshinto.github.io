@@ -82,6 +82,43 @@ class Singleton:
         return Singleton.__instance
 ```
 
+## Java
+
+- implementation of Singleton pattern using private constructors
+
+```java
+// Java program to demonstrate implementation of Singleton
+// pattern using private constructors.
+import java.io.*;
+
+class MySingleton {
+	static MySingleton instance = null;
+	public int x = 10;
+
+	// private constructor can't be accessed outside the class
+	private MySingleton() { }
+
+	// Factory method to provide the users with instances
+	static public MySingleton getInstance() {
+		if (instance == null)
+			instance = new MySingleton();
+
+		return instance;
+	}
+}
+
+// Driver Class
+class Main {
+  public static void main(String args[]) {
+    MySingleton a = MySingleton.getInstance();
+    MySingleton b = MySingleton.getInstance();
+    a.x = a.x + 10;
+    System.out.println("Value of a.x = " + a.x);
+    System.out.println("Value of b.x = " + b.x);
+  }
+}
+```
+
 ### Borg
 
 - Allows a class to have as many instances as one likes

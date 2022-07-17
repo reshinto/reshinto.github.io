@@ -1,4 +1,4 @@
-# State design pattern
+# State
 
 - it lets an object alter its behavior when its internal state changes
 - it appears as if the object changed its class

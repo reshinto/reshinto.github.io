@@ -1268,33 +1268,116 @@ System.out.println(states == states2);  // false
 ```
 
 - Sorting an array
+
   - Sort array, can sort numbers, strings, etc.
 
+  ```java
+  import java.util.Arrays;
+  ```
+
+  ```java
+  String[] sourceArr = {"orange", "apple", "pear"};
+  Arrays.sort(sourceArr);  // {"apple", "orange", "pear"}
+  ```
+
+### List Interface
+
+- it is an interface, extends the Collection framework
+- This interface is dedicated to the data of the list type in which we can store all the ordered collection of the objects
+- This also allows duplicate data to be present in it
+- This list interface is implemented by various classes like ArrayList, Vector, Stack, etc.
+  - Since all the subclasses implement the list, we can instantiate a list object with any of these classes
+- printing this shows the actual array
+
 ```java
+import java.util.List;
 import java.util.Arrays;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.Vector;
 ```
 
 ```java
-String[] sourceArr = {"orange", "apple", "pear"};
-Arrays.sort(sourceArr);  // {"apple", "orange", "pear"}
+// method 1
+List<String> list = Arrays.asList(element, element, ...)
+
+// method 2
+List<String> list = new ArrayList<>();  // from java 7 onwards redundant <String> is not required, can just use <>
+
+// Add element to string List (left to right)
+list.add(element);
+
+// add an element at a specific index in the List
+list.add(index, element);
+
+// add another list into existing list from index
+list.addAll(index, list2);
+
+// updating element at index
+list.set(index, element);
+
+// Remove element from list at index
+list.remove(index);
+
+// Remove element from list with value
+list.remove(element);
+
+// Access an element
+list.get(index);
+
+// Find index of an element
+list.indexOf(element);
+
+// get length of list
+list.size();
+
+List <T> linkList = new LinkedList<> ();
+List <T> vector = new Vector<> ();
 ```
 
-- Arraylist
-  - it is a class, extends the AbstractList class and implements List interface
-  - used to create a dynamic array that contains objects
-  - creates an array of objects where the array can grow dynamically
-  - can only have 1 data type: string, int, class, etc.
+### Arraylist
+
+- it is a class, extends the AbstractList class and implements List interface
+- used to create a dynamic array that contains objects
+- creates an array of objects where the array can grow dynamically
+  - size of the array automatically increases when we dynamically add and remove items
+  - when the array becomes full and if we try to add an item
+    - Creates a bigger-sized memory on heap memory
+    - Copies the current memory elements to the new memory
+    - New item is added now as there is bigger memory available now
+    - Delete the old memory
+- it may be slower than standard arrays but can be helpful in programs where lots of manipulation in the array is needed
+- it is not Synchronized
+  - Its equivalent synchronized class is `Vector`
+- can only have 1 data type
+- ArrayList can not be used for primitive types, like int, char, etc.
+
+  - example: cannot be compiled
+
+    ```java
+    ArrayList<int> list = new ArrayList<>();
+    ```
 
 ```java
 import java.util.ArrayList;
+import java.util.Array;
 ```
 
 ```java
+// arraylist with default values
+ArrayList<Integer> list = new ArrayList<>(Arrays.asList(1,2,3,4));
+
 // Empty string arrayList
 ArrayList<String> arrayList = new ArrayList<String>();
 
 // Add element to string arrayList (left to right)
 arrayList.add(element);
+
+// add an element at a specific index in the List
+arrayList.add(index, element);
+
+// add another list into existing list from index
+arrayList.addAll(index, list2);
 
 // Modify an element at index
 arrayList.set(index, element);
@@ -1305,6 +1388,10 @@ arrayList.get(index);
 // Remove element from arrayList at index
 arrayList.remove(index);
 
+// remove by value
+arrayList.remove(Integer.valueOf(element));  // if element is a primitive
+arrayList.remove(element);  // if element is not a primitive
+
 // Find arrayList size
 arrayList.size();
 
@@ -1312,36 +1399,597 @@ arrayList.size();
 arrayList.clear();
 ```
 
-- List
-  - it is an interface, extends the Collection framework
-  - used to create a list of elements(objects) which are associated with their index numbers
-  - creates a collection of elements that are stored in a sequence and they are identified and accessed using the index
-  - printing this shows the actual array
+### LinkedList
+
+- an implementation of the LinkedList data structure which is a linear data structure
+  - where the elements are not stored in contiguous locations and every element is a separate object with a data part and address part
+  - The elements are linked using pointers and addresses
+  - Each element is known as a node
 
 ```java
-import java.util.List;
-import java.util.Arrays;
-import java.util.ArrayList;
+import java.util.LinkedList;
+
+class Test {
+	public static void main(String[] args) {
+		LinkedList<Integer> ll = new LinkedList<Integer>();
+
+		// Appending new elements at the end of the list
+		for (int i = 1; i <= 5; i++)
+			ll.add(i);
+
+		System.out.println(ll);
+
+    // Remove element at index 3
+		ll.remove(3);
+
+		// Displaying the List after deletion
+		System.out.println(ll);
+
+		// Printing elements one by one
+		for (int i = 0; i < ll.size(); i++)
+			System.out.print(ll.get(i) + " ");
+	}
+}
+```
+
+### Vector
+
+- it provides us with dynamic arrays in Java
+- it may be slower than standard arrays
+  - but can be helpful in programs where lots of manipulation in the array is needed
+- This is identical to ArrayList in terms of implementation
+  - However, the primary difference between a vector and an ArrayList is that a Vector is synchronized and an ArrayList is non-synchronized
+
+```java
+import java.util.Vector;
+
+class Test {
+	public static void main(String[] args) {
+		Vector<Integer> v = new Vector<Integer>();
+
+		// Appending new elements at the end of the list
+		for (int i = 1; i <= 5; i++) {
+      // add element
+			v.add(i);
+      v.add(0, 10);  // insert element at index
+      if (i == 0)
+        v.set(0, i);  // update element at index
+    }
+
+
+		System.out.println(v);
+
+    // Remove element at index
+		v.remove(index);
+
+    // remove by value of first occurrence
+    // method 1: if element is a primitive
+    v.remove(Integer.valueOf(element));  // method 1.1
+    v.remove(v.indexOf(element));  // method 1.2
+    v.remove((Integer) element); // method 1.3: change the int value to Integer value that matches the array element type
+    // method 2: if element is not a primitive
+    v.remove(element);
+
+    list.removeAll(Arrays.asList(element));  // remove all values with element
+
+		// Displaying the Vector after deletion
+		System.out.println(v);
+
+		// Printing elements one by one
+		for (int i = 0; i < v.size(); i++)
+			System.out.print(v.get(i) + " ");
+	}
+}
+```
+
+### Stack
+
+- models and implements the Stack data structure
+- The class is based on the basic principle of last-in-first-out
+- In addition to the basic push and pop operations, the class provides three more functions of empty, search and peek
+- The class can also be referred to as the subclass of Vector
+
+```java
+import java.util.Stack;
+import java.util.Iterator;
+
+public class Test {
+	public static void main(String args[]) {
+		Stack<String> stack = new Stack<String>();
+		stack.push("Geeks");
+		stack.push("For");
+		stack.push("Geeks");
+		stack.push("Geeks");
+
+		// Iterator for the stack
+		Iterator<String> itr = stack.iterator();
+
+		// Printing the stack
+		while (itr.hasNext()) {
+			System.out.print(itr.next() + " ");
+		}
+
+		System.out.println();
+
+		stack.pop();
+
+    stack.remove(2);
+
+		// Iterator for the stack
+		itr = stack.iterator();
+
+		// Printing the stack
+		while (itr.hasNext()) {
+			System.out.print(itr.next() + " ");
+		}
+	}
+}
+```
+
+### Queue Interface
+
+- maintains the FIFO(First In First Out) order similar to a real-world queue line
+- This interface is dedicated to storing all the elements where the order of the elements matter
+- There are various classes like PriorityQueue, ArrayDeque, etc.
+  - Since all these subclasses implement the queue, we can instantiate a queue object with any of these classes
+
+```java
+import java.util.Queue;
+import java.util.PriorityQueue;
+import java.util.ArrayDeque;
 ```
 
 ```java
-// method 1
-List<String> list = Arrays.asList(element, element, ...)
+Queue <T> pq = new PriorityQueue<> ();
+Queue <T> ad = new ArrayDeque<> ();
+```
 
-// method 2
-List<String> list = new ArrayList<>();  // from java 7 onwards redundent <String> is not required, can just use <>
+### Priority Queue
 
-// Add element to string List (left to right)
-list.add(element);
+- it is used when the objects are supposed to be processed based on the priority
+- It is known that a queue follows the First-In-First-Out algorithm
+  - but sometimes the elements of the queue are needed to be processed according to the priority and this class is used in these cases
+- The PriorityQueue is based on the priority heap
+- The elements of the priority queue are ordered according to the natural ordering, or by a Comparator provided at queue construction time, depending on which constructor is used
 
-// Remove element from list at index
-list.remove(index);
+```java
+import java.util.PriorityQueue;
 
-// Access an element
-list.get(index);
+class Test {
+	public static void main(String args[]) {
+		// Creating empty priority queue
+		PriorityQueue<Integer> pQueue = new PriorityQueue<Integer>();
 
-// Find index of an element
-list.indexOf(element);
+		// Adding items to the pQueue using add()
+		pQueue.add(10);
+		pQueue.add(20);
+		pQueue.add(15);
+
+		// Printing the top element of PriorityQueue
+		System.out.println(pQueue.peek());
+
+		// Printing the top element and removing it from the PriorityQueue container
+		System.out.println(pQueue.poll());
+
+		System.out.println(pQueue.peek());
+	}
+}
+```
+
+### Deque Interface
+
+- a slight variation of the queue data structure
+- also known as a double-ended queue, is a data structure where we can add and remove the elements from both ends of the queue
+- This interface extends the queue interface
+  - The class which implements this interface is ArrayDeque
+  - Since ArrayDeque class implements the Deque interface, we can instantiate a deque object with this class
+
+```java
+import java.util.Deque;
+import java.util.ArrayDeque;
+```
+
+```java
+Deque<T> ad = new ArrayDeque<> ();
+```
+
+### ArrayDeque
+
+- implemented in the collection framework provides us with a way to apply resizable-array
+- This is a special kind of array that grows and allows users to add or remove an element from both sides of the queue
+- Array deques have no capacity restrictions and they grow as necessary to support usage
+
+```java
+import java.util.ArrayDeque;
+
+public class ArrayDequeDemo {
+	public static void main(String[] args) {
+		ArrayDeque<Integer> de_que = new ArrayDeque<Integer>(10);
+
+		de_que.add(10);
+		de_que.add(20);
+		de_que.add(30);
+		de_que.add(40);
+		de_que.add(50);
+
+		System.out.println(de_que);
+
+		de_que.clear();
+
+		// addFirst() method to insert the elements at the head
+		de_que.addFirst(564);
+		de_que.addFirst(291);
+
+		// addLast() method to insert the elements at the tail
+		de_que.addLast(24);
+		de_que.addLast(14);
+
+		System.out.println(de_que);
+	}
+}
+```
+
+### Set Interface
+
+- it is an unordered collection of objects in which duplicate values cannot be stored
+- This collection is used when we wish to avoid the duplication of the objects and wish to store only the unique objects
+- This set interface is implemented by various classes like HashSet, TreeSet, LinkedHashSet, etc.
+  - Since all the subclasses implement the set, we can instantiate a set object with any of these classes
+
+```java
+import java.util.Set;
+import java.util.LinkedHashSet;
+import java.util.TreeSet;
+```
+
+```java
+Set<T> hs = new HashSet<> ();
+Set<T> lhs = new LinkedHashSet<> ();
+Set<T> ts = new TreeSet<> ();
+```
+
+### HashSet
+
+- it is an inherent implementation of the hash table data structure
+- The objects that we insert into the HashSet do not guarantee to be inserted in the same order
+- The objects are inserted based on their hashcode
+- This class also allows the insertion of NULL elements
+
+```java
+import java.util.HashSet;
+
+public class HashSetDemo {
+	public static void main(String args[]) {
+		HashSet<String> hs = new HashSet<String>();
+
+		hs.add("Geeks");
+		hs.add("For");
+		hs.add("Geeks");
+		hs.add("Is");
+		hs.add("Very helpful");
+
+		// Traversing elements
+		Iterator<String> itr = hs.iterator();
+		while (itr.hasNext()) {
+			System.out.println(itr.next());
+		}
+	}
+}
+```
+
+### LinkedHashSet
+
+- it is very similar to a HashSet
+- The difference is that this uses a doubly linked list to store the data and retains the ordering of the elements
+
+```java
+import java.util.LinkedHashSet;
+
+public class LinkedHashSetDemo {
+	public static void main(String args[]) {
+		LinkedHashSet<String> lhs = new LinkedHashSet<String>();
+
+		lhs.add("Geeks");
+		lhs.add("For");
+		lhs.add("Geeks");
+		lhs.add("Is");
+		lhs.add("Very helpful");
+
+		// Traversing elements
+		Iterator<String> itr = lhs.iterator();
+		while (itr.hasNext()) {
+			System.out.println(itr.next());
+		}
+	}
+}
+```
+
+### SortedSet Interface
+
+- it is very similar to the set interface
+- The only difference is that this interface has extra methods that maintain the ordering of the elements
+- The sorted set interface extends the set interface and is used to handle the data which needs to be sorted
+- The class which implements this interface is TreeSet
+  - Since this class implements the SortedSet, we can instantiate a SortedSet object with this class
+
+```java
+import java.util.SortedSet;
+import java.util.TreeSet;
+```
+
+```java
+SortedSet<T> ts = new TreeSet<> ();
+```
+
+### TreeSet
+
+- it uses a Tree for storage
+- The ordering of the elements is maintained by a set using their natural ordering whether or not an explicit comparator is provided
+- This must be consistent with equals if it is to correctly implement the Set interface
+- It can also be ordered by a Comparator provided at set creation time, depending on which constructor is used
+
+```java
+import java.util.TreeSet;
+
+public class TreeSetDemo {
+	public static void main(String args[]) {
+		TreeSet<String> ts = new TreeSet<String>();
+
+		ts.add("Geeks");
+		ts.add("For");
+		ts.add("Geeks");
+		ts.add("Is");
+		ts.add("Very helpful");
+
+		// Traversing elements
+		Iterator<String> itr = ts.iterator();
+		while (itr.hasNext()) {
+			System.out.println(itr.next());
+		}
+	}
+}
+```
+
+### Map Interface
+
+- it is a data structure that supports the key-value pair mapping for the data
+- This interface doesn’t support duplicate keys because the same key cannot have multiple mappings
+- A map is useful if there is data and we wish to perform operations on the basis of the key
+- This map interface is implemented by various classes like HashMap, TreeMap, etc.
+  - Since all the subclasses implement the map, we can instantiate a map object with any of these classes
+
+```java
+import java.util.Map;
+import java.util.HashMap;
+import java.util.TreeMap;
+```
+
+```java
+Map<T> hm = new HashMap<> ();
+Map<T> tm = new TreeMap<> ();
+```
+
+### HashMap
+
+- it provides the basic implementation of the Map interface of Java
+- It stores the data in (Key, Value) pairs
+- To access a value in a HashMap, we must know its key
+- HashMap uses a technique called Hashing
+- Hashing is a technique of converting a large String to a small String that represents the same String so that the indexing and search operations are faster
+- HashSet also uses HashMap internally
+
+```java
+import java.util.HashMap;
+
+public class HashMapDemo {
+	public static void main(String args[]) {
+		HashMap<Integer, String> hm = new HashMap<Integer, String>();
+
+		hm.put(1, "Geeks");
+		hm.put(2, "For");
+		hm.put(3, "Geeks");
+
+		// Finding the value for a key
+		System.out.println("Value for 1 is " + hm.get(1));
+
+		// Traversing through the HashMap
+		for (Map.Entry<Integer, String> e : hm.entrySet())
+			System.out.println(e.getKey() + " " + e.getValue());
+	}
+}
+```
+
+### Collections static methods
+
+#### addAll
+
+- it is used to add all the specified elements to the specified collection
+- Elements to be added may be specified individually or as an array
+
+```java
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+class Test {
+	public static void main(String[] args) {
+		List<String> items = new ArrayList<>();
+
+		items.add("Shoes");
+		items.add("Toys");
+
+		// Add one or more elements
+		Collections.addAll(items, "Fruits", "Bat", "Ball");
+
+		// Printing the list contents
+		for (int i = 0; i < items.size(); i++) {
+			System.out.print(items.get(i) + " ");  // Shoes Toys Fruits Bat Ball
+		}
+	}
+}
+```
+
+#### sort
+
+- it is used to sort the elements present in the specified list of Collection in ascending order
+- `java.util.Collections.reverseOrder()` is used to sort in the descending order
+
+```java
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+class Test {
+	public static void main(String[] args) {
+		List<String> items = new ArrayList<>();
+
+		items.add("Shoes");
+		items.add("Toys");
+
+		Collections.addAll(items, "Fruits", "Bat", "Mouse");
+
+		// Sorting according to default ordering using sort() method
+		Collections.sort(items);
+
+		// Printing the elements
+		for (int i = 0; i < items.size(); i++) {
+			System.out.print(items.get(i) + " ");  // Bat Fruits Mouse Shoes Toys
+		}
+
+		System.out.println();
+
+		// Sorting according to reverse ordering
+		Collections.sort(items, Collections.reverseOrder());
+
+		// Printing the reverse order
+		for (int i = 0; i < items.size(); i++) {
+			System.out.print(items.get(i) + " ");  // Toys Shoes Mouse Fruits Bat
+		}
+	}
+}
+```
+
+#### binarySearch
+
+- returns the position of an object in a sorted list
+- To use this method, the list should be sorted in ascending order
+  - otherwise, the result returned from the method will be wrong
+- If the element exists in the list, the method will return the position of the element in the sorted list
+  - otherwise, the result returned by the method would be the (index where the element should have been present if exist - 1)
+
+```java
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+public class Test {
+	public static void main(String[] args) {
+		List<String> items = new ArrayList<>();
+
+		items.add("Shoes");
+		items.add("Toys");
+		items.add("Horse");
+		items.add("Ball");
+		items.add("Grapes");
+
+		// Sort the List
+		Collections.sort(items);
+
+		// BinarySearch on the List
+		System.out.println(
+			"The index of Horse is "
+			+ Collections.binarySearch(items, "Horse"));  // The index of Horse is 2
+
+		// BinarySearch on the List, value not found
+		System.out.println(
+			"The index of Dog is "
+			+ Collections.binarySearch(items, "Dog"));  // The index of Dog is -2
+	}
+}
+```
+
+#### copy
+
+- it is used to copy all the elements from one list into another
+  - After the operation, the index of each copied element in the destination list will be identical to its index in the source list
+  - The destination list must be at least as long as the source list
+  - If it is longer, the remaining elements in the destination list are unaffected
+  - values from source list will replace the values in the destination list, remaining elements in the destination list are unaffected
+
+```java
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+class Test {
+	public static void main(String[] args) {
+		List<String> destination_List = new ArrayList<>();
+
+		destination_List.add("Shoes");
+		destination_List.add("Toys");
+		destination_List.add("Horse");
+		destination_List.add("Tiger");
+
+		System.out.println(
+			"The Original Destination list is ");
+
+		for (int i = 0; i < destination_List.size(); i++) {
+			System.out.print(destination_List.get(i) + " ");  // Shoes Toys Horse Tiger
+		}
+		System.out.println();
+
+		// Create source list
+		List<String> source_List = new ArrayList<>();
+
+		source_List.add("Bat");
+		source_List.add("Frog");
+		source_List.add("Lion");
+
+		// Copy the elements from source to destination
+		Collections.copy(destination_List, source_List);
+
+		// Printing the modified list
+		System.out.println(
+			"The Destination List After copying is ");
+
+		for (int i = 0; i < destination_List.size(); i++) {
+			System.out.print(destination_List.get(i) + " ");  // Bat Frog Lion Tiger
+		}
+	}
+}
+```
+
+### disjoin
+
+- it is used to check whether two specified collections are disjoint or not
+- the 2 collections are disjoint if they have no elements in common
+- It returns true if the two collections do not have any element in common
+
+```java
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+
+class Test {
+	public static void main(String[] args) {
+		List<String> list1 = new ArrayList<>();
+
+		list1.add("Shoes");
+		list1.add("Toys");
+		list1.add("Horse");
+		list1.add("Tiger");
+
+		List<String> list2 = new ArrayList<>();
+
+		list2.add("Bat");
+		list2.add("Frog");
+		list2.add("Lion");
+
+		// Check if disjoint or not
+		System.out.println(
+			Collections.disjoint(list1, list2));  // true
+	}
+}
 ```
 
 [back to top](#table-of-contents)
@@ -1793,7 +2441,7 @@ System.out.println(names);  // [Sam, Paul, Michaela, Jane]
 
 - removing duplicates
 
-  - elimate duplicates and auto sort
+  - eliminate duplicates and auto sort
 
   ```java
   import java.util.Arrays;

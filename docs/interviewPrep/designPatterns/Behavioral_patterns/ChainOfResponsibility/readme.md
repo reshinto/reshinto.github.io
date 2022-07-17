@@ -1,4 +1,4 @@
-# Chain of Responsibility design pattern
+# Chain of Responsibility
 
 - It allows passing of request along the chain of potential handlers until 1 of them handles the request
 - it allows multiple objects to handle the request without coupling the sender class to the concrete classes of the receivers

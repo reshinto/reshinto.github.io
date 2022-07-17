@@ -29,20 +29,36 @@
 
 ![Abstract Factory](../../images/abstract_factory.png)
 
-1. Abstract Products declare interfaces for a set of distinct but related products which make up a product family.
+1. Abstract Products declare interfaces for a set of distinct but related products which make up a product family
 
-2. Concrete Products are various implementations of abstract products, grouped by variants. Each abstract product (chair/sofa) must be implemented in all given variants (Victorian/Modern).
+2. Concrete Products are various implementations of abstract products, grouped by variants. Each abstract product (chair/sofa) must be implemented in all given variants (Victorian/Modern)
 
-3. The Abstract Factory interface declares a set of methods for creating each of the abstract products.
+3. The Abstract Factory interface declares a set of methods for creating each of the abstract products
 
-4. Concrete Factories implement creation methods of the abstract factory.
+4. Concrete Factories implement creation methods of the abstract factory
 
-   - Each concrete factory corresponds to a specific variant of products and creates only those product variants.
+   - Each concrete factory corresponds to a specific variant of products and creates only those product variants
 
-5. Although concrete factories instantiate concrete products, signatures of their creation methods must return corresponding abstract products.
-   - This way the client code that uses a factory doesn’t get coupled to the specific variant of the product it gets from a factory.
-   - The Client can work with any concrete factory/product variant, as long as it communicates with their objects via abstract interfaces.
+5. Although concrete factories instantiate concrete products, signatures of their creation methods must return corresponding abstract products
+   - This way the client code that uses a factory doesn’t get coupled to the specific variant of the product it gets from a factory
+   - The Client can work with any concrete factory/product variant, as long as it communicates with their objects via abstract interfaces
 
 ## Summary
 
 - makes the factory process easier by offering a generic interface to build a family of related objects
+
+## When to apply
+
+- We should get benefits from usage of the Abstract Factory while working with various families of related products
+  - In this case we are removing the dependency on concrete classes of these products and allowing future extensibility
+- The abstract factory encapsulates the details of object creation
+  - But client code can still work with all types of created objects, since their interface is initially defined
+
+## Pros and Cons
+
+| pros                                                                       | cons                                                                                                      |
+| -------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------- |
+| ensures compatibility of products                                          | code becomes more complicated after introducing lots of new interfaces                                    |
+| gets rid of coupling                                                       | after extending abstract factory interface all concrete factories will need to be updated to implement it |
+| extracts the product creation code into one place. (Single responsibility) |                                                                                                           |
+| introducing new variants without breaking existing code. (Open/Closed)     |                                                                                                           |

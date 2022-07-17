@@ -1,4 +1,4 @@
-# Mediator design pattern
+# Mediator
 
 - lets you reduce chaotic dependencies between objects
 - the pattern restricts direct communications between the objects

@@ -1,4 +1,4 @@
-# Adapter design pattern
+# Adapter
 
 - original definition
   - Convert the interface of a class into another interface clients expect

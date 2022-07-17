@@ -1,4 +1,4 @@
-# Flyweight design pattern
+# Flyweight
 
 - It allows programs to support vast quantities of objects by keeping their memory consumption low
 - it is achieved by sharing parts of object state between multiple objects

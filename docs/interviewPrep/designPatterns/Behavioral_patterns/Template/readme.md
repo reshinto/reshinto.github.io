@@ -1,4 +1,4 @@
-# Template design pattern
+# Template
 
 - it is a design pattern that defines the skeleton of an algorithm in the superclass but lets subclasses override specific steps of the algorithm without changing its structure
 
@@ -47,7 +47,7 @@
   - it is an optional step with an empty body
   - a template method would work even if a hook isn't overridden
   - usually hooks are placed before and after crucial steps of algorithms
-    - provding subclasses with additional extension points for an algorithm
+    - providing subclasses with additional extension points for an algorithm
 
 ## Analogy
 
@@ -101,3 +101,68 @@
 - some clients may be limited by the provided skeleton of an algorithm
 - you might violate the Liskov Substitution Principle by suppressing a default step implementation via a subclass
 - template methods tend to be harder to maintain the more steps they have
+
+## Example
+
+```ts
+abstract class Builder {
+  // Template method
+  public build() {
+    this.test();
+    this.lint();
+    this.assemble();
+    this.deploy();
+  }
+
+  abstract test();
+  abstract lint();
+  abstract assemble();
+  abstract deploy();
+}
+
+class AndroidBuilder extends Builder {
+  public test() {
+    return "Running android tests";
+  }
+  public lint() {
+    return "Linting android code";
+  }
+  public assemble() {
+    return "Assembling android build";
+  }
+  public deploy() {
+    return "Deploying android build to server";
+  }
+}
+
+class IosBuilder extends Builder {
+  public test() {
+    return "Running ios tests";
+  }
+  public lint() {
+    return "Linting ios code";
+  }
+  public assemble() {
+    return "Assembling ios build";
+  }
+  public deploy() {
+    return "Deploying ios build to server";
+  }
+}
+
+const androidBuilder = new AndroidBuilder();
+
+androidBuilder.build();
+// Running android tests
+// Linting android code
+// Assembling android build
+// Deploying android build to server
+
+const iosBuilder = new IosBuilder();
+
+androidBuilder.build();
+// Running ios tests
+// Linting ios code
+// Assembling ios build
+// Deploying ios build to server
+```

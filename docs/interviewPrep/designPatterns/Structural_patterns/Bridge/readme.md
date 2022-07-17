@@ -1,4 +1,4 @@
-# Bridge pattern
+# Bridge
 
 - It divides business logic or huge class into separate class hierarchies that can be developed independently
   - one of these hierarchies (often called `Abstraction`) will get a reference to an object of the 2nd hierarchy (`Implementation`)

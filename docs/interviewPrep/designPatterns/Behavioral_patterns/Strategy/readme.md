@@ -1,6 +1,7 @@
-# Strategy design pattern
+# Strategy
 
 - it lets you define a family of algorithms, put each of them into a separate class and make their objects interchangeable
+- Allows switching between algorithms or strategies depending on situation
 
 ## Problem
 
@@ -112,3 +113,56 @@
 - Clients must be aware of the differences between strategies to be able to select a proper one
 - A lot of modern programming languages have functional type support that lets you implement different versions of an algorithm inside a set of anonymous functions
 - Then you could use these functions exactly as you’d have used the strategy objects, but without bloating your code with extra classes and interfaces
+
+## Example
+
+```ts
+// The strategy interface declares operations common
+// to all supported versions of some algorithm.
+interface Strategy {
+  execute(a: number, b: number): number;
+}
+
+// Concrete strategies implement the algorithm while following
+// the base strategy interface. The interface makes them
+// interchangable in the context.
+class ConcreteStrategyAdd implements Strategy {
+  execute(a, b) {
+    return a + b;
+  }
+}
+
+class ConcreteStrategySubstract implements Strategy {
+  execute(a, b) {
+    return a - b;
+  }
+}
+
+class ConcreteStrategyMultiply implements Strategy {
+  execute(a, b) {
+    return a * b;
+  }
+}
+```
+
+```ts
+// The context defines the interface of interest to clients.
+class Context {
+  private strategy: Strategy;
+
+  setStrategy(s: Strategy) {
+    this.strategy = s;
+  }
+  // The context delegates some work to the strategy object
+  // instead of implementing multiple versions of the
+  // algorithm on its own.
+  executeStrategy(a: number, b: number) {
+    return this.strategy.execute(a, b);
+  }
+}
+
+let ctx = new Context();
+
+ctx.setStrategy(new ConcreteStrategyAdd());
+ctx.executeStrategy(5, 2); // 7
+```

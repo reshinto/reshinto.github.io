@@ -1,9 +1,15 @@
-# Builder pattern
+# Builder
 
 - A builder builds anything that requires the culmination of multiple variant steps and processes that result in a finished entity
 - A builder understands the requirement in the easiest of expression and translates that into the outcome, using several complex internal processes
 - Definition by the Gang of Four
   - A builder separates the construction of a complex object from its representation so that the same construction process can create different representations
+- in other words
+  - it lets you construct complex objects step by step
+    - The pattern allows you to produce different types and representations of an object using the same construction code
+  - Builder pattern allows creating different parts of object, avoiding overload of constructor
+    - Builder pattern can be used, when object should be built with several parts, or if objects creation takes lots of steps and each of these steps should be configurable
+  - Think of it as dividing an object creation into several steps with different parameters
 
 ## Purpose for using it
 
@@ -44,16 +50,92 @@
 - because sometimes you just want a bit of convenience when building up objects
   - especially if those objects are complicated
 
+## When to apply
+
+- to get rid of a "telescopic constructor"
+  - the pattern lets you build objects step by step, using only those steps that you really need
+  - After implementing the pattern, you do not have to cram dozens of parameters into your constructors anymore
+- to construct complex objects
+  - a builder does not expose the unfinished product while running construction steps
+  - This prevents the client code from fetching an incomplete result
+
+## Pros and Cons
+
+| pros                                                                                 | cons                                                                                                                                          |
+| ------------------------------------------------------------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------- |
+| constructing objects step-by-step, defer construction steps or run steps recursively | increases complexity of the code since the pattern requires creating multiple new classes                                                     |
+| reusing the same construction code when building various representations of products | client will be bound to concrete builder classes, since builders interface does not have a method for fetching the result of the construction |
+| isolating complex construction code from the business logic of the product           |                                                                                                                                               |
+
 ## example
 
 - the following is an example of not creating a html builder
   - resulting in a tedious method of creating a html
 
+### TypeScript
+
+```ts
+class Car {}
+
+interface Builder {
+  reset();
+  setSeats(n: Number);
+  setEngine(n: String);
+  setTripComputer(n: Boolean);
+  setGPS(n: Boolean);
+}
+
+class CarBuilder implements Builder {
+  private car: Car;
+
+  constructor() {
+    this.reset();
+  }
+
+  reset() {
+    this.car = new Car();
+  }
+  setSeats() {}
+  setEngine() {}
+  setTripComputer() {}
+  setGPS() {}
+
+  getProduct(): Car {
+    const product = this.car;
+    this.reset();
+    return product;
+  }
+}
+```
+
+```ts
+class Director {
+  private builder: Builder;
+
+  setBuilder(b: Builder) {
+    this.builder = b;
+  }
+
+  makeSportCar(b: Builder = this.builder) {
+    b.reset();
+    b.setSeats(2);
+    b.setEngine("V12");
+    b.setTripComputer(true);
+    b.setGPS(true);
+  }
+}
+
+const director = new Director();
+const builder = new CarBuilder();
+
+director.makeSportCar(builder);
+```
+
 ### C#
 
 - Not using a html builder
 
-```c#
+```csharp
 public class Program {
   public static void Main() {
     string hello = "hello";
@@ -81,7 +163,7 @@ public class Program {
 
 - Creating a html builder
 
-```c#
+```csharp
 using System.Collections.Generic;
 
 public class HtmlElement {
@@ -165,7 +247,7 @@ public class Program {
 - Fluent builder
   - enable chaining of methods
 
-```c#
+```csharp
 using System.Collections.Generic;
 
 public class HtmlElement {
@@ -242,7 +324,7 @@ public class Program {
 - builders inherit from other builders
   - will be problematic if used fluent interface approach
 
-```c#
+```csharp
 using System;
 using System.Collections.Generic;
 
@@ -293,7 +375,7 @@ internal class Program
 - 1 way to get to get fluent interfaces to inherit is to use recursive generics approach
   - eg. class Foo : Bar\<Foo\>
 
-```c#
+```csharp
 using System;
 using System.Collections.Generic;
 
@@ -367,7 +449,7 @@ internal class Program
 
 - functional programming style
 
-```c#
+```csharp
 using System;
 using System.Collections.Generic;
 

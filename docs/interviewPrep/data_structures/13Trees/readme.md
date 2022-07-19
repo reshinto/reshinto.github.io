@@ -221,11 +221,11 @@ def in_order(current_node):
 ```
 
 ```ts
-function inOrder(currentNode: Node | null) {
-  if (currentNode) {
-    inOrder(currentNode.left);
-    console.log(currentNode.value);
-    inOrder(currentNode.right);
+function inOrder(node: Node | null) {
+  if (node) {
+    inOrder(node.left);
+    console.log(node.value);
+    inOrder(node.right);
   }
 }
 ```
@@ -301,7 +301,7 @@ def pre_order(root):
 #### Postorder (Left, Right, Root)
 
 - example
-  - 5, 3, 6, 12, 11, 9
+  - 3, 6, 5, 11, 12, 9
 - prints the value of the left subtree, then the value of the right subtree, then the root value
 
 1. Traverse the left subtree, i.e., call Postorder(left-subtree)
@@ -319,8 +319,8 @@ def post_order(current_node):
 ```ts
 function postOrder(node: TreeNode | null) {
   if (node) {
-    preOrder(node.left);
-    preOrder(node.right);
+    postOrder(node.left);
+    postOrder(node.right);
     console.log(node.value);
   }
 }

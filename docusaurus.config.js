@@ -53,6 +53,7 @@ const config = {
     ],
   ],
   plugins: [
+    "docusaurus-lunr-search",
     [
       "docusaurus-plugin-remote-content",
       {

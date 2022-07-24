@@ -68,6 +68,14 @@
 
 ### Introduction
 
+- what is the node event loop?
+
+  - it is a semi-infinite while loop that allows Node.js to perform non-blocking I/O operations
+    - despite the fact that JavaScript is single-threaded
+    - by offloading operations to the system kernel whenever possible
+    - Since most modern kernels are multi-threaded, they can handle multiple operations executing in the background
+      - When one of these operations completes, the kernel tells Node.js so that the appropriate callback may be added to the poll queue to eventually be executed
+
 - Why is this so important?
   - Because it explains how Node.js can be asynchronous and have non-blocking I/O
 - The Node.js JavaScript code runs on a single thread
@@ -256,7 +264,7 @@ bar
 
   1. `process.nextTick` queue first
   2. then executes `promises.then()` microtask queue
-  3. then executes `setTimeout`, `setImmediate` macrotask queue
+  3. then executes `setTimeout`, `setImmediate`callbacks macrotask queue
 
 - code will
   1. first call `start()`
@@ -274,6 +282,7 @@ const start = () => {
   console.log("start");
   setImmediate(baz);
   new Promise((resolve, reject) => {
+    console.log("resolve");
     resolve("bar");
   }).then((resolve) => {
     console.log(resolve);
@@ -287,6 +296,7 @@ start();
 
 ```
 start
+resolve
 foo
 bar
 zoo

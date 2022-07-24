@@ -1,6 +1,8 @@
 # Multi-Threading
 
-## Synchronous
+## Single Thread
+
+### Synchronous
 
 ```python
 import requests
@@ -38,7 +40,7 @@ if __name__ == '__main__':
     print(f"It took {total_time} seconds to make {len(post_ids)} API calls")
 ```
 
-## Asynchronous
+### Asynchronous
 
 ```python
 import asyncio

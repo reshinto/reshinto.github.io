@@ -6,7 +6,7 @@ const darkCodeTheme = require("prism-react-renderer/themes/dracula");
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "I'm a",
+  title: "Terence Portfolio",
   tagline:
     "Self-taught Software Engineer & Everything that can be automated, must be automated fanatic",
   url: "http://terencekong.net",
@@ -52,7 +52,24 @@ const config = {
       }),
     ],
   ],
+
   plugins: [
+    [
+      "docusaurus-portfolio-plugin",
+      {
+        username: "reshinto",
+        path: "/portfolio",
+        pageTitle: "Portfolio",
+        pageDescription: "My Portfolio",
+        userOptions: {},
+        repoOptions: {
+          type: "public",
+          sort: "stargazers_count",
+          direction: "desc",
+          numRepos: Number.MAX_SAFE_INTEGER,
+        },
+      },
+    ],
     "docusaurus-lunr-search",
     [
       "docusaurus-plugin-remote-content",
@@ -67,6 +84,7 @@ const config = {
     ],
   ],
 
+  themes: ["docusaurus-portfolio-theme"],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
@@ -79,10 +97,11 @@ const config = {
         items: [
           {
             type: "doc",
-            docId: "intro",
+            docId: "documentation",
             position: "left",
-            label: "Guides",
+            label: "Documentation",
           },
+          {to: "/portfolio", label: "Portfolio", position: "left"},
           // {to: "/blog", label: "Blog", position: "left"},
           {
             href: "https://github.com/reshinto",
@@ -98,8 +117,8 @@ const config = {
             title: "Docs",
             items: [
               {
-                label: "Guides",
-                to: "/docs/intro",
+                label: "Documentation",
+                to: "/docs/documentation",
               },
             ],
           },

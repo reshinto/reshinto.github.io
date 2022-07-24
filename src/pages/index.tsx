@@ -51,7 +51,7 @@ function HomepageHeader() {
       <div className="container">
         <h1 className="hero__title">Hey! I'm Terence Kong</h1>
         <h2 className="hero__subtitle">
-          {siteConfig.title} {show}
+          {"I'm a"} {show}
           <span className="blink">|</span>
         </h2>
       </div>
@@ -62,10 +62,7 @@ function HomepageHeader() {
 export default function Home(): JSX.Element {
   const {siteConfig} = useDocusaurusContext();
   return (
-    <Layout
-      title={`Hello from ${siteConfig.title}`}
-      description="Description will go into a meta tag in <head />"
-    >
+    <Layout description="Description will go into a meta tag in <head />">
       <HomepageHeader />
       <main>
         <HomepageFeatures />

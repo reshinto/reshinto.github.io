@@ -23,6 +23,12 @@
 - check maven version
   > mvn -version
 
+## Maven collector features
+
+- dependency management
+- ability to build lifecycle goals
+- ability to run unit tests
+
 ## Project Object Model (POM)
 
 - it has a set of standards, a project lifecycle, a dependency management system, and logic for executing plugin at defined phases in a lifecycle
@@ -135,8 +141,8 @@
     ...
   </project>
   ```
-- `server` categpry is used to specify server definition
-  - can also configure it in the `settings.xml` fiel
+- `server` category is used to specify server definition
+  - can also configure it in the `settings.xml` field
   ```xml
   <server>
     <id>internal repo</id>
@@ -426,7 +432,7 @@
 - example of external relationships are `Log4j` and `JUnit`
 - Internal is where project-a depends on project-b
 - they are established using the Maven coordinates
-- relationships are decribed as dependencies
+- relationships are described as dependencies
 - projects can inherit project relationships
 
 #### transitive dependencies
@@ -438,7 +444,7 @@
   - when 2 versions of the same artifact are needed
     - the closest to the actual project wins
       - e.g: actual project <- A needs package abc version 1.0 <- B needs package abc version 1.2
-        - package abc vesion 1.0 wins
+        - package abc version 1.0 wins
     - if `dependencyManagement` tag is used
       - the chosen version will be used
     - if declaring in local dependency
@@ -482,7 +488,7 @@
 
 - list of packaging tools plugins
   - JAR plugin
-    - creates JAR or Jave Archive files
+    - creates JAR or Java Archive files
   - others
     - ear, ejb, rar, war, app-client/acr, shade, source, jlink, jmod
 - example of using a plugin and goal in the terminal
@@ -519,6 +525,15 @@
     > mvn help:describe -DgroupId=org.apache.maven.plugins -DartifactId=maven-archetype-plugin
 
 ## Create a project with Maven
+
+- generate a new project with interactive mode
+
+  > mvn archetype:generate -DarchetypeGroupId=org.apache.maven.archetypes -DarchetypeArtifactId=maven-archetype-quickstart
+
+- `-DgroupId`: defines where the project is located
+- `-DartifactId`: app name, only use `-` to divide words
+- `-Dversion`: can just use the default version
+- `-Dpackage`: this should match with the `groupId`
 
 ### Sample program
 

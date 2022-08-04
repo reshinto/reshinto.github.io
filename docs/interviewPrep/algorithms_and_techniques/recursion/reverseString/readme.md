@@ -143,3 +143,13 @@ function reverseString(input) {
   return strArr.join("");
 }
 ```
+
+```javascript
+function reverseString(input) {
+  let res = "";
+  for (let i = 0; i < input.length; i++) {
+    res = input[i] + res;
+  }
+  return res;
+}
+```

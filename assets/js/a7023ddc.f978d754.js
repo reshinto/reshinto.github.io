@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkportfolio=self.webpackChunkportfolio||[]).push([[11713],{53457:s=>{s.exports=JSON.parse('[{"label":"cypress","permalink":"/blog/tags/cypress","count":1},{"label":"visual-testing","permalink":"/blog/tags/visual-testing","count":1},{"label":"docusaurus","permalink":"/blog/tags/docusaurus","count":1}]')}}]);

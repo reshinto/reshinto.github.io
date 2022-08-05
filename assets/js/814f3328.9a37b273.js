@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkportfolio=self.webpackChunkportfolio||[]).push([[52535],{45641:t=>{t.exports=JSON.parse('{"title":"Recent posts","items":[{"title":"Cypress Visual Testing Introduction","permalink":"/blog/cypress-visual-testing-introduction"},{"title":"MDX Blog Post","permalink":"/blog/mdx-blog-post"}]}')}}]);

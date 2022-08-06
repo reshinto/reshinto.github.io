@@ -1,3 +1,6 @@
+# C# Example
+
+```csharp
 /*
 Liskov Substitution Principle
 
@@ -53,3 +56,4 @@ public class Program {
     System.Console.WriteLine($"{sq} has area {Area(sq)}");
   }
 }
+```

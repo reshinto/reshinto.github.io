@@ -1,4 +1,4 @@
-interface Entity2 {
+interface Entity {
   name: string;
 }
 
@@ -16,7 +16,7 @@ interface HasHealth {
   takeDamage(amount: number): void;
 }
 
-class Character2 implements Entity2, Mover, Attacker, HasHealth {
+class Character implements Entity, Mover, Attacker, HasHealth {
   name: string;
   attackDamage: number;
   health: number;
@@ -44,7 +44,7 @@ class Character2 implements Entity2, Mover, Attacker, HasHealth {
   }
 }
 
-class Wall2 implements Entity2, HasHealth {
+class Wall implements Entity, HasHealth {
   name: string;
   health: number;
 
@@ -59,7 +59,7 @@ class Wall2 implements Entity2, HasHealth {
   }
 }
 
-class Turret2 implements Entity2, Attacker {
+class Turret implements Entity, Attacker {
   name: string;
   attackDamage: number;
 
@@ -76,10 +76,10 @@ class Turret2 implements Entity2, Attacker {
   }
 }
 
-const turret2 = new Turret2("Turret", 5);
-const character2 = new Character2("Character", 3, 100);
-const wall2 = new Wall2("Wall", 200);
+const turret = new Turret("Turret", 5);
+const character = new Character("Character", 3, 100);
+const wall = new Wall("Wall", 200);
 
-turret2.attack(character2);
-character2.move();
-character2.attack(wall2);
+turret.attack(character);
+character.move();
+character.attack(wall);

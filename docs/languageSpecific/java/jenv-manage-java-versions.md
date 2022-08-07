@@ -31,6 +31,8 @@ eval "$(jenv init -)"
 
 - Install latest
   - `brew install openjdk`
+- Install Java 7
+  - `brew install --cask homebrew/cask-versions/zulu7`
 - Install Java 8
   - `brew install AdoptOpenJDK/openjdk/adoptopenjdk8`
 - Install Java 9

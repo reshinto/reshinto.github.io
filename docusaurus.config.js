@@ -70,7 +70,6 @@ const config = {
         },
       },
     ],
-    "docusaurus-lunr-search",
     [
       "docusaurus-plugin-remote-content",
       {
@@ -84,7 +83,22 @@ const config = {
     ],
   ],
 
-  themes: ["docusaurus-portfolio-theme"],
+  themes: [
+    "docusaurus-portfolio-theme",
+    [
+      require.resolve("@easyops-cn/docusaurus-search-local"),
+      {
+        // ... Your options.
+        // `hashed` is recommended as long-term-cache of index file is possible.
+        hashed: true,
+        indexPages: true,
+        // For Docs using Chinese, The `language` is recommended to set to:
+        // ```
+        // language: ["en", "zh"],
+        // ```
+      },
+    ],
+  ],
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({

@@ -1,1 +1,0 @@
-(self.webpackChunkportfolio=self.webpackChunkportfolio||[]).push([[25684],{29039:(o,s,e)=>{"use strict";e.d(s,{Z:()=>t});var p=e(31336);const t=p},15525:()=>{}}]);

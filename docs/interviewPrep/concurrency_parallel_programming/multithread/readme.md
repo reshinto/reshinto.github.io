@@ -26,7 +26,7 @@
 ## Concurrency
 
 - execution of tasks in a single core environment
-- tasks are context switched betwen one another
+- tasks are context switched between one another
 
 ## Parallelism
 

@@ -12,7 +12,7 @@
 
 - every thread has its own stack
 - it is managed by the Java Virtual Machine (JVM)
-- java knows exactly when data on the stack can be destoryed
+- java knows exactly when data on the stack can be destroyed
 - used for local primitive variables
   - e.g.: ints and doubles
 - stack works as First In Last Out structure (FILO)
@@ -449,8 +449,8 @@ _____      | tempValue = 10     |      |                    |      _____
 
 - unlike other languages, in java, all objects are stored in the `heap` without giving the developers a choice
   - reason is due to 1 of the design goals of java during the mid 1990s
-    - to simiplify choices and where possible, to provide a single, clean way of doing things
-  - in modern JVM, it is more efficient and clever, as it is able to detech an object being created is not going to be shared (doesn't go outside the code block in which its created), thus creating it on the stack
+    - to simplify choices and where possible, to provide a single, clean way of doing things
+  - in modern JVM, it is more efficient and clever, as it is able to detect an object being created is not going to be shared (doesn't go outside the code block in which its created), thus creating it on the stack
 - example
 
   - reason for the following example is because java will see that the 2nd string object has identical value to the first string, thus there was no need to create a new string object in the `heap`
@@ -493,7 +493,9 @@ _____      | tempValue = 10     |      |                    |      _____
 ### Garbage eligibility
 
 - in java, once an object is no longer needed, it gets removed automatically
+
   - java avoids memory leaks by
+
     - running on a virtual machine
       - when calling the `new` keyword in Java to create a new object
         - memory is not being taken from the Operating System
@@ -501,18 +503,22 @@ _____      | tempValue = 10     |      |                    |      _____
           - the virtual machine is another computer program written in C
             - the C program will control the request for memory for objects from the OS and controls the freeing of memory when objects are no longer needed
     - adopting a Garbage Collection strategy
+
       - it was invested in 1959 with the LISP programming language
       - idea of garbage collection is that programmers ask for objects to be allocated on the heap
+
         - but do not need to free them when they are finished
         - instead, an automatic process analyzes the heap and aims to work out which objects are no longer needed
           - any unneeded objects can be deleted
         - it follows a rule
+
           - any object on the heap which cannot be reached through a reference from the stack is eligible for garbage collection
             ![Garbage collection 1](../../images/garbageCollection1.png)
 
             ![Garbage collection 2](../../images/garbageCollection2.png)
 
             ![Garbage collection 3](../../images/garbageCollection3.png)
+
 - in C, C++ or similar languages, programmer have to indicate that the object is no longer required with the `free()` function
   - in visual basic, need to set object equal to null to clear the reference of the object
   - not doing so will cause the memory that is being used to store the object to be never released
@@ -547,7 +553,7 @@ public class Main {
     System.out.println("Total memory: " + availableBytes / 1024 + "kb");
 
     for (int i=0; i<1000000; i++) {
-      // these are instantly availabel for garbage collection
+      // these are instantly available for garbage collection
       // because as soon as the loop is closed, the object is no longer referenced by a variable on the stack
       Customer customer = new Customer("Customer " + i);
     }
@@ -703,7 +709,7 @@ public class Main {
 - `-Xmx` set the maximum heap size
   - example
     > -Xmx512m
-  - useful in assiting the detection of potential memory leaks
+  - useful in assisting the detection of potential memory leaks
   - might want to set a low maximum heap size to test whether the app will run satisfactorily in a memory constrained environment
   - default heap size can be found via the javadocs
     - in java 8, the default heap size is usually a quarter of the computer's total memory
@@ -712,7 +718,7 @@ public class Main {
       - the default starting size is `1/64` of the total memory of the computer, with a min initial size of 8 mb
 - `-Xms` set the starting heap size
   - there will be some performance impact each time the heap needs to increase its memory from starting size to total size
-  - thus setting heap size to the mimum that the app normally needs is goo in performance critical circumstances
+  - thus setting heap size to the minimum that the app normally needs is goo in performance critical circumstances
   - if running a server app where there won't be other apps competing with the memory of the machine, setting the max and starting heap sizes to be the same is ok
 
 ### PermGen size
@@ -764,7 +770,7 @@ public class Main {
      - performs most of its work concurrently
      - it is the closest that we can get to a real-time garbage collection
      - this is where it pauses the app to do the marking of objects, then resumes the app while the sweep phase takes place
-     - basially the `stop the world` part of the garbage collection process is minimized
+     - basically the `stop the world` part of the garbage collection process is minimized
      - there are 2 Mostly Concurrent collectors to choose from
        1. Mark Sweep Collector
           > -XX:+UseConcMarkSweepGC

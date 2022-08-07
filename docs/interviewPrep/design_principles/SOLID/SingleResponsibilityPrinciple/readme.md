@@ -106,6 +106,13 @@ class TradeProcessor {
 
 ## Summary
 
+- essence of SRP is to combine code that changes for 1 reason and separate the code that changes for another
+  - the principle suggests that we draw boundaries between modules so that a change in business rules affects as few modules as possible, ideally one
+- benefits of SRP
+  - encourages the creation of modules that change for only 1 reason
+    - it helps to limit the impact of these changes and control the complexity of the program
+  - the principle allows you to reduce the amount of code (modules) that needs to be changed when changing business rules
+
 ### When to use?
 
 - Your module is constantly changing and the requirements for changes come from different roles in your project

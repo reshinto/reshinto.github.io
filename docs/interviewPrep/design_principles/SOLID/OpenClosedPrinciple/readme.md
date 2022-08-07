@@ -79,17 +79,18 @@ class ImporterFactory {
 
 ## Summary
 
+- essence of OCP
+  - design modules so that their functionality can be expanded with other modules if requirements change
+    - new functionality should appear only by creating new entities and composing them with old ones
+  - design modules so that, ideally, their code does not need to be changed when requirements change
+    - there are always changes that cannot be made without changing the code of some module
+      - no system can be 100% closed
+      - therefore, a strategic approach is important when designing
+      - it is necessary to determine from which changes and which modules you want to close
+  - design modules to relate to each other through abstractions rather than specific implementation
+    - the principle encourages linking entities through abstractions (rather than implementation) where business requirements may change
+- benefits of OCP
+  - reduces the amount of code that needs to be changed as business requirements change
+  - makes modification safe and relatively cheap
 - the goal of OCP is to minimize changes to existing classes when new functionality is added
   - It is achieved by adding extension points (not just inheritance) that allow us to take advantage of powerful tools like composition, aggregation, and polymorphism
-
-## Example that violates the Open-Closed Principle
-
-- refer to `violateOpenClosedPrinciple.js`
-- potential issues:
-  - if later, you want to add a new option or new question type to the quiz
-    - e.g.: a range of values type
-      - refer to `violateOpenClosedPrincipleExtended.js`
-
-## Example that passes the Open-Closed Principle
-
-- refer to `passOpenClosedPrinciple.js`

@@ -104,10 +104,12 @@
 - there are 2 main memory architectures that exists for parallel computing
 
   1. shared memory
+
      - all processors have access to the same memory as part of a global address space
      - although each processor operates independently
        - if 1 processor changes a memory location, all of the other processor operates will see that change
      - the term shared memory does not mean all data exists on the same physical device
+
        - it could be spread across a cluster of systems
        - the key is that both of the processors see everything that happens in the shared memory space
        - the shared memory architectures have the advantage of being easier for programming in regards to memory
@@ -118,9 +120,11 @@
        - often classified into 1 of 2 categories, which are based on how the processors are connected to memory and how quickly they can access it
 
          - Uniform memory access (UMA)
+
            - all of the processors have equal access to the memory
              - means that they can access it equally fast
            - several types of UMA architectures
+
              - most common is `symmetric multiprocessing system` (SMP)
 
                ![Symmetric Multiprocessing](../../images/smp.png)
@@ -133,6 +137,7 @@
                    - that change needs to be updated back in the shared memory before another processor reads the old value, which is no longer current
                    - this issue is called `cache coherency`
                    - handled by the hardware in multicore processors
+
          - Non-uniform memory access (NUMA)
 
            ![Non-uniform memory access](../../images/numa.png)
@@ -141,6 +146,7 @@
            - the access is nonuniform because some processors will have quicker access to certain parts of memory than others
            - it takes longer to access things over the bus
            - overall, every processor can still see everything in memory
+
   2. distributed memory
 
      ![Distributed Memory](../../images/distibutedMemory.png)
@@ -152,7 +158,7 @@
        - if it makes changes to its local memory, that change is not automatically reflected in the memory of other processors
        - it is up to the programmers to explicitly define how and when data is communicated between the nodes in a distributed system
          - this is a disadvantage
-     - advatange of a distributed memory architecture is that its scalable
+     - advantage of a distributed memory architecture is that its scalable
        - when more processors are added to the system, memory also increases
        - it makes it cost effector to use commodity, of the shelf computers and networking equipment to build large distributed memory systems
      - most supercomputers use some form of distributed memory architecture or a hybrid of distributed and shared memory
@@ -204,7 +210,7 @@
     - but as a rule of thumb, if can structure the program to take advantage of multiple threads, stick to using threads than using multiple processes
       - because threads are considered lightweight compared to processes, which are more resource intensive
       - a thread requires less overhead to create and terminate than a process
-      - using multiple threads is usally faster for an operating system to switch between executing threads from the same process than to switch between different processes
+      - using multiple threads is usually faster for an operating system to switch between executing threads from the same process than to switch between different processes
 
 ### Concurrent vs Parallel execution
 
@@ -234,7 +240,7 @@
 - Concurrent programming is useful for I/O dependent tasks like graphical user interfaces
   - when user clicks a button to execute an operation
   - to avoid locking up the user interface until it is completed
-    - we can run the operation in a spearate concurrent thread
+    - we can run the operation in a separate concurrent thread
       - thus leaving the thread that's running the UI free to accept new inputs
 
 #### Parallel
@@ -242,7 +248,7 @@
 ![Multi Processor Parallel Execution](../../images/multiProcessorParallelExecution.png)
 
 - requires parallel hardware in order to execute in parallel
-  - types of parallel hardward
+  - types of parallel hardware
     - Multi-Core Processors
       - used mostly in desktop computers and cellphones
     - Graphics Processing Unit
@@ -256,7 +262,7 @@
     - thus it can run on a single processor without any difference
 - parallel processing becomes useful for computationally intensive tasks
   - such as calculating the result of multiplying 2 matrices together
-  - when large math operations can be devided into independent subparts, executing those parts in parallel on separate processors can speed things up
+  - when large math operations can be divided into independent subparts, executing those parts in parallel on separate processors can speed things up
 
 ### Execution Scheduling
 
@@ -303,7 +309,7 @@
             - Round-robin
             - Multiple level queues
           - `Preemptive Algorithms`
-            - a running low priority task might pause or preempt when a higher prioty task enters the ready state
+            - a running low priority task might pause or preempt when a higher priority task enters the ready state
           - `Non-preemptive Algorithms`
             - once a process enters the ready state, it'll be allowed to run for its allotted time
 

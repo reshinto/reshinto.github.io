@@ -118,6 +118,19 @@ class Administrator implements ManagerStaff {
 
 ## Summary
 
+- essence of ISP
+
+  - design interfaces so that the entities that implement them do not depend on methods they do not use
+    - the ISP helps to design the interfaces so that changes only affect those modules whose functionality they actually affect
+
+- benefits of DIP
+
+  - reduced coupling of modules
+    - high-level modules should not depend on low-level modules
+    - both types must depend on abstractions
+  - increased module cohesion
+    - according to the principle, modules should not directly depend on other modules, but on abstractions
+
 - As you can see fat interfaces lead to inadvertent coupling between classes, and you should avoid them
   - When designing interfaces, you should always ask yourself the question **Do really need all the methods on this interface I'm using? If not, how can I break them into smaller interfaces?**
   - Treat interface segregation with certain pragmatism and use common sense

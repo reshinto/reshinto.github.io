@@ -122,6 +122,15 @@ class UserTransaction {
 
 ## Summary
 
+- what is the use of the `Observer` pattern from a DIP point of view
+  - `Turns out` control over the course of the program, giving a reaction to the event to the observer object
+    - the observer inverts control of program execution in a similar way to event handlers in the GUI
+    - event handlers are called at the time of a user input event
+      - mouse click, keypress
+    - observer reacts to a change in the state of the observed object
+- according to the DIP, the relationship between the modules should be as the following
+  - high and low level modules must depend on abstractions
+    - modules do not need to work with specific modules, they can work with any entity that implements the specified interface, which reduces coupling
 - The Dependency Inversion Principle introduces an interface abstraction between higher-level and lower-level software components to remove the dependencies between them
 
 ### When to allocate an interface from a class?

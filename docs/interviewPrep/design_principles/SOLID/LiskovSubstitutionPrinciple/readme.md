@@ -218,6 +218,18 @@ class NotUniqueUsers extends Users {
 
 ### Summary
 
+- essence of LSP
+
+  - design entities so that their descendants do not conflict with the underlying behavior
+    - the behavior of inheritors should be expected for functions that use the base class
+  - design entities so that their descendants can be substituted for 1 another without changing the function that uses them
+    - the general interface should be such that in the classes that implement it, the preconditions are not stronger, and the postconditions are not weaker
+
+- why contract programming is useful from LSP point of view
+  - contracts prevent descendants from developing behavior that contradicts the behavior of the underlying entity
+    - postconditions cannot be weakened in a subclass
+  - contracts define the behavior of the underlying entity that its descendants must follow
+    - preconditions cannot be strengthened in a subclass
 - In case of not following LSP:
   - Inheritance hierarchies will lead to confusion
     - So, passing the subclass instance instead of base class into the method will result in a weird behavior of the existing code

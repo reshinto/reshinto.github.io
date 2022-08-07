@@ -63,10 +63,10 @@
     - abstract methods must be implemented to use, concrete methods can be used without overriding them
   - all the abstract methods must be implemented in every non-abstract subclass
     - You always need to implement all the abstract methods and there should be no unused behavior in any subclass, if such thing happens this may be a sign of incorrect inheritance structure
-  - stores the behaviour which is common to all subclasses
+  - stores the behavior which is common to all subclasses
     - subclasses inherited an abstract class should fully use its functionality, otherwise you need to review the inheritance structure
 
-![Bicycle Abstract Class](../../../../images/bicycleAbstractClass.png)
+![Bicycle Abstract Class](../../../images/bicycleAbstractClass.png)
 
 - solution: use Abstract class and inherit
 
@@ -208,3 +208,7 @@
 - Abstract superclasses use the template method pattern to invite inheritors to supply specializations
   - they use hook methods to allow these inheritors to contribute these specializations without being forced to send super
 - Well-designed inheritance hierarchies are easy to extend with new subclasses, even for programmers who know very little about the application
+- what is the disadvantage of multiple inheritance
+  - ambiguity can arise
+    - this will allow you to decouple parent classes from each other and use only the functionality you need
+    - with this inheritance scheme, ambiguity can arise

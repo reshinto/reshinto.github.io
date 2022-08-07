@@ -1,7 +1,18 @@
-# The Law of Demeter
+# The Law of Demeter / Principle of Least Knowledge
 
 - The purpose of the law of Demeter is lower cohesion
 - The low cohesion shows that the design is of good quality
+- The Law of Demeter for functions requires that a method m of an object a may only invoke the methods of the following kinds of objects
+  - a itself
+  - m's parameters
+  - any objects instantiated within m
+  - a's attributes
+  - global variables accessible by a in the scope of m
+- In particular, an object should avoid invoking methods of an object returned by another method
+  - For many modern object-oriented languages that use a dot as a field identifier, the law can be stated simply as `use only one dot`
+  - That is, the code `a.m().n()` breaks the law where `a.m()` does not
+  - As an analogy, when one wants a dog to walk, one does not command the dog's legs to walk directly
+    - instead one commands the dog which then commands its own legs
 - Some violations of the Law of Demeter are harmless, although others are a sign that the public interface has not been segregated correctly or has not been segregated at all
 - example
   ```

@@ -14,6 +14,11 @@
   - design principles are rules that experienced designers rely on
   - main goal is to describe in simple words what is `good and bad` in software design
 - design principles are used to combat complexity and make it easier to introduce changes needed
+- disadvantage of `separation through delegation`
+  - the inability to inherit and compose properties from several objects at once
+    - when creating a new adapter, you need to find all the places where you want to use it
+  - in the need to introduce a new entity or layer in the form of, for example, adapters, which can increase the complexity
+    - it is necessary to add 1 more abstraction to the project code base
 
 ## Code Smells
 
@@ -40,6 +45,8 @@
 ## Low Coupling and High Cohesion
 
 - these concepts are useful, but are also too abstract and informal
+- it characterizes a stable system
+  - allows you to design the system so that the modules are interchangeable with other
 
 ### Low coupling
 
@@ -164,20 +171,15 @@
   - Avoid interacting with classes that it can avoid directly dealing with
 - Components in a loosely coupled system can be replaced with alternative implementations that provide the same services
 
-## Law of Demeter / Principle of Least Knowledge
+## [Law of Demeter / Principle of Least Knowledge](./lawOfDemeter/readme.md)
 
 - Code components should only talk to its direct relations and not to strangers
-- The Law of Demeter for functions requires that a method m of an object a may only invoke the methods of the following kinds of objects
-  - a itself
-  - m's parameters
-  - any objects instantiated within m
-  - a's attributes
-  - global variables accessible by a in the scope of m
-- In particular, an object should avoid invoking methods of an object returned by another method
-  - For many modern object-oriented languages that use a dot as a field identifier, the law can be stated simply as `use only one dot`
-  - That is, the code `a.m().n()` breaks the law where `a.m()` does not
-  - As an analogy, when one wants a dog to walk, one does not command the dog's legs to walk directly
-    - instead one commands the dog which then commands its own legs
+
+## [Design by Contract](./designByContract/readme.md)
+
+- it is a software correctness methodology
+  - It prescribes that software designers should define formal, precise and verifiable interface specifications for software components
+  - which extend the ordinary definition of abstract data types with preconditions, postconditions and invariants
 
 ## Command-Query Separation (CQS)
 

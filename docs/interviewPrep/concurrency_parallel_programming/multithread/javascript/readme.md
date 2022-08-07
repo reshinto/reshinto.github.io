@@ -1,4 +1,4 @@
-# Multi-Threading
+# JavaScript Example
 
 ## Single Threaded
 

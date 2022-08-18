@@ -1,4 +1,4 @@
-# React js
+# React
 
 [React Hooks Reference](https://reactjs.org/docs/hooks-reference.html)
 

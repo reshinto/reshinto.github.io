@@ -1,4 +1,4 @@
-# Git tutorial
+# Git
 
 - It is a type of Distributed Version Control Systems
   - clients fully mirror the repository and history
@@ -18,6 +18,7 @@
 - `git config --global user.name "My Name"` let collaborators know who modified the source code
 - `git config --global user.email "myemail@email.com"` let collaborators know the email of the person who modified the source code
 - `git difftool --tool=<toolName>` set external graphical diff viewing program
+- `git config --global init.defaultBranch main` set default branch name as "main" instead of master
 
 ### View config values
 
@@ -125,7 +126,7 @@
 
 - `git remote add <shortRepoName> <url>` shortRepoName is usually named as "origin"
 
-### Inspect a remote respository
+### Inspect a remote repository
 
 - `git remote show <shortRepoName>`
 
@@ -150,6 +151,10 @@
 ### Create new branch
 
 - `git branch <newBranchName>`
+
+### Rename current branch name
+
+- `git branch -m <newBranchName>`
 
 ### Change to a different branch
 

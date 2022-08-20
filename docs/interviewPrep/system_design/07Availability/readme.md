@@ -7,7 +7,7 @@
   - it matters so much that for certain systems
     - there isn't an implied but have an explicit guarantee of availability
 - many service providers have SLAs (Service-Level Agreement)
-- Althought high availiability is very important, sometimes it might be undesired
+- Although high availability is very important, sometimes it might be undesired
   - having high availability comes with trade-offs
     - because it is difficult to achieve high availability
     - it might come at other costs like higher latencies or lower throughput
@@ -27,7 +27,7 @@
 ### Percentage of time
 
 - the percentage of time in a given period (like a month or a year) are at least operational enough
-  - such that all of its primary functions are statisfied
+  - such that all of its primary functions are satisfied
 
 ## How availability is measured
 
@@ -47,7 +47,7 @@
 - need to have a rigorous processes in place to handle system failures
   - because it is possible that system failures will require human intervention
     - e.g.: if server crashes, need human to bring it back up
-  - with the processes in place, it will ensure that system failures fix happens in the proper timeframe
+  - with the processes in place, it will ensure that system failures fix happens in the proper time frame
 
 ## Terms used
 
@@ -66,7 +66,7 @@
 ### Node/Instance/Host
 
 - these 3 terms refer to the same thing most of the time
-  - a virtual or physical mahcine on which the developer runs processes
+  - a virtual or physical machine on which the developer runs processes
 - sometimes the word `server` also refers to this same concept
 
 ### Availability
@@ -104,7 +104,7 @@
   - if at any point 1 of those components e.g. 1 of the servers or load balancers, dies
     - nothing really gonna happen as the other components are still able to continue running smoothly
       - they might have more load but will be fine until the broken component gets fixed
-  - normally used in aiplane engines
+  - normally used in airplane engines
 - e.g.:
   - adding more servers if it is server issue
   - adding more load balancers if if it is over loaded

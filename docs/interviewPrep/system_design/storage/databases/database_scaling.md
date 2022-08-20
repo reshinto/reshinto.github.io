@@ -19,10 +19,10 @@
 - create an index based on a certain column that's frequently accessed
   - e.g.: user id
 
-| pros                                                                      | cons                                                                                                                         |
-| ------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| speeds up read performance by creating an index that speeds up the lookup | writes and updates become slightly slower, because everytime a row is updated, you also have to potentially modify the index |
-| thus it does not have to do a full table scans across the database        | requires more storage for a table that's indexed because you have to store the index itself                                  |
+| pros                                                                      | cons                                                                                                                          |
+| ------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
+| speeds up read performance by creating an index that speeds up the lookup | writes and updates become slightly slower, because every time a row is updated, you also have to potentially modify the index |
+| thus it does not have to do a full table scans across the database        | requires more storage for a table that's indexed because you have to store the index itself                                   |
 
 ### Denormalization
 
@@ -80,10 +80,10 @@
 
 | pros                    | cons                                                                                                              |
 | ----------------------- | ----------------------------------------------------------------------------------------------------------------- |
-| can hanlde more traffic | Hot Keys situation where some keys does not have as much traffic compared to the others leading to uneven traffic |
+| can handle more traffic | Hot Keys situation where some keys does not have as much traffic compared to the others leading to uneven traffic |
 |                         | no joins across shards because the data is separate, if we attempt to join them, it would be very slow            |
 
-- famous example of hot key senario
+- famous example of hot key scenario
   - instagram: justin bieber user id had way more traffic than an average user
     - thus there is no good way to handle the traffic whenever he posts a picture, the servers would go crazy
 - some cases, there's no way good way to handle sharding, just have to deal with it

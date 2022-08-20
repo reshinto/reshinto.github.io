@@ -3,7 +3,7 @@
 - it is a type of database that imposes on the data stored in it
 - a tabular like structure
 - data stored in a relational database is gonna be stored in the form of tables
-  - a table typcially represent a specific entity
+  - a table typically represent a specific entity
     - rows in a table represent instances of the entities that the respective tables represent
       - rows in relational databases are often referred to as records
     - columns in a table represent attributes of the entities that the respective tables represent
@@ -11,7 +11,7 @@
       - the specific rules and plans about how the data should be stored in them
   - when dealing with a relational database, and defined a table, any entry in that table must conform to the table's schema
     - have to add an additional column if in need for additional field
-- most relational database supports SQL (Structure Query Language) a databse or query language that comes with powerful querying capabilities
+- most relational database supports SQL (Structure Query Language) a database or query language that comes with powerful querying capabilities
   - used to perform complex queries on the data stored in the database without having to load the data in memory
 
 ### SQL databases must use ACID transactions
@@ -46,7 +46,7 @@
 ### Database Index
 
 - a special auxiliary data structure can be created allow your database to perform certain queries much faster
-- indexes can typically only exist to reference structured data, like data stored in relational databses
+- indexes can typically only exist to reference structured data, like data stored in relational databases
 - in practice, you create an index on 1 or multiple columns in your database to greatly speed up read queries that you run very often
   - with the downside of slightly longer writes to your database, since writes have to also take place in relevant index
 
@@ -75,7 +75,7 @@
 - databases need persistence of those records and cannot use memory
   - this means that you have to write data to disk
   - anything written to disk will remain during power loss or network partitions
-- since machinese die often in a large scale system
+- since machines die often in a large scale system
   - special disk partitions or volumes are used by the database processes
   - those volumes can get recovered even if the machine were to go down permanently
 
@@ -96,7 +96,7 @@
 
 ### Non-Relational Database
 
-- in contrast with relational database (SQL databases), it is a type of databse that is free of imposed, tabular-like structure
+- in contrast with relational database (SQL databases), it is a type of database that is free of imposed, tabular-like structure
 - non-relational databases are often referred to as NoSQL databases
 - 1 example is [Google Cloud Datastore](https://cloud.google.com/datastore)
   - this only had `Eventual Consistency`
@@ -108,12 +108,12 @@
 ### SQL Database
 
 - any database that supports SQL
-- this term is often used synonymously with relational databse
+- this term is often used synonymously with relational database
 - in practice, not every relational database supports SQL
 
 ### NoSQL Database
 
-- any databse that is not SQL compatible is called NoSQL
+- any database that is not SQL compatible is called NoSQL
 - usually comes with their own special querying language
   - usually does not support complex queries
     - although 1 could write their own python or javascript to perform complex queries
@@ -132,5 +132,5 @@
 
 ### Postgres
 
-- a relational databse that uses a dialet of SQL called PostgresSql
+- a relational database that uses a dialect of SQL called PostgresSql
 - provides ACID transactions

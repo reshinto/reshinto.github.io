@@ -151,7 +151,7 @@
 | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------- |
 | scale by adding more servers into the pool of resources                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | scale by adding more power (CPU, RAM, Storage, etc.) to an existing server                                                                   |
 | easier to scale dynamically by adding more machines into existing pool                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | usually limited to the capacity of a single server                                                                                           |
-| e.g.: Cassandra, MongoDB (allow easy way to scale horizontally by adding more machines to meet growing needs), Kubernetes (use to build on top docker containers, help to abstract the complexity of having to deal with all the different servers), Docker (allows you to put apps in containers and easily deploy them to various servers), Hadoop (good for handling petabytes of data as it uses map reduce, by breaking up massive amount of data and splits it off so that it can be worked on by thousands of different servers, and then puts that data back together) | scaling beyong the capacity often involves downtime and comes with an upper limit                                                            |
+| e.g.: Cassandra, MongoDB (allow easy way to scale horizontally by adding more machines to meet growing needs), Kubernetes (use to build on top docker containers, help to abstract the complexity of having to deal with all the different servers), Docker (allows you to put apps in containers and easily deploy them to various servers), Hadoop (good for handling petabytes of data as it uses map reduce, by breaking up massive amount of data and splits it off so that it can be worked on by thousands of different servers, and then puts that data back together) | scaling beyond the capacity often involves downtime and comes with an upper limit                                                            |
 |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                | e.g.: MySQL (allow easy way to scale vertically by switching from smaller to bigger machines, however, this process often involves downtime) |
 
 ### Reliability
@@ -195,7 +195,7 @@ MTBF = (total_elapsed_time - total_down_time) / number_of_failures
   - because certain parts (in a microservices) might be less available than others, but can be covered up by having `redundancy`
     - Redundancy is use to protect a transaction should it fail due to the machine that is running the transaction
       - in this case, another server that has the exact replica will replace the data stored
-      - shoul a request fail, a load balance will detect it and resend the request to the redundant server or replica which the user knowing
+      - should a request fail, a load balance will detect it and resend the request to the redundant server or replica which the user knowing
       - Redundancy has a cost
         - reliable system has to pay the cost to achieve such resilience for services
           - by eliminating every single point of failure
@@ -219,7 +219,7 @@ Availability % = (available_time / total_time) x 100
 | 99.99%, 4 nines  | 52 minutes 36 seconds      |
 | 99.999%, 5 nines | 5.26 minutes               |
 
-#### Reliability vs Availablility
+#### Reliability vs Availability
 
 - reliable system is always an available system
   - not gonna happen in the real world, but is ideal to aim for more reliability
@@ -227,7 +227,7 @@ Availability % = (available_time / total_time) x 100
   - because there is a risk that the software systems that compensate for the lack of reliability break, all those flaws in the software will be exposed and you'll see a lot of downtime as a result
 - reliable software will be more profitable because providing same service requires less backup resources
   - because you would need less hardware to serve the same amount of traffic
-    - so you don't have to have a bunch of extra resources on hand to hanlde the failures
+    - so you don't have to have a bunch of extra resources on hand to handle the failures
 - requirements like the service level agreements, the availability will depend on the function of the software
   - e.g.: social media is not exactly the end of the world if you try to create a post and it fails
     - its not a terrible disaster, thus it might not be worth for such an app to invest tons of money high reliability and availability

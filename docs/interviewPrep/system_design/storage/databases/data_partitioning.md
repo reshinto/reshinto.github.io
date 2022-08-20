@@ -62,7 +62,7 @@
 
 - On a partitioned database, there are certain extra constraints on the different operations that can be performed
   - constraints are due to operations across multiple tables rows in the same table will no longer run on the same server
-  - Constraints and additional complexxities introduced by partitioning
+  - Constraints and additional complexities introduced by partitioning
     1. Joins and Denormalization
        - Performing joins on a database which is running on one server is straightforward
          - but will no longer be so once once a database is partitioned and spread across multiple machines

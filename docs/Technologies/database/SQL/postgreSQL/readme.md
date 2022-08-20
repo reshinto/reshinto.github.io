@@ -1,5 +1,44 @@
 # PostgreSQL
 
+- Object - RDBMS
+- Free and open-source software (FOSS)
+- Started at the University of California, Berkeley
+- ACID compliant and transactional
+
+## Other features
+
+- materialized and updatable views
+- triggers
+- functions and stored procedure support
+- runs on every major OS (and in docker)
+
+## Why?
+
+- easy to run locally
+- supports a large section of ANSI standard SQL
+- supports stored procedures
+- solid security model
+
+## Docker
+
+### Install
+
+`docker pull postgres`
+
+### Build
+
+- example 1
+  `docker run --name postgresql -e POSTGRES_USER=root -e POSTGRES_PASSWORD=password -v $(pwd):/app -w='/app' -p 5432:5432 -d postgres`
+- example 2
+  `docker run --name postgresql -e POSTGRES_PASSWORD=password -d -v $(pwd):/app -w='/app' -p 5432:5432 postgres`
+
+### Run queries
+
+- example 1
+  `docker exec -i postgresql psql -d postgres -a -f init.sql`
+- example 2
+  `psql -h localhost -U postgres -a -f init.sql`
+
 ## Install on mac
 
 > brew install postgresql

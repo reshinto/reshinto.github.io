@@ -1,6 +1,6 @@
-# Introduction
+# System Design
 
-- System interviews require the interviewee to have a lot of knowledge about systems, and about how to build robust, functional, and scalable systems
+- System design interviews require the interviewee to have a lot of knowledge about systems, and about how to build robust, functional, and scalable systems
 
 ## System Design Basics
 

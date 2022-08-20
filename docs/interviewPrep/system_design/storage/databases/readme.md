@@ -1,4 +1,4 @@
-# SQL (Structured Query Language) vs. NoSQL
+# Databases
 
 - In the world of databases, there are 2 main types of solutions:
   1. SQL (relational databases)
@@ -9,7 +9,7 @@
 - Non-relational databases are unstructured, distributed, and have a dynamic schema
   - like file folders that hold a person’s address and phone number, etc.
 
-## SQL
+## SQL (Structured Query Language)
 
 - Relational databases store data in tables with rows and columns
 - Each row contains all the information about one entity
@@ -33,7 +33,7 @@ CREATE TABLE tag_list (
   - document store
   - key value / tuple store
   - graph databases
-  - multimodel databases
+  - multi-model databases
 
 ### Key-Value Stores
 

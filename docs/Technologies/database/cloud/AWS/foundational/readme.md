@@ -14,7 +14,7 @@
 ### benefits
 
 - server, databases, storage, higher-level app components can be initiated within seconds
-  - can be treated as temporary & desposable resources
+  - can be treated as temporary & disposable resources
   - free from the inflexibility & constraints of a fixed & finite IT infrastructure
 - approach to change management, testing, reliability, & capacity planning is more agile & efficient
 
@@ -36,7 +36,7 @@
        - can quickly carry out comparative testing using different types of instances, storage, / configurations
        - AWS CloudFormation enables consistent, templated, sandbox development, test, & production environments
          - with increasing levels of operations control
-  3. cuture of innovation
+  3. culture of innovation
      - being able to experiment quickly & having low cost & low risk
        - it allows for more experimentation, which leads to discovery of new configurations & innovations
 
@@ -49,7 +49,7 @@
 - built around Regions & Availability Zones ("AZs")
   - a region is a physical location in the world
     - have multiple Availability Zones
-      - Availability Zones consist of 1 or more descrete data centers
+      - Availability Zones consist of 1 or more discrete data centers
         - each data center has redundant power, networking & connectivity, & is housed in separate facilities
         - Availability Zones offer the ability to operate production apps & databases
           - these are more highly available, fault tolerant, & scalable than a single data center
@@ -104,7 +104,7 @@
   - AWS secure data centers use electronic surveillance & multi-factor access control systems
     - data centers are staffed 24/7 by security guards, & access is authorized strictly on a least privileged basis
     - environmental systems are designed to minimize the impact of disruptions to operations
-    - multiple geographic reigions & availability zones allow resilience during failure modes
+    - multiple geographic regions & availability zones allow resilience during failure modes
       - including natural disasters or system failure
 - AWS assets are programmable resources
   - thus, security policy can be formalized & embedded with the design of the infrastructure
@@ -115,7 +115,7 @@
     - it also focuses on the ability to dynamically acquire computing resources to meet demands & mitigate disruptions
     - to achieve reliability, architecture & system must have well-planned foundation
       - that can handle changes in demand & also detect failure & automatically heal itself
-    - AWS help achieve greated flexibility & capacity
+    - AWS help achieve greater flexibility & capacity
       - reducing the uncertainty of forecasting hardware needs
       - the scale of AWS gives customers capacity & reliability that is difficult to match by on-premise solutions
 - with AWS, no longer need to dedicate valuable resources to building costly infrastructure
@@ -123,10 +123,10 @@
   - by paying for services on an as needed basis
     - allows redirection of focus to innovation & invention
       - reducing procurement complexity & enabling the business to be fully elastic
-    - pay-as-you-go pricing allows easy adaptation to changing business needs without overcommitting budgets
+    - pay-as-you-go pricing allows easy adaptation to changing business needs without over committing budgets
       - and improving responsiveness to changes
       - the model allows business to adapt depending on need & not on forecasts
-        - reducing the risk / overprovisioning / missing capacity
+        - reducing the risk / over provisioning / missing capacity
 
 ## Summary
 

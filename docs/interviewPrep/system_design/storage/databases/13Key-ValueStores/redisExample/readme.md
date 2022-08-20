@@ -15,5 +15,5 @@
   - this will always take 3 seconds to load as there is no cache
     > http://localhost:3001/withcache/index.html
   - this will take 3 seconds to load initially
-  - subsequent refresh will load instantenously
+  - subsequent refresh will load instantaneously
   - however, this will expire in 10 seconds and will then take 3 seconds to load again

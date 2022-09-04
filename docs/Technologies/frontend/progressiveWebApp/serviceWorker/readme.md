@@ -26,14 +26,14 @@
 
 - `web browser > service worker > remote server`
 - service worker acts as a middleman and can intercept request
-  - it will then decide what should happend after intercepting the request
+  - it will then decide what should happened after intercepting the request
     - such as decide whether to show the remote version or offline version
 
 ## Use Cases
 
 - most commonly used for offline browsing & caching assets & API calls
 - push notifications (Push & Notification API) are also a big part of service workers
-  - these are notifcations that will pop up on your desktop or mobile device
+  - these are notifications that will pop up on your desktop or mobile device
     - good for marketing and advertising
 - background data sync / preload
   - isn't yet fully supported for all browsers

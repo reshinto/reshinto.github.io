@@ -1,6 +1,8 @@
-# Send a one time request from a content script or popup script to the background page
+# Chrome Extension
 
-- can be responsed by callback or http request
+## Send a one time request from a content script or popup script to the background page
+
+### can use response with callback or http request
 
 ```javascript
 // Content Script or Popup
@@ -14,7 +16,7 @@ chrome.runtime.onMessage.addListener((request, sender, sendResponse) => {
 });
 ```
 
-# Another way of doing is similar to the WebSocket architectuure
+## Another way of doing is similar to the WebSocket architecture
 
 - Long-Lived Connection
   - does not allow you to get statues on how your messages went, but are very efficient
@@ -35,7 +37,7 @@ port.onMessage.addListener((msg) => {
 });
 ```
 
-- Use background page as your redux store
+### Use background page as redux store
 
 ```javascript
 import {wrapStore} from "react-chrome-redux";
@@ -49,7 +51,7 @@ wrapStore(store, {
 });
 ```
 
-- in Popup page, create a proxy store
+### in Popup page, create a proxy store
 
 ```javascript
 import {Store} from "react-chrome-redux";

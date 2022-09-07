@@ -1,20 +1,18 @@
 # Directives
 
-## `ngStyle`
+- it is used to change the behavior and appearance of DOM element
+- it can implement all lifecycle hooks
+- it cannot have template
 
-- allow inline styling
+## Structural Directives
 
-```html
-<button [ngStyle]="{ 'background-color': 'white' }" class="btn">text</button>
-```
-
-## `*ngFor`
+### `*ngFor`
 
 - allows looping of array
 
-### parent
+#### parent
 
-#### tasks.component.ts
+- tasks.component.ts
 
 ```ts
 import {Component, OnInit} from "@angular/core";
@@ -35,15 +33,15 @@ export class TasksComponent implements OnInit {
 }
 ```
 
-#### tasks.component.html
+- tasks.component.html
 
 ```html
 <app-task-item *ngFor="let task of tasks" [task]="task"> </app-task-item>
 ```
 
-### child
+#### child
 
-#### task-item.component.ts
+- task-item.component.ts
 
 ```ts
 import {Component, OnInit, Input} from "@angular/core";
@@ -64,7 +62,7 @@ export class TaskItemComponent implements OnInit {
 }
 ```
 
-#### task-item.component.html
+- task-item.component.html
 
 ```html
 <div class="task">
@@ -73,11 +71,125 @@ export class TaskItemComponent implements OnInit {
 </div>
 ```
 
-## `ngClass`
+### `*ngIf`
+
+- A structural directive that conditionally includes a template based on the value of an expression coerced to Boolean
+  - When the expression evaluates to true, Angular renders the template provided in a then clause, and when false or null, Angular renders the template provided in an optional else clause
+  - The default template for the else clause is blank
+
+#### add-task.component.html
+
+- do not show form when `showAddTask` is false
+
+```html
+<form *ngIf="showAddTask" class="add-form">
+  <div class="form-control">
+    <label for="text">Task</label>
+    <input
+      type="text"
+      name="text"
+      [(ngModel)]="text"
+      id="text"
+      placeholder="Add Task"
+    />
+  </div>
+</form>
+```
+
+#### add-task.component.ts
+
+```ts
+import {Component, OnInit, Output, EventEmitter} from "@angular/core";
+import {Subscription} from "rxjs";
+import {UiService} from "src/app/services/ui.service";
+import {Task} from "src/app/Task";
+
+@Component({
+  selector: "app-add-task",
+  templateUrl: "./add-task.component.html",
+  styleUrls: ["./add-task.component.css"],
+})
+export class AddTaskComponent implements OnInit {
+  @Output()
+  onAddTask: EventEmitter<Task> = new EventEmitter();
+  text!: string;
+  showAddTask: boolean = false;
+  subscription!: Subscription;
+
+  constructor(private uiService: UiService) {
+    this.subscription = this.uiService
+      .onToggle()
+      .subscribe((value: boolean) => (this.showAddTask = value));
+  }
+
+  ngOnInit(): void {}
+}
+```
+
+### `*ngSwitch`
+
+- app.component.html
+
+  ```html
+  <input type="text" [(ngModel)]="num" />
+  <div [ngSwitch]="num">
+    <div *ngSwitchCase="'1'">One</div>
+    <div *ngSwitchCase="'2'">Two</div>
+    <div *ngSwitchCase="'3'">Three</div>
+    <div *ngSwitchCase="'4'">Four</div>
+    <div *ngSwitchCase="'5'">Five</div>
+    <div *ngSwitchDefault>This is Default</div>
+  </div>
+  ```
+
+- app.component.ts
+
+  ```ts
+  import {Component} from "@angular/core";
+
+  @Component({
+    selector: "app-root",
+    templateUrl: "./app.component.html",
+    styleUrls: ["./app.component.css"],
+  })
+  export class AppComponent {
+    num: number = 0;
+  }
+  ```
+
+- app.module.ts
+
+  ```ts
+  import {NgModule} from "@angular/core";
+  import {BrowserModule} from "@angular/platform-browser";
+  import {FormsModule} from "@angular/forms";
+
+  import {AppComponent} from "./app.component";
+
+  @NgModule({
+    declarations: [AppComponent],
+    imports: [BrowserModule, FormsModule],
+    providers: [],
+    bootstrap: [AppComponent],
+  })
+  export class AppModule {}
+  ```
+
+## Attribute Directives
+
+### `ngStyle`
+
+- allow inline styling
+
+```html
+<button [ngStyle]="{ 'background-color': 'white' }" class="btn">text</button>
+```
+
+### `ngClass`
 
 - Adds and removes CSS classes on an HTML element
 
-### task-item.component.html
+#### task-item.component.html
 
 ```html
 <!-- when task.reminder is true, reminder-class css class style will be activated-->
@@ -87,7 +199,7 @@ export class TaskItemComponent implements OnInit {
 </div>
 ```
 
-### task-item.component.ts
+#### task-item.component.ts
 
 ```ts
 import {Component, OnInit, Input} from "@angular/core";
@@ -109,7 +221,7 @@ export class TaskItemComponent implements OnInit {
 }
 ```
 
-### task-item.component.css
+#### task-item.component.css
 
 ```css
 .task {
@@ -130,11 +242,11 @@ export class TaskItemComponent implements OnInit {
 }
 ```
 
-## `ngModel`
+### `ngModel`
 
 - Creates a FormControl instance from a domain model and binds it to a form control element
 
-### app.module.ts
+#### app.module.ts
 
 ```ts
 import {NgModule} from "@angular/core";
@@ -153,7 +265,7 @@ import {AddTaskComponent} from "./components/add-task/add-task.component";
 export class AppModule {}
 ```
 
-### add-task.component.ts
+#### add-task.component.ts
 
 ```ts
 import {Component, OnInit} from "@angular/core";
@@ -174,7 +286,7 @@ export class AddTaskComponent implements OnInit {
 }
 ```
 
-### add-task.component.html
+#### add-task.component.html
 
 ```html
 <form class="add-form">
@@ -211,17 +323,17 @@ export class AddTaskComponent implements OnInit {
 </form>
 ```
 
-## `ngSubmit`
+### `ngSubmit`
 
-### parent
+#### parent
 
-#### tasks.component.html
+- tasks.component.html
 
 ```html
 <app-add-task (onAddTask)="addTask($event)"></app-add-task>
 ```
 
-#### tasks.component.ts
+- tasks.component.ts
 
 ```ts
 import {Component, OnInit} from "@angular/core";
@@ -249,9 +361,9 @@ export class TasksComponent implements OnInit {
 }
 ```
 
-### child
+#### child
 
-#### add-task.component.html
+- add-task.component.html
 
 ```html
 <form class="add-form" (ngSubmit)="onSubmit()">
@@ -269,7 +381,7 @@ export class TasksComponent implements OnInit {
 </form>
 ```
 
-#### add-task.component.ts
+- add-task.component.ts
 
 ```ts
 import {Component, OnInit, Output, EventEmitter} from "@angular/core";
@@ -307,57 +419,160 @@ export class AddTaskComponent implements OnInit {
 }
 ```
 
-## `*ngIf`
+## Custom Directives
 
-- A structural directive that conditionally includes a template based on the value of an expression coerced to Boolean
-  - When the expression evaluates to true, Angular renders the template provided in a then clause, and when false or null, Angular renders the template provided in an optional else clause
-  - The default template for the else clause is blank
+- cli
+  > ng generate directive directives/somename
 
-### add-task.component.html
+### generated and modified code
 
-- do not show form when `showAddTask` is false
-
-```html
-<form *ngIf="showAddTask" class="add-form">
-  <div class="form-control">
-    <label for="text">Task</label>
-    <input
-      type="text"
-      name="text"
-      [(ngModel)]="text"
-      id="text"
-      placeholder="Add Task"
-    />
-  </div>
-</form>
-```
-
-### add-task.component.ts
+- src/app/directives/somename.directive.ts
 
 ```ts
-import {Component, OnInit, Output, EventEmitter} from "@angular/core";
-import {Subscription} from "rxjs";
-import {UiService} from "src/app/services/ui.service";
-import {Task} from "src/app/Task";
+import {Directive} from "@angular/core";
 
-@Component({
-  selector: "app-add-task",
-  templateUrl: "./add-task.component.html",
-  styleUrls: ["./add-task.component.css"],
+@Directive({
+  selector: "[appSomename]",
 })
-export class AddTaskComponent implements OnInit {
-  @Output()
-  onAddTask: EventEmitter<Task> = new EventEmitter();
-  text!: string;
-  showAddTask: boolean = false;
-  subscription!: Subscription;
-
-  constructor(private uiService: UiService) {
-    this.subscription = this.uiService
-      .onToggle()
-      .subscribe((value: boolean) => (this.showAddTask = value));
-  }
-
-  ngOnInit(): void {}
+export class SomenameDirective {
+  constructor() {}
 }
 ```
+
+- src/app/directives/somename.directive.spec.ts
+
+```ts
+import {SomenameDirective} from "./somename.directive";
+
+describe("SomenameDirective", () => {
+  it("should create an instance", () => {
+    const directive = new SomenameDirective();
+    expect(directive).toBeTruthy();
+  });
+});
+```
+
+- src/app/app.module.ts
+
+```ts
+import {NgModule} from "@angular/core";
+import {BrowserModule} from "@angular/platform-browser";
+
+import {AppComponent} from "./app.component";
+import {SomenameDirective} from "./directives/somename.directive";
+
+@NgModule({
+  declarations: [AppComponent, SomenameDirective],
+  imports: [BrowserModule],
+  providers: [],
+  bootstrap: [AppComponent],
+})
+export class AppModule {}
+```
+
+### sample usage code
+
+- lifecycle hooks works as well
+- src/app/directives/somename.directive.ts
+
+  - method 1: ElementRef
+
+    ```ts
+    import {Directive, ElementRef} from "@angular/core";
+
+    @Directive({
+      selector: "[appSomename]",
+    })
+    export class SomenameDirective {
+      constructor(el: ElementRef) {
+        const element = el.nativeElement;
+        element.style.color = "red";
+      }
+    }
+    ```
+
+  - method 2: Document
+
+    ```ts
+    import {DOCUMENT} from "@angular/common";
+    import {Directive, Inject} from "@angular/core";
+
+    @Directive({
+      selector: "[appSomename]",
+    })
+    export class SomenameDirective {
+      constructor(@Inject(DOCUMENT) private document: Document) {
+        const element = this.document.querySelector("p") as HTMLElement;
+        element.style.color = "red";
+      }
+    }
+    ```
+
+  - method 3: ElementRef & Renderer2
+
+    ```ts
+    import {
+      Directive,
+      ElementRef,
+      HostListener, // used for event listeners
+      Renderer2,
+    } from "@angular/core";
+
+    @Directive({
+      selector: "[appSomename]",
+    })
+    export class SomenameDirective {
+      constructor(el: ElementRef, private renderer: Renderer2) {
+        this.renderer.setStyle(this.el.nativeElement, "color", "red");
+      }
+
+      // used for event listener
+      // method name can be anything
+      @HostListener("mouseenter") onMouseEnter() {
+        this.renderer.setStyle(
+          this.el.nativeElement,
+          "backgroundColor",
+          "Black"
+        );
+      }
+    }
+    ```
+
+- app.component.html
+
+  ```html
+  <p appSomename>custom directive</p>
+  ```
+
+### sample usage code 2, lifecycle method required if using input
+
+- src/app/directives/somename.directive.ts
+
+  ```ts
+  import {Directive, OnInit, Input, ElementRef} from "@angular/core";
+
+  @Directive({
+    selector: "[appSomename]",
+  })
+  export class SomenameDirective implements OnInit {
+    @Input()
+    appSomename: string = "black";
+
+    constructor(el: ElementRef) {
+      // this will not work, only hard coding will work
+      const element = el.nativeElement;
+      element.style.color = this.appSomename;
+    }
+
+    ngOnInit(): void {
+      const element = el.nativeElement;
+      element.style.color = this.appSomename;
+    }
+  }
+  ```
+
+- app.component.html
+
+  ```html
+  <p appTesting="red">custom directive</p>
+  ```

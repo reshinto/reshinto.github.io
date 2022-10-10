@@ -332,3 +332,92 @@ const obj3: C = {
   z: 3,
 };
 ```
+
+## Others
+
+### Decorators
+
+- `tsconfig.json`
+
+  ```json
+  {
+    "compilerOptions": {
+      "target": "ES5",
+      "experimentalDecorators": true
+    }
+  }
+  ```
+
+- no args example
+
+  ```ts
+  import {performance} from "perf_hooks";
+
+  const measure = (
+    target: Object,
+    propertyKey: string,
+    descriptor: PropertyDescriptor
+  ) => {
+    const originalMethod = descriptor.value;
+
+    descriptor.value = function (...args) {
+      const start = performance.now();
+      const result = originalMethod.apply(this, args);
+
+      const finish = performance.now();
+
+      console.log(`Execution time: ${finish - start} milliseconds`);
+      return result;
+    };
+
+    return descriptor;
+  };
+
+  class Rocket {
+    @measure
+    launch() {
+      console.log("Launching in 3... 2... 1... 🚀");
+    }
+  }
+
+  const rocket = new Rocket();
+  rocket.launch();
+  ```
+
+- with args example
+
+  ```ts
+  const minimumFuel =
+    (fuel: number) =>
+    (target: Object, propertyKey: string, descriptor: PropertyDescriptor) => {
+      const originalMethod = descriptor.value;
+
+      descriptor.value = function (...args) {
+        if (this.fuel > fuel) {
+          originalMethod.apply(this, args);
+        } else {
+          console.log("Not enough fuel!");
+        }
+      };
+
+      return descriptor;
+    };
+
+  class Rocket {
+    fuel = 50;
+
+    @minimumFuel(100)
+    launchToMars() {
+      console.log("Launching to Mars in 3... 2... 1... 🚀");
+    }
+
+    @minimumFuel(25)
+    launchToMoon() {
+      console.log("Launching to Moon in 3... 2... 1... 🚀");
+    }
+  }
+
+  const rocket = new Rocket();
+  rocket.launchToMars();
+  rocket.launchToMoon();
+  ```

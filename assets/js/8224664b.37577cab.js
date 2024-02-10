@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkportfolio=self.webpackChunkportfolio||[]).push([[68408],{29798:(e,a,o)=>{o.r(a),o.d(a,{default:()=>t});var s=o(67294);const t=()=>s.createElement("div",{className:"dragon"})}}]);

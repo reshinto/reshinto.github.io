@@ -1,0 +1,11 @@
+.dragon {
+  width: 150px;
+  height: 150px;
+  position: absolute;
+  top: 80px;
+  left: 120px;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  background-image: url("../../assets/images/dragon.png");
+  background-size: cover;
+}

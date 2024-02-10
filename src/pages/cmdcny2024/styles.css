@@ -1,0 +1,22 @@
+.card-page {
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.card-container {
+  position: relative;
+  margin: 50% 0;
+}

@@ -1,0 +1,266 @@
+.card {
+  width: 100%;
+  height: 100%;
+  border: 1px solid black;
+  position: relative;
+  background: linear-gradient(45deg, #fdee83, #fefcea);
+  border-radius: 0;
+}
+
+.card-title {
+  margin: 0;
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  font-size: 60px;
+  letter-spacing: 20px;
+  font-family: "HGP行書体", serif;
+  writing-mode: vertical-rl;
+}
+
+.card-seal {
+  width: 40px;
+  height: 50px;
+  position: absolute;
+  bottom: 250px;
+  right: 130px;
+  text-align: center;
+  font-size: 30px;
+  font-family: "HGP行書体", serif;
+  color: red;
+  border: 3px solid red;
+  border-radius: 10px;
+}
+
+.card-flower-1 {
+  position: relative;
+  top: 200px;
+  left: 70px;
+  transform: rotate(-10deg);
+}
+.card-flower-2 {
+  position: relative;
+  top: 50px;
+  left: 160px;
+  transform: rotate(10deg) scale(0.7);
+}
+.card-flower-3 {
+  position: relative;
+  top: 330px;
+  left: 200px;
+  transform: rotate(10deg) scale(1.2);
+}
+
+.card-flower-petal {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: linear-gradient(#df4554, #e16561);
+}
+.petal-1 {
+  top: 0;
+  left: 0;
+}
+.petal-2 {
+  top: 10px;
+  left: 15px;
+}
+.petal-3 {
+  top: 25px;
+  left: 10px;
+}
+.petal-4 {
+  top: 25px;
+  left: -10px;
+}
+.petal-5 {
+  top: 10px;
+  left: -15px;
+}
+
+.card-flower-pollen {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #fdee83;
+}
+.pollen-1 {
+  top: 18px;
+  left: 12px;
+}
+.pollen-2 {
+  top: 22px;
+  left: 18px;
+}
+.pollen-3 {
+  top: 29px;
+  left: 16px;
+}
+.pollen-4 {
+  top: 29px;
+  left: 8px;
+}
+.pollen-5 {
+  top: 22px;
+  left: 6px;
+}
+
+.card-hill {
+  position: absolute;
+  bottom: 0;
+  box-sizing: border-box;
+}
+.hill-1 {
+  width: 250px;
+  height: 250px;
+  background: #fff;
+  box-sizing: border-box;
+  border-top: 10px solid #d9af64;
+  border-right: 10px solid #d9af64;
+  border-radius: 0 250px 0 0;
+}
+.hill-2 {
+  right: 0;
+  width: 250px;
+  height: 250px;
+  background: #ffc966;
+  border-top: 10px solid #d9af64;
+  border-left: 10px solid #d9af64;
+  border-radius: 250px 0 0 0;
+}
+.hill-3 {
+  width: 394px;
+  height: 197px;
+  background: #d7000f;
+  border-top: 10px solid #d9af64;
+  border-left: 10px solid #d9af64;
+  border-right: 10px solid #d9af64;
+  border-radius: 394px 394px 0 0;
+}
+.card-hill-star {
+  position: relative;
+  width: 0;
+  height: 0;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 14px solid #d9af64;
+}
+.card-hill-star::before,
+.card-hill-star::after {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: -20px;
+  border-left: 20px solid transparent;
+  border-right: 20px solid transparent;
+  border-bottom: 14px solid #d9af64;
+}
+.card-hill-star::before {
+  transform: rotate(71deg);
+}
+.card-hill-star::after {
+  transform: rotate(-71deg);
+}
+.star-1 {
+  top: 20px;
+  left: 5px;
+}
+.star-2 {
+  top: 75px;
+  left: 15px;
+}
+.star-3 {
+  top: 10px;
+  left: 60px;
+}
+.card-hill-circle-1 {
+  position: relative;
+}
+.card-hill-circle-2 {
+  position: relative;
+  top: 26px;
+}
+.card-hill-circle-3 {
+  position: relative;
+  top: 62px;
+}
+.card-hill-circle-4 {
+  position: relative;
+  top: 88px;
+}
+.card-hill-circle-5 {
+  position: relative;
+  top: 114px;
+}
+.hill-circle {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background: transparent;
+  border: 2px solid #d9af64;
+  border-radius: 50%;
+}
+.circle-1 {
+  top: 45px;
+  left: 117px;
+}
+.circle-2 {
+  top: 35px;
+  left: 138px;
+}
+.circle-3 {
+  top: 25px;
+  left: 165px;
+}
+.circle-4 {
+  top: 15px;
+  left: 186px;
+}
+.circle-5 {
+  top: 5px;
+  left: 213px;
+  border-top: 2px solid transparent;
+  border-right: 2px solid transparent;
+  transform: rotate(45deg);
+}
+.card-hill-border-1 {
+  position: relative;
+  left: -30px;
+  top: 200px;
+}
+.card-hill-border-2 {
+  position: relative;
+  left: 80px;
+  top: 180px;
+  transform: rotate(10deg);
+}
+.card-hill-border-3 {
+  position: relative;
+  left: 10px;
+  top: 110px;
+  transform: rotate(-15deg);
+}
+.border-1 {
+  position: absolute;
+  bottom: 0;
+  left: 150px;
+  width: 100px;
+  height: 70px;
+  border-radius: 50%;
+  background: transparent;
+  border-top: 5px solid #d9af64;
+  transform: rotate(5deg);
+}
+.border-2 {
+  position: absolute;
+  bottom: 10px;
+  left: 80px;
+  width: 100px;
+  height: 70px;
+  border-radius: 50%;
+  background: transparent;
+  border-top: 5px solid #d9af64;
+  transform: rotate(20deg);
+}

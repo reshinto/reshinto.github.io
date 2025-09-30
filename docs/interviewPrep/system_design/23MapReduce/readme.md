@@ -1,4 +1,6 @@
-# [MapReduce](https://static.googleusercontent.com/media/research.google.com/en//archive/mapreduce-osdi04.pdf)
+# MapReduce
+
+[Google Research Paper Pdf](https://static.googleusercontent.com/media/research.google.com/en//archive/mapreduce-osdi04.pdf)
 
 - it is a programming model for processing and generating big data sets with a parallel, distributed algorithm on a cluster
 - it is a popular framework for processing very large datasets in a distributed setting efficiently, quickly, and in a fault-tolerant manner
@@ -9,8 +11,8 @@
     - the machines used to perform these operations are sometimes referred as `worker machines`
   - the Shuffle step, which reorganizes the intermediate key-value pairs such that pairs of the same key are routed to the same machine in the final step
   - the Reduce step, which runs a reduce function on the newly shuffled key-value pairs and transforms them into more meaningful data
-- the canonical example of a MapReduce use case is counting the number of occurances of words in a large text file
-- when dealing with a MapReduce library, engineers and/or system adminstrators only need to worry about the map and reduce functions, as well as their inputs and outputs
+- the canonical example of a MapReduce use case is counting the number of occurrences of words in a large text file
+- when dealing with a MapReduce library, engineers and/or system administrators only need to worry about the map and reduce functions, as well as their inputs and outputs
   - all other concerns, including the parallelization of tasks and the fault-tolerance of the MapReduce job, are abstracted away and taken care of by the MapReduce implementation
 
 ## Why MapReduce was used
@@ -49,7 +51,7 @@
 
 ## MapReduce example
 
-- count the total number of occurances of every letter in some large data set that spread out across multiple machines
+- count the total number of occurrences of every letter in some large data set that spread out across multiple machines
   ![MapReduceExample](../../../images/mapReduceExample.png)
 
 ### When to use

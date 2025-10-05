@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react";
+import { useEffect, useRef, useState, type ReactNode } from "react";
 import clsx from "clsx";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
 import Layout from "@theme/Layout";
@@ -6,21 +6,19 @@ import HomepageFeatures from "@site/src/components/HomepageFeatures";
 
 import styles from "./index.module.css";
 
-let i = 0;
-
 function HomepageHeader() {
-  const [text, setText] = useState<any>([
+  const [text] = useState<Array<string>>([
     "Software Engineer",
     "Full-Stack Developer",
   ]);
   const [count, setCount] = useState<number>(0);
   const [show, setShow] = useState<string>("");
   const [isDeleting, setIsDeleting] = useState<boolean>(false);
-  const {siteConfig} = useDocusaurusContext();
+  const counterRef = useRef(0);
 
   const update = () => {
-    const letter = text[i].charAt(count);
-    const textlength = text[i].length;
+    const letter = text[counterRef.current].charAt(count);
+    const textlength = text[counterRef.current].length;
 
     if (count <= textlength && isDeleting === false) {
       setCount(count + 1);
@@ -29,14 +27,14 @@ function HomepageHeader() {
       if (show.length === 0) {
         setIsDeleting(false);
         setCount(0);
-        i++;
+        counterRef.current++;
       } else {
         setIsDeleting(true);
         setShow(show.slice(0, show.length - 1));
         setCount(0);
       }
-      if (i === text.length) {
-        i = 0;
+      if (counterRef.current === text.length) {
+        counterRef.current = 0;
       }
     }
   };
@@ -59,10 +57,13 @@ function HomepageHeader() {
   );
 }
 
-export default function Home(): JSX.Element {
-  const {siteConfig} = useDocusaurusContext();
+export default function Home(): ReactNode {
+  const { siteConfig } = useDocusaurusContext();
   return (
-    <Layout description="Description will go into a meta tag in <head />">
+    <Layout
+      title={`Hello from ${siteConfig.title}`}
+      description="Description will go into a meta tag in <head />"
+    >
       <HomepageHeader />
       <main>
         <HomepageFeatures />

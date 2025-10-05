@@ -9,6 +9,11 @@ export const REMOTE_SOURCES: RemoteRepo[] = [
     repoUrl: "https://github.com/reshinto/Basic_technologies_revision.git",
   },
   {
+    name: "Theory",
+    outDir: "docs/theory",
+    repoUrl: "https://github.com/reshinto/hft_notes.git",
+  },
+  {
     name: "Programming Language Syntax Comparison",
     outDir: "docs/languageComparison",
     repoUrl:

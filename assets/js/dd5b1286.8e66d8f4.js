@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkportfolio=self.webpackChunkportfolio||[]).push([[80379],{37256:s=>{s.exports=JSON.parse('{"label":"cypress","permalink":"/blog/tags/cypress","allTagsPath":"/blog/tags","count":1}')}}]);

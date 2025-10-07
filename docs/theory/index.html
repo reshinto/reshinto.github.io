@@ -1,0 +1,762 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-theory/README" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.1">
+<title data-rh="true">Notes | Terence Portfolio</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://www.terencekong.net/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://www.terencekong.net/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://www.terencekong.net/docs/theory/"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Notes | Terence Portfolio"><meta data-rh="true" name="description" content="Trading Systems"><meta data-rh="true" property="og:description" content="Trading Systems"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://www.terencekong.net/docs/theory/"><link data-rh="true" rel="alternate" href="https://www.terencekong.net/docs/theory/" hreflang="en"><link data-rh="true" rel="alternate" href="https://www.terencekong.net/docs/theory/" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Notes","item":"https://www.terencekong.net/docs/theory/"}]}</script><link rel="alternate" type="application/rss+xml" href="/blog/rss.xml" title="Terence Portfolio RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/blog/atom.xml" title="Terence Portfolio Atom Feed"><link rel="stylesheet" href="/assets/css/styles.f992bb5e.css">
+<script src="/assets/js/runtime~main.71355a0e.js" defer="defer"></script>
+<script src="/assets/js/main.97e512e6.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/img/docusaurus.png"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/docusaurus.png" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/docusaurus.png" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">About</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/docs/intro">Documentation</a><a class="navbar__item navbar__link" href="/portfolio">Portfolio</a><a class="navbar__item navbar__link" href="/blog">Blog</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/reshinto" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search searchBarContainer_NW3z" dir="ltr"><input placeholder="Search" aria-label="Search" class="navbar__search-input searchInput_YFbd" value=""><div class="loadingRing_RJI3 searchBarLoadingRing_YnHq"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/intro"><span title="Introduction" class="linkLabel_WmDU">Introduction</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/docs/docusaurus/"><span title="Docusaurus" class="categoryLinkLabel_W154">Docusaurus</span></a><button aria-label="Expand sidebar category &#x27;Docusaurus&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/languageComparison/"><span title="PROGRAMMING LANGUAGE SYNTAX COMPARISON" class="linkLabel_WmDU">PROGRAMMING LANGUAGE SYNTAX COMPARISON</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/docs/technologies/API/"><span title="technologies" class="categoryLinkLabel_W154">technologies</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible menu__list-item-collapsible--active"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--active" aria-current="page" href="/docs/theory/"><span title="Notes" class="categoryLinkLabel_W154">Notes</span></a><button aria-label="Collapse sidebar category &#x27;Notes&#x27;" aria-expanded="true" type="button" class="clean-btn menu__caret"></button></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/theory/code_snippets"><span title="code_snippets" class="linkLabel_WmDU">code_snippets</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/docs/theory/theory/SDMA"><span title="theory" class="categoryLinkLabel_W154">theory</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/docs/theory/trading_systems/arbitrage_trading_system"><span title="trading_systems" class="categoryLinkLabel_W154">trading_systems</span></a></div></li></ul></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Notes</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Notes</h1></header>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="trading-systems">Trading Systems<a href="#trading-systems" class="hash-link" aria-label="Direct link to Trading Systems" title="Direct link to Trading Systems" translate="no">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="does-not-require-ultra-low-latency">Does not require ultra-low latency<a href="#does-not-require-ultra-low-latency" class="hash-link" aria-label="Direct link to Does not require ultra-low latency" title="Direct link to Does not require ultra-low latency" translate="no">​</a></h3>
+<ul>
+<li>It&#x27;s important to note that even in trading systems that don&#x27;t demand ultra-low latency, efficient and reliable execution remains important.</li>
+<li>Latency requirements may vary depending on the specific strategy, market conditions, and the desired trade execution speed.</li>
+</ul>
+<ol>
+<li>
+<p><a href="https://github.com/reshinto/hft_notes/blob/main/trading_systems/position_trading_system.md" target="_blank" rel="noopener noreferrer">Positional Trading Systems</a></p>
+<ul>
+<li>Positional trading involves holding positions in securities for longer durations, ranging from days to months or even years.</li>
+<li>These systems typically analyze fundamental factors, macroeconomic indicators, or technical patterns to identify investment opportunities.</li>
+<li>Since the holding period is longer, the latency requirements are less stringent compared to high-frequency trading.</li>
+</ul>
+</li>
+<li>
+<p><a href="https://github.com/reshinto/hft_notes/blob/main/trading_systems/swing_trading_system.md" target="_blank" rel="noopener noreferrer">Swing Trading Systems</a></p>
+<ul>
+<li>Swing trading strategies aim to capture short-to-medium-term price swings in the market.</li>
+<li>These systems analyze technical indicators, chart patterns, and market trends to identify potential entry and exit points.</li>
+<li>While swing trading may involve more frequent trades than positional trading, it operates on a longer time horizon, allowing for slightly higher latency tolerance.</li>
+</ul>
+</li>
+<li>
+<p><a href="https://github.com/reshinto/hft_notes/blob/main/trading_systems/trend_following_system.md" target="_blank" rel="noopener noreferrer">Trend-Following Systems</a></p>
+<ul>
+<li>Trend-following strategies aim to identify and capitalize on longer-term price trends in the market.</li>
+<li>These systems use various indicators and trend analysis techniques to determine the direction and strength of a market trend.</li>
+<li>The emphasis is on staying in the trade for an extended period, so ultra-low latency is not critical.</li>
+</ul>
+</li>
+<li>
+<p><a href="https://github.com/reshinto/hft_notes/blob/main/trading_systems/fundamental_investing_system.md" target="_blank" rel="noopener noreferrer">Fundamental Investing Systems</a></p>
+<ul>
+<li>Fundamental investing strategies rely on analyzing a company&#x27;s financials, industry trends, and other fundamental factors to make long-term investment decisions.</li>
+<li>These systems often require comprehensive research and analysis rather than real-time market data, so low-latency requirements are not as important.</li>
+</ul>
+</li>
+<li>
+<p><a href="https://github.com/reshinto/hft_notes/blob/main/trading_systems/options_or_derivatives_trading_system.md" target="_blank" rel="noopener noreferrer">Options or Derivatives Trading Systems</a></p>
+<ul>
+<li>Trading systems focused on options or other derivatives may not require ultra-low latency, as these markets often have longer expiration periods and less frequent trading.</li>
+<li>Strategies involving options spreads, volatility trading, or hedging positions can operate with slightly higher latency requirements.</li>
+</ul>
+</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="requies-ultra-low-latency">Requies ultra-low latency<a href="#requies-ultra-low-latency" class="hash-link" aria-label="Direct link to Requies ultra-low latency" title="Direct link to Requies ultra-low latency" translate="no">​</a></h3>
+<ul>
+<li>In these trading systems, even small differences in latency can significantly impact profitability and competitiveness.</li>
+<li>Therefore, HFT firms invest heavily in low-latency technology infrastructure, including high-speed networks, proximity hosting, and optimized software algorithms, to minimize execution times and maintain an edge in the markets.</li>
+</ul>
+<ol>
+<li>
+<p><a href="https://github.com/reshinto/hft_notes/blob/main/trading_systems/high_frequency_trading_system.md" target="_blank" rel="noopener noreferrer">High-Frequency Trading (HFT) Systems</a></p>
+<ul>
+<li>HFT strategies involve executing a large number of trades within very short timeframes, often taking advantage of small price discrepancies or market inefficiencies that exist for only fractions of a second.</li>
+<li>These systems rely on ultra-low latency to ensure rapid order placement, market data processing, and order execution to exploit fleeting opportunities.</li>
+</ul>
+</li>
+<li>
+<p><a href="https://github.com/reshinto/hft_notes/blob/main/trading_systems/market_making_system.md" target="_blank" rel="noopener noreferrer">Market Making Systems</a></p>
+<ul>
+<li>Market making involves providing liquidity to the market by continuously placing bid and ask quotes for a particular security.</li>
+<li>Market makers aim to profit from the bid-ask spread while minimizing the risk exposure.</li>
+<li>Ultra-low latency is essential for market-making systems to swiftly adjust quotes in response to changing market conditions and to ensure fast order execution when interacting with incoming orders.</li>
+</ul>
+</li>
+<li>
+<p><a href="https://github.com/reshinto/hft_notes/blob/main/trading_systems/arbitrage_trading_system.md" target="_blank" rel="noopener noreferrer">Arbitrage Trading Systems</a></p>
+<ul>
+<li>Arbitrage strategies seek to profit from price discrepancies between different markets, exchanges, or instruments.</li>
+<li>These price differences may exist for only short periods, requiring ultra-low latency to identify, analyze, and execute trades swiftly to exploit the arbitrage opportunity before it diminishes.</li>
+</ul>
+</li>
+<li>
+<p><a href="https://github.com/reshinto/hft_notes/blob/main/trading_systems/scalping_system.md" target="_blank" rel="noopener noreferrer">Scalping Systems</a></p>
+<ul>
+<li>Scalping strategies aim to profit from small price fluctuations by entering and exiting trades rapidly.</li>
+<li>These systems typically seek to capture very short-term market movements and require ultra-low latency to enter and exit positions quickly with minimal slippage.</li>
+</ul>
+</li>
+<li>
+<p><a href="https://github.com/reshinto/hft_notes/blob/main/trading_systems/news_based_trading_system.md" target="_blank" rel="noopener noreferrer">News-Based Trading Systems</a></p>
+<ul>
+<li>Some trading systems rely on news or event-driven strategies, where the speed of information processing is crucial.</li>
+<li>These systems analyze news feeds, social media sentiment, or other data sources to identify market-moving events and execute trades based on the anticipated impact.</li>
+<li>Ultra-low latency is essential to process and react to news events in real-time.</li>
+</ul>
+</li>
+<li>
+<p><a href="https://github.com/reshinto/hft_notes/blob/main/trading_systems/statistical_arbitrage_system.md" target="_blank" rel="noopener noreferrer">Statistical Arbitrage Systems</a></p>
+<ul>
+<li>Statistical arbitrage strategies seek to identify and exploit statistical patterns or relationships between different securities or assets.</li>
+<li>These systems often involve high-frequency trading and require ultra-low latency to capitalize on the short-lived opportunities identified by the statistical models.</li>
+</ul>
+</li>
+</ol>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="commonly-used-algorithms">Commonly used algorithms<a href="#commonly-used-algorithms" class="hash-link" aria-label="Direct link to Commonly used algorithms" title="Direct link to Commonly used algorithms" translate="no">​</a></h2>
+<ol>
+<li>
+<p>Market Making Algorithms</p>
+<ul>
+<li>Market making algorithms are used to provide liquidity to the market by continuously quoting bid and ask prices for a particular security.</li>
+<li>These algorithms dynamically adjust quotes based on market conditions, order book depth, and other factors to maintain a balanced position and profit from the bid-ask spread.</li>
+</ul>
+</li>
+<li>
+<p>Statistical Arbitrage Algorithms</p>
+<ul>
+<li>Statistical arbitrage algorithms aim to exploit pricing inefficiencies or relative mispricings between related securities based on statistical models.</li>
+<li>These algorithms analyze historical relationships, correlations, or deviations between assets and generate trades to capture opportunities for price convergence or divergence.</li>
+</ul>
+</li>
+<li>
+<p>Momentum Trading Algorithms</p>
+<ul>
+<li>Momentum trading algorithms identify and capitalize on short-term price trends or momentum in the market.</li>
+<li>These algorithms use technical indicators, market data analysis, and pattern recognition techniques to enter positions aligned with the prevailing trend and exit when the momentum weakens.</li>
+</ul>
+</li>
+<li>
+<p>Pairs Trading Algorithms</p>
+<ul>
+<li>Pairs trading algorithms involve trading a pair of related securities simultaneously, taking advantage of their relative price movements.</li>
+<li>These algorithms monitor the price spread between the two securities and execute trades when the spread deviates from its historical mean, anticipating a reversion to the mean.</li>
+</ul>
+</li>
+<li>
+<p>Liquidity Detection Algorithms</p>
+<ul>
+<li>Liquidity detection algorithms aim to identify and interact with hidden or non-displayed liquidity in the market, such as dark pools or alternative trading venues.</li>
+<li>These algorithms employ sophisticated order routing and execution techniques to access and execute trades in less visible liquidity sources.</li>
+</ul>
+</li>
+<li>
+<p>Smart Order Routing (SOR) Algorithms</p>
+<ul>
+<li>SOR algorithms optimize order routing decisions by dynamically analyzing market conditions, liquidity availability, and execution costs across multiple exchanges or trading venues.</li>
+<li>These algorithms split orders, route them to the most favorable venues, and balance execution speed and price improvement to achieve best execution.</li>
+</ul>
+</li>
+<li>
+<p>Execution Algorithms</p>
+<ul>
+<li>Execution algorithms are designed to optimize the execution of large orders by breaking them into smaller, manageable parts and executing them over time.</li>
+<li>These algorithms consider factors like market impact, trading volumes, and order book dynamics to minimize slippage and achieve efficient execution.</li>
+</ul>
+</li>
+<li>
+<p>Scalping Algorithms</p>
+<ul>
+<li>Scalping algorithms focus on making a large number of small-profit trades by capturing small price differentials or spreads.</li>
+<li>These algorithms aim to capitalize on short-term price fluctuations and typically employ high-frequency trading techniques to execute trades rapidly.</li>
+</ul>
+</li>
+<li>
+<p>Volatility Trading Algorithms</p>
+<ul>
+<li>Volatility trading algorithms aim to profit from changes in market volatility levels.</li>
+<li>These algorithms employ options strategies, volatility derivatives, or dynamic hedging techniques to take positions based on anticipated volatility movements or shifts in implied volatility levels.</li>
+</ul>
+</li>
+<li>
+<p>High-Frequency Trading (HFT) Algorithms</p>
+<ul>
+<li>HFT algorithms encompass a broad range of ultra-low latency algorithms that execute a large number of trades within extremely short timeframes.</li>
+<li>These algorithms exploit small price discrepancies, market microstructure patterns, or latency arbitrage opportunities, relying on speed and technology to gain a competitive edge.</li>
+</ul>
+</li>
+</ol>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="common-structure">Common structure<a href="#common-structure" class="hash-link" aria-label="Direct link to Common structure" title="Direct link to Common structure" translate="no">​</a></h2>
+<ol>
+<li>Data Ingestion and Processing<!-- -->
+<ul>
+<li>Connect to market data sources or APIs.</li>
+<li>Receive and parse incoming market data feeds in real-time.</li>
+<li>Store or update relevant market data in memory or a database.</li>
+</ul>
+</li>
+<li>Strategy Development<!-- -->
+<ul>
+<li>Implement mathematical models, statistical analysis, or machine learning techniques to generate trading signals.</li>
+<li>Define rules and parameters for trade entry, exit, position sizing, and risk management.</li>
+<li>Incorporate any proprietary algorithms or trading strategies specific to the firm&#x27;s approach.</li>
+</ul>
+</li>
+<li>Order Generation<!-- -->
+<ul>
+<li>Translate trading signals or strategy rules into order generation logic.</li>
+<li>Determine the desired order type (market, limit, etc.) and order quantity based on the trading strategy.</li>
+<li>Apply any pre-trade risk checks or constraints defined by regulatory requirements or risk management rules.</li>
+</ul>
+</li>
+<li>Order Routing and Execution<!-- -->
+<ul>
+<li>Connect to order execution venues or trading platforms via APIs.</li>
+<li>Route orders to the appropriate venues based on factors like liquidity, execution speed, or transaction costs.</li>
+<li>Handle order execution confirmations and updates from the venues.</li>
+<li>Implement algorithms for smart order routing, balancing tradeoff between speed and best execution.</li>
+</ul>
+</li>
+<li>Risk Management<!-- -->
+<ul>
+<li>Monitor positions, exposure, and overall risk metrics in real-time.</li>
+<li>Apply risk limits or controls to prevent excessive loss or exposure.</li>
+<li>Implement risk mitigation techniques like hedging or portfolio rebalancing.</li>
+</ul>
+</li>
+<li>Performance Monitoring and Analysis<!-- -->
+<ul>
+<li>Track and record trading performance metrics, including P&amp;L (profit and loss), trade statistics, and order execution quality.</li>
+<li>Conduct post-trade analysis to evaluate the effectiveness of the trading strategies.</li>
+<li>Monitor latency and system performance to ensure efficient operation and identify any issues.</li>
+</ul>
+</li>
+<li>Infrastructure and Connectivity<!-- -->
+<ul>
+<li>Build and maintain a high-performance, low-latency infrastructure.</li>
+<li>Optimize networking, server hardware, and software configurations for fast data processing and order execution.</li>
+<li>Implement fault-tolerant and high-availability mechanisms to ensure system reliability.</li>
+</ul>
+</li>
+</ol>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="common-protocols">Common protocols<a href="#common-protocols" class="hash-link" aria-label="Direct link to Common protocols" title="Direct link to Common protocols" translate="no">​</a></h2>
+<ol>
+<li>FIX (Financial Information eXchange) Protocol<!-- -->
+<ul>
+<li>FIX is a widely used protocol in the financial industry for communication between trading systems, exchanges, and brokers.</li>
+<li>It is a standard messaging protocol that facilitates order routing, trade execution, and market data dissemination.</li>
+<li>FIX provides a structured format for transmitting trade-related information and is commonly used in both internal and external communications.</li>
+</ul>
+</li>
+<li>REST (Representational State Transfer) API<!-- -->
+<ul>
+<li>REST is an architectural style used for building web services that can be accessed over the internet.</li>
+<li>REST APIs use HTTP as the underlying communication protocol and are often employed for accessing external APIs or web-based services.</li>
+<li>HFT firms may utilize REST APIs to connect to data providers, exchanges, or other external platforms for market data retrieval or order placement.</li>
+</ul>
+</li>
+<li>WebSockets<!-- -->
+<ul>
+<li>WebSockets is a communication protocol that provides full-duplex, bidirectional communication between a client and a server over a single, long-lived connection.</li>
+<li>It allows for real-time data streaming and enables efficient and low-latency communication.</li>
+<li>HFT firms may utilize WebSockets to receive streaming market data or execute trades in real-time.</li>
+</ul>
+</li>
+<li>Native API Protocols<!-- -->
+<ul>
+<li>Some proprietary trading systems or platforms provide their own custom API protocols for connectivity.</li>
+<li>These protocols are specific to the system or platform being accessed and often offer optimized and low-latency communication.</li>
+<li>HFT firms may integrate with these native APIs to access internal trading systems or platforms.</li>
+</ul>
+</li>
+<li>Binary Protocols<!-- -->
+<ul>
+<li>Binary protocols are used for high-performance and efficient data transmission.</li>
+<li>They typically involve encoding data in a binary format to reduce overhead and increase transmission speed.</li>
+<li>HFT firms may employ custom binary protocols for communication between internal systems or for high-speed connectivity with specific trading platforms or exchanges.</li>
+</ul>
+</li>
+<li>TCP/IP (Transmission Control Protocol/Internet Protocol)<!-- -->
+<ul>
+<li>TCP/IP is the fundamental protocol suite used for internet communication.</li>
+<li>It provides reliable, connection-oriented communication between network devices.</li>
+<li>HFT firms often utilize TCP/IP as the underlying protocol for communication with internal systems, external APIs, or data providers.</li>
+</ul>
+</li>
+<li>gRPC<!-- -->
+<ul>
+<li>gRPC is a modern, high-performance, open-source framework developed by Google that allows efficient communication between client and server applications.</li>
+<li>It is based on the protobuf (Protocol Buffers) serialization format, which enables fast and compact data transmission.</li>
+<li>usage examples<!-- -->
+<ol>
+<li>Internal Communication<!-- -->
+<ul>
+<li>gRPC can be used for inter-process communication or communication between different components within the trading system.</li>
+<li>It offers a lightweight, efficient, and high-performance communication channel, which is crucial for fast and reliable data exchange between different modules or services.</li>
+</ul>
+</li>
+<li>Microservices Architecture<!-- -->
+<ul>
+<li>HFT firms may adopt a microservices architecture, where different components of the trading system are developed and deployed as separate services.</li>
+<li>gRPC can be utilized as the communication protocol between these microservices, allowing them to interact efficiently and exchanging data in a performant manner.</li>
+</ul>
+</li>
+<li>API Development<!-- -->
+<ul>
+<li>HFT firms may develop their own APIs for internal purposes, such as accessing proprietary trading functionalities or connecting with specific systems. gRPC can be employed to define and implement these APIs, providing a scalable and efficient communication mechanism.</li>
+</ul>
+</li>
+<li>Integration with External Services<!-- -->
+<ul>
+<li>HFT firms often need to integrate with external services, such as market data providers or execution venues.</li>
+<li>gRPC can be used to develop client applications that communicate with these external services, allowing for fast and reliable data retrieval, order placement, and trade execution.</li>
+</ul>
+</li>
+</ol>
+</li>
+</ul>
+</li>
+</ol>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="common-architectures">Common Architectures<a href="#common-architectures" class="hash-link" aria-label="Direct link to Common Architectures" title="Direct link to Common Architectures" translate="no">​</a></h2>
+<ul>
+<li>Factors such as trading strategies, market focus, regulatory requirements, and existing technology infrastructure influence the selection of the most suitable architecture for a particular trading system.</li>
+</ul>
+<ol>
+<li>Monolithic Architecture<!-- -->
+<ul>
+<li>In a monolithic architecture, the entire trading system is built as a single, self-contained application.</li>
+<li>All components, such as market data processing, order management, strategy execution, and risk management, are tightly coupled within a single codebase.</li>
+<li>While this design simplifies development and deployment, it may pose challenges in scalability and flexibility.</li>
+</ul>
+</li>
+<li>Microservices Architecture<!-- -->
+<ul>
+<li>Microservices architecture decomposes the trading system into a collection of loosely coupled, independently deployable services.</li>
+<li>Each service focuses on a specific functionality, such as market data retrieval, order routing, risk management, or analytics.</li>
+<li>These services communicate with each other using lightweight protocols (such as gRPC or REST) and can be developed, deployed, and scaled independently.</li>
+<li>This design allows for better scalability, fault isolation, and flexibility in adding or updating components.</li>
+</ul>
+</li>
+<li>Event-Driven Architecture<!-- -->
+<ul>
+<li>Event-driven architecture focuses on asynchronous communication and processing of events.</li>
+<li>In this design, various components of the trading system publish and subscribe to events, such as market data updates, order executions, or system notifications.</li>
+<li>Components react to events asynchronously, enabling parallel processing and faster response times.</li>
+<li>Event-driven architectures can help reduce latency and enable high throughput in HFT systems.</li>
+</ul>
+</li>
+<li>Distributed Computing Architecture<!-- -->
+<ul>
+<li>Distributed computing architectures leverage multiple nodes or machines working together to process data and execute trades.</li>
+<li>This design enables parallel processing, load balancing, and fault tolerance.</li>
+<li>Distributed architectures often involve clusters of servers or cloud-based infrastructure to handle the high volumes of data and compute-intensive tasks in HFT systems.</li>
+</ul>
+</li>
+<li>High-Performance Computing (HPC) Architecture<!-- -->
+<ul>
+<li>HPC architectures utilize specialized hardware, such as FPGA (Field-Programmable Gate Array) or GPU (Graphics Processing Unit), to achieve ultra-low latency and high-performance computing capabilities.</li>
+<li>These architectures offload computationally intensive tasks, such as market data processing or complex algorithmic calculations, to hardware accelerators, resulting in faster processing speeds and reduced latencies.</li>
+</ul>
+</li>
+<li>Hybrid Architectures<!-- -->
+<ul>
+<li>HFT systems may adopt hybrid architectures that combine multiple design patterns and technologies.</li>
+<li>For example, a hybrid architecture may leverage microservices for flexibility and scalability while incorporating event-driven messaging for fast and asynchronous communication between components.</li>
+</ul>
+</li>
+</ol>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="common-databases">Common Databases<a href="#common-databases" class="hash-link" aria-label="Direct link to Common Databases" title="Direct link to Common Databases" translate="no">​</a></h2>
+<ul>
+<li>HFT firms typically use databases that offer high performance, low latency, and efficient data storage and retrieval capabilities.</li>
+<li>The choice of database depends on the specific requirements of the trading system.</li>
+<li>It&#x27;s important to note that HFT firms may employ a combination of databases within their trading systems, each serving different purposes.</li>
+<li>The choice of database depends on factors such as data volume, data access patterns, latency requirements, scalability, and specific use cases within the trading system.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="here-are-some-commonly-used-databases-in-hft-trading-systems">Here are some commonly used databases in HFT trading systems:<a href="#here-are-some-commonly-used-databases-in-hft-trading-systems" class="hash-link" aria-label="Direct link to Here are some commonly used databases in HFT trading systems:" title="Direct link to Here are some commonly used databases in HFT trading systems:" translate="no">​</a></h3>
+<ol>
+<li>
+<p>In-Memory Databases</p>
+<ul>
+<li>In-memory databases store data in the main memory (RAM) of the server, allowing for extremely fast data access and processing.</li>
+<li>These databases eliminate the latency associated with disk-based storage systems and can handle large volumes of real-time data with low latency.</li>
+<li>Examples<!-- -->
+<ul>
+<li>Redis</li>
+<li>Apache Ignite</li>
+<li>VoltDB</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Time-Series Databases</p>
+<ul>
+<li>Time-series databases are optimized for storing and querying time-stamped data, such as market data and trade information.</li>
+<li>They provide efficient compression, indexing, and querying mechanisms specifically tailored for time-series data.</li>
+<li>Examples<!-- -->
+<ul>
+<li>InfluxDB</li>
+<li>Prometheus</li>
+<li>Kdb+ (a Tick Database, a columnar-based database, and a Time-Series Database.)<!-- -->
+<ul>
+<li>KDB+ is often referred to as a Tick Database because it excels at efficiently storing and processing tick data, which consists of individual trade or quote updates capturing price, volume, and other attributes of financial instruments.<!-- -->
+<ul>
+<li>Its design is optimized to handle high volumes of time-stamped data, making it well-suited for tick-by-tick data storage and retrieval.</li>
+</ul>
+</li>
+<li>At the same time, KDB+ is a columnar-based database.<!-- -->
+<ul>
+<li>It organizes data in a column-oriented fashion, which offers advantages such as efficient compression, faster query performance, and improved data locality for analytical operations.</li>
+<li>The columnar structure allows for efficient storage and retrieval of large volumes of data, including time-series data, making it well-suited for handling financial market data.</li>
+</ul>
+</li>
+<li>Furthermore, KDB+ is specifically designed to handle time-series data, making it a Time-Series Database.<!-- -->
+<ul>
+<li>It provides specialized features and functions for managing and analyzing time-stamped data, such as handling irregular time intervals, time-based aggregations, and windowing operations.</li>
+<li>Its time-series capabilities enable efficient storage, retrieval, and analysis of data with temporal dependencies, which is a critical requirement in many financial applications.</li>
+</ul>
+</li>
+<li>In summary, KDB+ can be described as a Tick Database due to its ability to handle tick data, a columnar-based database due to its column-oriented storage structure, and a Time-Series Database due to its specialized features for managing time-stamped data.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Columnar Databases</p>
+<ul>
+<li>Columnar databases store data in a column-wise fashion, which allows for efficient compression and high-speed data retrieval.</li>
+<li>They are suitable for handling large volumes of historical data and conducting complex analytical queries.</li>
+<li>Examples<!-- -->
+<ul>
+<li>Apache Cassandra</li>
+<li>Apache HBase</li>
+<li>ClickHouse</li>
+<li>Kdb+ (a Tick Database, a columnar-based database, and a Time-Series Database.)<!-- -->
+<ul>
+<li>KDB+ is often referred to as a Tick Database because it excels at efficiently storing and processing tick data, which consists of individual trade or quote updates capturing price, volume, and other attributes of financial instruments.<!-- -->
+<ul>
+<li>Its design is optimized to handle high volumes of time-stamped data, making it well-suited for tick-by-tick data storage and retrieval.</li>
+</ul>
+</li>
+<li>At the same time, KDB+ is a columnar-based database.<!-- -->
+<ul>
+<li>It organizes data in a column-oriented fashion, which offers advantages such as efficient compression, faster query performance, and improved data locality for analytical operations.</li>
+<li>The columnar structure allows for efficient storage and retrieval of large volumes of data, including time-series data, making it well-suited for handling financial market data.</li>
+</ul>
+</li>
+<li>Furthermore, KDB+ is specifically designed to handle time-series data, making it a Time-Series Database.<!-- -->
+<ul>
+<li>It provides specialized features and functions for managing and analyzing time-stamped data, such as handling irregular time intervals, time-based aggregations, and windowing operations.</li>
+<li>Its time-series capabilities enable efficient storage, retrieval, and analysis of data with temporal dependencies, which is a critical requirement in many financial applications.</li>
+</ul>
+</li>
+<li>In summary, KDB+ can be described as a Tick Database due to its ability to handle tick data, a columnar-based database due to its column-oriented storage structure, and a Time-Series Database due to its specialized features for managing time-stamped data.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Tick Databases</p>
+<ul>
+<li>Tick databases are designed to handle high-frequency data, such as individual trade or quote updates (ticks).</li>
+<li>These databases can efficiently store and retrieve large volumes of tick data with low latency.</li>
+<li>Examples<!-- -->
+<ul>
+<li>OneTick</li>
+<li>kdb+/q (a Tick Database, a columnar-based database, and a Time-Series Database.)<!-- -->
+<ul>
+<li>KDB+ is often referred to as a Tick Database because it excels at efficiently storing and processing tick data, which consists of individual trade or quote updates capturing price, volume, and other attributes of financial instruments.<!-- -->
+<ul>
+<li>Its design is optimized to handle high volumes of time-stamped data, making it well-suited for tick-by-tick data storage and retrieval.</li>
+</ul>
+</li>
+<li>At the same time, KDB+ is a columnar-based database.<!-- -->
+<ul>
+<li>It organizes data in a column-oriented fashion, which offers advantages such as efficient compression, faster query performance, and improved data locality for analytical operations.</li>
+<li>The columnar structure allows for efficient storage and retrieval of large volumes of data, including time-series data, making it well-suited for handling financial market data.</li>
+</ul>
+</li>
+<li>Furthermore, KDB+ is specifically designed to handle time-series data, making it a Time-Series Database.<!-- -->
+<ul>
+<li>It provides specialized features and functions for managing and analyzing time-stamped data, such as handling irregular time intervals, time-based aggregations, and windowing operations.</li>
+<li>Its time-series capabilities enable efficient storage, retrieval, and analysis of data with temporal dependencies, which is a critical requirement in many financial applications.</li>
+</ul>
+</li>
+<li>In summary, KDB+ can be described as a Tick Database due to its ability to handle tick data, a columnar-based database due to its column-oriented storage structure, and a Time-Series Database due to its specialized features for managing time-stamped data.</li>
+</ul>
+</li>
+<li>TickVault</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Relational Databases</p>
+<ul>
+<li>Although not as commonly used for ultra-low-latency applications, some HFT firms may still employ relational databases for certain aspects of their trading systems, such as trade settlement, risk management, or reporting. Examples include MySQL, PostgreSQL, and Oracle Database.</li>
+</ul>
+</li>
+<li>
+<p>NoSQL Databases</p>
+<ul>
+<li>NoSQL databases provide flexible, scalable, and high-performance storage solutions for handling large volumes of unstructured or semi-structured data. They are often used for storing non-time-sensitive data or supporting back-office functions. Examples include MongoDB, Apache Cassandra, and Amazon DynamoDB.</li>
+</ul>
+</li>
+</ol>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="common-limitations-or-barriers-of-entry">Common limitations or barriers of entry<a href="#common-limitations-or-barriers-of-entry" class="hash-link" aria-label="Direct link to Common limitations or barriers of entry" title="Direct link to Common limitations or barriers of entry" translate="no">​</a></h2>
+<ol>
+<li>
+<p>Capital Requirements</p>
+<ul>
+<li>HFT systems often require substantial capital to establish and maintain the necessary infrastructure, such as high-performance servers, low-latency connectivity, and co-location services.</li>
+<li>The costs associated with building and operating such systems can be prohibitive for individual traders.</li>
+</ul>
+</li>
+<li>
+<p>Technology and Expertise:</p>
+<ul>
+<li>HFT systems rely on advanced technology, sophisticated algorithms, and low-latency infrastructure.</li>
+<li>Developing and maintaining these systems requires specialized knowledge in areas such as programming, algorithm design, data analysis, and market microstructure.</li>
+<li>Acquiring the necessary technical skills and expertise can be challenging for individuals without prior experience or access to resources.</li>
+</ul>
+</li>
+<li>
+<p>Access to Market Data</p>
+<ul>
+<li>HFT systems rely on real-time market data feeds to make rapid trading decisions.</li>
+<li>Obtaining access to high-quality and low-latency market data can be costly and may require establishing relationships with market data providers or exchanges.</li>
+<li>Data acquisition and connectivity challenges can limit an individual&#x27;s ability to build and operate an HFT system effectively.</li>
+</ul>
+</li>
+<li>
+<p>Regulatory Compliance</p>
+<ul>
+<li>HFT activities are subject to specific regulations and compliance requirements imposed by regulatory authorities.</li>
+<li>Complying with these regulations, such as market surveillance, reporting obligations, and risk management standards, can be complex and demanding for individual traders who may lack the necessary resources or infrastructure to meet these requirements.</li>
+</ul>
+</li>
+<li>
+<p>Competition</p>
+<ul>
+<li>HFT is a highly competitive field dominated by large financial institutions and dedicated HFT firms.</li>
+<li>These established players have significant resources, technology infrastructure, and expertise, giving them a competitive advantage over individual traders.</li>
+<li>Overcoming competition and establishing a profitable presence in the HFT space can be challenging for individuals.</li>
+</ul>
+</li>
+<li>
+<p>Risk Management and Resilience</p>
+<ul>
+<li>HFT systems operate in high-speed, highly dynamic market environments, which can expose them to various risks, including technology failures, market disruptions, and sudden changes in market conditions.</li>
+<li>Developing robust risk management strategies, ensuring system resilience, and managing operational risks are critical but complex tasks for individuals building HFT systems.</li>
+</ul>
+</li>
+<li>
+<p>Market Access and Relationships</p>
+<ul>
+<li>HFT systems often require direct market access and relationships with exchanges or liquidity providers to execute trades efficiently.</li>
+<li>Establishing these connections and building the necessary market relationships can be difficult for individuals without the support of a larger organization or the ability to meet specific access requirements.</li>
+</ul>
+</li>
+</ol>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="cloud-services">Cloud Services<a href="#cloud-services" class="hash-link" aria-label="Direct link to Cloud Services" title="Direct link to Cloud Services" translate="no">​</a></h2>
+<ul>
+<li>HFT firms do utilize cloud service providers in their trading systems, although the extent of their usage can vary depending on the specific requirements and preferences of each firm.</li>
+<li>Notably, while HFT firms may leverage cloud services, they often combine them with dedicated on-premises infrastructure to meet their specific latency and customization requirements.</li>
+<li>The hybrid approach allows firms to utilize the benefits of both cloud services and dedicated infrastructure to optimize their trading systems&#x27; performance, security, and compliance.</li>
+<li>Examples of cloud service providers commonly used by HFT firms<!-- -->
+<ul>
+<li>Amazon Web Services (AWS)</li>
+<li>Microsoft Azure</li>
+<li>Google Cloud Platform (GCP)</li>
+</ul>
+</li>
+<li>These providers offer a wide range of services, infrastructure options, and geographic coverage, making them popular choices for HFT firms seeking to leverage cloud capabilities in their trading operations.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="here-are-a-few-examples-of-why-hft-firms-may-opt-to-use-cloud-services">Here are a few examples of why HFT firms may opt to use cloud services:<a href="#here-are-a-few-examples-of-why-hft-firms-may-opt-to-use-cloud-services" class="hash-link" aria-label="Direct link to Here are a few examples of why HFT firms may opt to use cloud services:" title="Direct link to Here are a few examples of why HFT firms may opt to use cloud services:" translate="no">​</a></h3>
+<ul>
+<li>
+<p>Scalability and Elasticity</p>
+<ul>
+<li>Cloud service providers offer scalable infrastructure, allowing HFT firms to quickly adjust their computing resources based on trading demands.</li>
+<li>During periods of high market activity or when running computationally intensive algorithms, firms can easily scale up their infrastructure to handle increased trading volumes and data processing requirements.</li>
+<li>This scalability and elasticity enable HFT firms to respond effectively to market conditions while maintaining optimal performance.</li>
+</ul>
+</li>
+<li>
+<p>Cost Efficiency</p>
+<ul>
+<li>Cloud services provide a cost-efficient alternative to investing in and maintaining on-premises infrastructure.</li>
+<li>HFT firms can leverage the pay-as-you-go model, paying only for the resources they consume.</li>
+<li>This eliminates the need for upfront capital investment in hardware, data centers, and ongoing maintenance costs.</li>
+<li>Cloud services also offer economies of scale, allowing firms to access high-performance computing capabilities at a fraction of the cost of building and maintaining their own infrastructure.</li>
+</ul>
+</li>
+<li>
+<p>Geographical Reach and Latency Reduction</p>
+<ul>
+<li>Cloud service providers have data centers located in various regions worldwide.</li>
+<li>HFT firms can strategically choose cloud regions that offer proximity to key exchanges and trading venues, reducing network latency and improving trade execution speeds.</li>
+<li>By deploying their trading systems closer to the target markets, firms can gain a competitive advantage in terms of reduced latency and improved market access.</li>
+</ul>
+</li>
+<li>
+<p>Flexibility and Agility</p>
+<ul>
+<li>Cloud services provide flexibility and agility in deploying and managing trading systems.</li>
+<li>HFT firms can rapidly provision and configure virtual machines, networks, and storage resources based on their specific needs.</li>
+<li>This agility allows for quick experimentation, testing of new strategies, and deployment of updates or enhancements to the trading systems.</li>
+<li>Cloud services also offer a wide range of pre-built tools and services that can accelerate the development and deployment of trading applications.</li>
+</ul>
+</li>
+<li>
+<p>Data Storage and Analytics</p>
+<ul>
+<li>Cloud service providers offer scalable and durable storage solutions that can handle large volumes of market data and enable efficient data analysis.</li>
+<li>HFT firms can leverage cloud-based data storage, data warehousing, and analytics services to store, process, and analyze historical and real-time market data.</li>
+<li>Cloud-based analytics tools and machine learning services can assist in extracting insights and improving trading strategies.</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="approach-differences-between-stocks-crypto-and-forex">Approach differences between stocks, crypto, and forex<a href="#approach-differences-between-stocks-crypto-and-forex" class="hash-link" aria-label="Direct link to Approach differences between stocks, crypto, and forex" title="Direct link to Approach differences between stocks, crypto, and forex" translate="no">​</a></h2>
+<ul>
+<li>HFT firms that focus on stocks, cryptocurrencies, or forex (foreign exchange) may adopt different approaches based on the characteristics of each market.</li>
+<li>It&#x27;s important to note that these are general differences, and the specific strategies and approaches can vary among HFT firms within each market.</li>
+<li>Factors such as market conditions, firm expertise, available resources, and technological infrastructure also influence the approach of HFT firms in these different markets.</li>
+</ul>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="here-are-some-key-differences-in-their-approach">Here are some key differences in their approach:<a href="#here-are-some-key-differences-in-their-approach" class="hash-link" aria-label="Direct link to Here are some key differences in their approach:" title="Direct link to Here are some key differences in their approach:" translate="no">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="stocks">Stocks<a href="#stocks" class="hash-link" aria-label="Direct link to Stocks" title="Direct link to Stocks" translate="no">​</a></h4>
+<ol>
+<li>
+<p>Market Structure</p>
+<ul>
+<li>Stock markets are often highly regulated, with established exchanges and centralized trading venues.</li>
+<li>HFT firms in stocks may leverage direct market access (DMA) to exchanges and utilize co-location services to minimize latency.</li>
+</ul>
+</li>
+<li>
+<p>Liquidity and Trading Options</p>
+<ul>
+<li>Stock markets generally have high liquidity and a wide range of trading options due to the large number of listed stocks.</li>
+<li>HFT firms focusing on stocks can explore various strategies, including market making, statistical arbitrage, and liquidity provision.</li>
+</ul>
+</li>
+<li>
+<p>Data Availability</p>
+<ul>
+<li>Stock markets provide extensive and reliable historical and real-time data, including order book data, trade executions, and fundamental information.</li>
+<li>HFT firms in stocks have access to comprehensive data sources, enabling them to analyze market dynamics and implement sophisticated trading strategies.</li>
+</ul>
+</li>
+<li>
+<p>Regulatory Environment</p>
+<ul>
+<li>Stock markets operate within well-established regulatory frameworks with strict compliance requirements.</li>
+<li>HFT firms in stocks must adhere to regulatory guidelines, surveillance, reporting, and risk management standards.</li>
+</ul>
+</li>
+</ol>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="cryptocurrencies">Cryptocurrencies<a href="#cryptocurrencies" class="hash-link" aria-label="Direct link to Cryptocurrencies" title="Direct link to Cryptocurrencies" translate="no">​</a></h4>
+<ol>
+<li>
+<p>Market Structure</p>
+<ul>
+<li>Cryptocurrency markets are decentralized and operate 24/7 across various exchanges.</li>
+<li>HFT firms in cryptocurrencies may need to connect to multiple exchanges and account for liquidity fragmentation.</li>
+</ul>
+</li>
+<li>
+<p>Market Volatility</p>
+<ul>
+<li>Cryptocurrency markets are known for their high volatility, providing opportunities for HFT firms to exploit price inefficiencies.</li>
+<li>HFT firms focusing on cryptocurrencies often employ strategies such as market making, arbitrage, and algorithmic trading to capitalize on rapid price movements.</li>
+</ul>
+</li>
+<li>
+<p>Data Availability and Quality</p>
+<ul>
+<li>Cryptocurrency market data can vary in availability and quality across exchanges.</li>
+<li>HFT firms in cryptocurrencies must navigate challenges related to data access, reliability, and latency to make informed trading decisions.</li>
+</ul>
+</li>
+<li>
+<p>Regulatory Landscape</p>
+<ul>
+<li>The regulatory environment for cryptocurrencies is still evolving in many jurisdictions.</li>
+<li>HFT firms in cryptocurrencies need to navigate regulatory uncertainties and adapt their strategies accordingly, considering potential changes in regulations and compliance requirements.</li>
+</ul>
+</li>
+</ol>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="forex">Forex<a href="#forex" class="hash-link" aria-label="Direct link to Forex" title="Direct link to Forex" translate="no">​</a></h4>
+<ol>
+<li>
+<p>Market Structure</p>
+<ul>
+<li>The forex market operates globally and is decentralized, with currency trading occurring across various interbank and electronic trading platforms.</li>
+<li>HFT firms in forex require access to liquidity providers and electronic communication networks (ECNs) for trade execution.</li>
+</ul>
+</li>
+<li>
+<p>High Liquidity</p>
+<ul>
+<li>Forex is the largest financial market globally, offering high liquidity and trading volumes.</li>
+<li>HFT firms focusing on forex can engage in strategies such as high-frequency trading, latency arbitrage, and order flow analysis to capture small price differentials.</li>
+</ul>
+</li>
+<li>
+<p>Market Dynamics</p>
+<ul>
+<li>Forex markets are influenced by various macroeconomic factors, geopolitical events, and central bank announcements.</li>
+<li>HFT firms in forex analyze economic indicators, news releases, and market sentiment to exploit short-term price movements.</li>
+</ul>
+</li>
+<li>
+<p>Execution and Technology</p>
+<ul>
+<li>Forex trading requires efficient execution and low-latency connectivity to capitalize on rapid market movements.</li>
+<li>HFT firms in forex employ advanced order types, smart routing, and high-speed infrastructure to achieve optimal trade execution.</li>
+</ul>
+</li>
+</ol>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="commonly-used-apis">Commonly used APIs<a href="#commonly-used-apis" class="hash-link" aria-label="Direct link to Commonly used APIs" title="Direct link to Commonly used APIs" translate="no">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="stocks-1">Stocks<a href="#stocks-1" class="hash-link" aria-label="Direct link to Stocks" title="Direct link to Stocks" translate="no">​</a></h3>
+<ol>
+<li>Alpha Vantage API</li>
+<li>IEX Cloud API</li>
+<li>Polygon API</li>
+<li>TD Ameritrade API</li>
+<li>Alpaca API</li>
+<li>E*TRADE API</li>
+<li>Interactive Brokers API</li>
+<li>Fidelity API</li>
+<li>Questrade API</li>
+<li>Tradier API</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="cryptocurrencies-1">Cryptocurrencies<a href="#cryptocurrencies-1" class="hash-link" aria-label="Direct link to Cryptocurrencies" title="Direct link to Cryptocurrencies" translate="no">​</a></h3>
+<ol>
+<li>Binance API</li>
+<li>Coinbase API</li>
+<li>Kraken API</li>
+<li>Bitfinex API</li>
+<li>BitMEX API</li>
+<li>Gemini API</li>
+<li>Huobi API</li>
+<li>Bittrex API</li>
+<li>Poloniex API</li>
+<li>KuCoin API</li>
+</ol>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="forex-1">Forex<a href="#forex-1" class="hash-link" aria-label="Direct link to Forex" title="Direct link to Forex" translate="no">​</a></h3>
+<ol>
+<li>OANDA API</li>
+<li>Forex.com API</li>
+<li>IG API</li>
+<li>Dukascopy API</li>
+<li>FXCM API</li>
+<li>Interactive Brokers API</li>
+<li>LMAX Exchange API</li>
+<li>Saxo Bank API</li>
+<li>E*TRADE API</li>
+<li>Gain Capital (FOREX.com) API</li>
+</ol></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"><a href="https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/theory/README.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/technologies/projectManagementTools/gradle/"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Gradle</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/theory/code_snippets"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">code_snippets</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#trading-systems" class="table-of-contents__link toc-highlight">Trading Systems</a><ul><li><a href="#does-not-require-ultra-low-latency" class="table-of-contents__link toc-highlight">Does not require ultra-low latency</a></li><li><a href="#requies-ultra-low-latency" class="table-of-contents__link toc-highlight">Requies ultra-low latency</a></li></ul></li><li><a href="#commonly-used-algorithms" class="table-of-contents__link toc-highlight">Commonly used algorithms</a></li><li><a href="#common-structure" class="table-of-contents__link toc-highlight">Common structure</a></li><li><a href="#common-protocols" class="table-of-contents__link toc-highlight">Common protocols</a></li><li><a href="#common-architectures" class="table-of-contents__link toc-highlight">Common Architectures</a></li><li><a href="#common-databases" class="table-of-contents__link toc-highlight">Common Databases</a><ul><li><a href="#here-are-some-commonly-used-databases-in-hft-trading-systems" class="table-of-contents__link toc-highlight">Here are some commonly used databases in HFT trading systems:</a></li></ul></li><li><a href="#common-limitations-or-barriers-of-entry" class="table-of-contents__link toc-highlight">Common limitations or barriers of entry</a></li><li><a href="#cloud-services" class="table-of-contents__link toc-highlight">Cloud Services</a><ul><li><a href="#here-are-a-few-examples-of-why-hft-firms-may-opt-to-use-cloud-services" class="table-of-contents__link toc-highlight">Here are a few examples of why HFT firms may opt to use cloud services:</a></li></ul></li><li><a href="#approach-differences-between-stocks-crypto-and-forex" class="table-of-contents__link toc-highlight">Approach differences between stocks, crypto, and forex</a><ul><li><a href="#here-are-some-key-differences-in-their-approach" class="table-of-contents__link toc-highlight">Here are some key differences in their approach:</a></li></ul></li><li><a href="#commonly-used-apis" class="table-of-contents__link toc-highlight">Commonly used APIs</a><ul><li><a href="#stocks-1" class="table-of-contents__link toc-highlight">Stocks</a></li><li><a href="#cryptocurrencies-1" class="table-of-contents__link toc-highlight">Cryptocurrencies</a></li><li><a href="#forex-1" class="table-of-contents__link toc-highlight">Forex</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/docs/intro">Documentation</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://sg.linkedin.com/in/terence-kong" target="_blank" rel="noopener noreferrer" class="footer__link-item">LinkedIn<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/blog">Blog</a></li><li class="footer__item"><a href="https://github.com/reshinto" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 Terence Kong Portfolio Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>

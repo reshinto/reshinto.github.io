@@ -1,0 +1,245 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-technologies/languageSpecific/run_language_tutorial" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.1">
+<title data-rh="true">How to compile and run files of different languages in the terminal | Terence Portfolio</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://www.terencekong.net/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://www.terencekong.net/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://www.terencekong.net/docs/technologies/languageSpecific/run_language_tutorial"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="How to compile and run files of different languages in the terminal | Terence Portfolio"><meta data-rh="true" name="description" content="compile .cpp &amp; .h files together"><meta data-rh="true" property="og:description" content="compile .cpp &amp; .h files together"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://www.terencekong.net/docs/technologies/languageSpecific/run_language_tutorial"><link data-rh="true" rel="alternate" href="https://www.terencekong.net/docs/technologies/languageSpecific/run_language_tutorial" hreflang="en"><link data-rh="true" rel="alternate" href="https://www.terencekong.net/docs/technologies/languageSpecific/run_language_tutorial" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"How to compile and run files of different languages in the terminal","item":"https://www.terencekong.net/docs/technologies/languageSpecific/run_language_tutorial"}]}</script><link rel="alternate" type="application/rss+xml" href="/blog/rss.xml" title="Terence Portfolio RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/blog/atom.xml" title="Terence Portfolio Atom Feed"><link rel="stylesheet" href="/assets/css/styles.f992bb5e.css">
+<script src="/assets/js/runtime~main.71355a0e.js" defer="defer"></script>
+<script src="/assets/js/main.97e512e6.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/img/docusaurus.png"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/docusaurus.png" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/docusaurus.png" alt="My Site Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">About</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/docs/intro">Documentation</a><a class="navbar__item navbar__link" href="/portfolio">Portfolio</a><a class="navbar__item navbar__link" href="/blog">Blog</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/reshinto" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><div class="navbar__search searchBarContainer_NW3z" dir="ltr"><input placeholder="Search" aria-label="Search" class="navbar__search-input searchInput_YFbd" value=""><div class="loadingRing_RJI3 searchBarLoadingRing_YnHq"><div></div><div></div><div></div><div></div></div></div></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/intro"><span title="Introduction" class="linkLabel_WmDU">Introduction</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/docs/docusaurus/"><span title="Docusaurus" class="categoryLinkLabel_W154">Docusaurus</span></a><button aria-label="Expand sidebar category &#x27;Docusaurus&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/docs/languageComparison/"><span title="PROGRAMMING LANGUAGE SYNTAX COMPARISON" class="linkLabel_WmDU">PROGRAMMING LANGUAGE SYNTAX COMPARISON</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/docs/technologies/API/"><span title="technologies" class="categoryLinkLabel_W154">technologies</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/docs/technologies/API/"><span title="API (Application Programming Interface)" class="categoryLinkLabel_W154">API (Application Programming Interface)</span></a><button aria-label="Expand sidebar category &#x27;API (Application Programming Interface)&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/technologies/UMLdiagrams/"><span title="UML (Unified Modeling Language)" class="linkLabel_WmDU">UML (Unified Modeling Language)</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/docs/technologies/automatedTests/java/springboot/"><span title="automatedTests" class="categoryLinkLabel_W154">automatedTests</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/docs/technologies/basics/OOP"><span title="basics" class="categoryLinkLabel_W154">basics</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/docs/technologies/database/RDBMS/"><span title="database" class="categoryLinkLabel_W154">database</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/docs/technologies/deployment/heroku/deployDjangoTutorial"><span title="deployment" class="categoryLinkLabel_W154">deployment</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/docs/technologies/designPatterns/Behavioral_patterns/ChainOfResponsibility/"><span title="designPatterns" class="categoryLinkLabel_W154">designPatterns</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/docs/technologies/devops/CiCd/githubActions/"><span title="devops" class="categoryLinkLabel_W154">devops</span></a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/technologies/flowchartsAndUMLdiagrams/"><span title="Flowchart Symbols" class="linkLabel_WmDU">Flowchart Symbols</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/docs/technologies/frontend/angular/"><span title="frontend" class="categoryLinkLabel_W154">frontend</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/docs/technologies/fullstack/aspDotNetCore_SDK"><span title="fullstack" class="categoryLinkLabel_W154">fullstack</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/docs/technologies/interviewPrep/algorithms_and_techniques/"><span title="interviewPrep" class="categoryLinkLabel_W154">interviewPrep</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" tabindex="0" href="/docs/technologies/languageSpecific/cPlusPlus/"><span title="languageSpecific" class="categoryLinkLabel_W154">languageSpecific</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/technologies/languageSpecific/cPlusPlus/"><span title="C++" class="linkLabel_WmDU">C++</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/technologies/languageSpecific/cSharp/"><span title="c# summary notes" class="linkLabel_WmDU">c# summary notes</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/technologies/languageSpecific/groovy/"><span title="Groovy" class="linkLabel_WmDU">Groovy</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/technologies/languageSpecific/html/"><span title="HTML" class="linkLabel_WmDU">HTML</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/docs/technologies/languageSpecific/java/"><span title="Java" class="categoryLinkLabel_W154">Java</span></a><button aria-label="Expand sidebar category &#x27;Java&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/docs/technologies/languageSpecific/javascript/nodejs"><span title="javascript" class="categoryLinkLabel_W154">javascript</span></a></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/technologies/languageSpecific/puppet/"><span title="Puppet" class="linkLabel_WmDU">Puppet</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-3 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" tabindex="0" href="/docs/technologies/languageSpecific/python/"><span title="Python" class="categoryLinkLabel_W154">Python</span></a><button aria-label="Expand sidebar category &#x27;Python&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/docs/technologies/languageSpecific/run_language_tutorial"><span title="How to compile and run files of different languages in the terminal" class="linkLabel_WmDU">How to compile and run files of different languages in the terminal</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-3 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/technologies/languageSpecific/xml/"><span title="XML (eXtensible Markup Language)" class="linkLabel_WmDU">XML (eXtensible Markup Language)</span></a></li></ul></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/docs/technologies/machine_learning/"><span title="Machine Learning Basics" class="linkLabel_WmDU">Machine Learning Basics</span></a></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/docs/technologies/math/essenceOfLinearAlgebra"><span title="math" class="categoryLinkLabel_W154">math</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/docs/technologies/others/gitCommands"><span title="others" class="categoryLinkLabel_W154">others</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/docs/technologies/pre-hooks/javascript/husky/"><span title="pre-hooks" class="categoryLinkLabel_W154">pre-hooks</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-2 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" tabindex="0" href="/docs/technologies/projectManagementTools/apacheMaven/"><span title="projectManagementTools" class="categoryLinkLabel_W154">projectManagementTools</span></a></div></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist" href="/docs/theory/"><span title="Notes" class="categoryLinkLabel_W154">Notes</span></a><button aria-label="Expand sidebar category &#x27;Notes&#x27;" aria-expanded="false" type="button" class="clean-btn menu__caret"></button></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">technologies</span></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">languageSpecific</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">How to compile and run files of different languages in the terminal</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>How to compile and run files of different languages in the terminal</h1></header>
+<h1>Run C++ files</h1>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="compile-cpp--h-files-together">compile .cpp &amp; .h files together<a href="#compile-cpp--h-files-together" class="hash-link" aria-label="Direct link to compile .cpp &amp; .h files together" title="Direct link to compile .cpp &amp; .h files together" translate="no">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="syntax--wall-check-for-errors">syntax: -Wall: check for errors<a href="#syntax--wall-check-for-errors" class="hash-link" aria-label="Direct link to syntax: -Wall: check for errors" title="Direct link to syntax: -Wall: check for errors" translate="no">​</a></h3>
+<ul>
+<li>-o: is an output file</li>
+<li>output file name: zzz</li>
+<li>.cpp and .h files</li>
+<li>old method of building</li>
+</ul>
+<blockquote>
+<p>g++ -Wall -o zzz xxx.cpp abc.h</p>
+</blockquote>
+<ul>
+<li>new method of building</li>
+</ul>
+<blockquote>
+<p>g++ -Wall -o zzz xxx.cpp</p>
+</blockquote>
+<ul>
+<li>run built file</li>
+</ul>
+<blockquote>
+<p>./zzz</p>
+</blockquote>
+<h1>Run C files</h1>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="same-as-above-but-add--x-c-when-compiling">same as above but add -x c when compiling<a href="#same-as-above-but-add--x-c-when-compiling" class="hash-link" aria-label="Direct link to same as above but add -x c when compiling" title="Direct link to same as above but add -x c when compiling" translate="no">​</a></h2>
+<blockquote>
+<p>g++ -x c -Wall -o zzz xxx.c abc.h</p>
+</blockquote>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="or">OR<a href="#or" class="hash-link" aria-label="Direct link to OR" title="Direct link to OR" translate="no">​</a></h2>
+<blockquote>
+<p>clang -o zzz xxx.c abc.h</p>
+</blockquote>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="or-1">OR<a href="#or-1" class="hash-link" aria-label="Direct link to OR" title="Direct link to OR" translate="no">​</a></h2>
+<blockquote>
+<p>make xxx</p>
+</blockquote>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="if-h-header-file-is-in-another-directory-need-to-use--i">If .h header file is in another directory need to use -I<a href="#if-h-header-file-is-in-another-directory-need-to-use--i" class="hash-link" aria-label="Direct link to If .h header file is in another directory need to use -I" title="Direct link to If .h header file is in another directory need to use -I" translate="no">​</a></h3>
+<blockquote>
+<p>g++ -I /fullpath/myproject xxx.cpp /fullpath/myproject/header/yyy.h</p>
+</blockquote>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="use--to-run-file">use ./ to run file<a href="#use--to-run-file" class="hash-link" aria-label="Direct link to use ./ to run file" title="Direct link to use ./ to run file" translate="no">​</a></h3>
+<blockquote>
+<p>./zzz</p>
+</blockquote>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="if-no-output-file-name-is-defined-earlier">if no output file name is defined earlier<a href="#if-no-output-file-name-is-defined-earlier" class="hash-link" aria-label="Direct link to if no output file name is defined earlier" title="Direct link to if no output file name is defined earlier" translate="no">​</a></h3>
+<ul>
+<li>ouput file will automatically create an a.out file</li>
+<li>to run</li>
+</ul>
+<blockquote>
+<p>./a.out</p>
+</blockquote>
+<h1>Run C# files</h1>
+<ul>
+<li>Need to have Mono platform to compile and run code<!-- -->
+<ul>
+<li>if using MacOS<!-- -->
+<blockquote>
+<p>brew install mono</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="compile-file">compile file<a href="#compile-file" class="hash-link" aria-label="Direct link to compile file" title="Direct link to compile file" translate="no">​</a></h2>
+<blockquote>
+<p>mcs xxx.cs</p>
+</blockquote>
+<ul>
+<li>xxx.exe will be created</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="run-file">run file<a href="#run-file" class="hash-link" aria-label="Direct link to run file" title="Direct link to run file" translate="no">​</a></h2>
+<blockquote>
+<p>mono xxx.exe</p>
+</blockquote>
+<h1>Run Java files</h1>
+<ul>
+<li>xxx.java file name must be the same as public class name</li>
+<li>note: it is case sensitive</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="compile-xxxjava-file-with-javac-in-terminal">compile xxx.java file with javac in terminal<a href="#compile-xxxjava-file-with-javac-in-terminal" class="hash-link" aria-label="Direct link to compile xxx.java file with javac in terminal" title="Direct link to compile xxx.java file with javac in terminal" translate="no">​</a></h2>
+<blockquote>
+<p>javac xxx.java</p>
+</blockquote>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="java-class-will-be-created-run-class-file-with-java">java class will be created, run class file with java<a href="#java-class-will-be-created-run-class-file-with-java" class="hash-link" aria-label="Direct link to java class will be created, run class file with java" title="Direct link to java class will be created, run class file with java" translate="no">​</a></h2>
+<blockquote>
+<p>java xxx</p>
+</blockquote>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="java-11-onwards-class-will-not-be-created-javac-not-required">java 11 onwards, class will not be created, javac not required<a href="#java-11-onwards-class-will-not-be-created-javac-not-required" class="hash-link" aria-label="Direct link to java 11 onwards, class will not be created, javac not required" title="Direct link to java 11 onwards, class will not be created, javac not required" translate="no">​</a></h2>
+<ul>
+<li>compile and run java file</li>
+</ul>
+<blockquote>
+<p>java xxx.java</p>
+</blockquote>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="compile-and-run-at-the-same-time">compile and run at the same time<a href="#compile-and-run-at-the-same-time" class="hash-link" aria-label="Direct link to compile and run at the same time" title="Direct link to compile and run at the same time" translate="no">​</a></h2>
+<p>javac xxx.java &amp;&amp; java xxx</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="using-package">using package<a href="#using-package" class="hash-link" aria-label="Direct link to using package" title="Direct link to using package" translate="no">​</a></h2>
+<ul>
+<li>e.g.: Main.java</li>
+</ul>
+<div class="language-java codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-java codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">package com.example.java;</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">public class Main {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  public static void main(String[] args) {</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    System.out.println(&quot;Hello from Java!&quot;);</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  }</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">}</span><br></span></code></pre></div></div>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="at-root-directory-of-project">at root directory of project<a href="#at-root-directory-of-project" class="hash-link" aria-label="Direct link to at root directory of project" title="Direct link to at root directory of project" translate="no">​</a></h3>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="compile-file-1">compile file<a href="#compile-file-1" class="hash-link" aria-label="Direct link to compile file" title="Direct link to compile file" translate="no">​</a></h4>
+<blockquote>
+<p>javac ./com/example/java/Main.java</p>
+</blockquote>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="run-file-1">run file<a href="#run-file-1" class="hash-link" aria-label="Direct link to run file" title="Direct link to run file" translate="no">​</a></h4>
+<blockquote>
+<p>java com.example.java.Main</p>
+</blockquote>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="using-modularity">using modularity<a href="#using-modularity" class="hash-link" aria-label="Direct link to using modularity" title="Direct link to using modularity" translate="no">​</a></h2>
+<ul>
+<li>compile<!-- -->
+<blockquote>
+<p>javac -d ./mods/ --module-source-path src $(find src -name &quot;*.java&quot;)</p>
+</blockquote>
+</li>
+<li>run without optional dependencies<!-- -->
+<blockquote>
+<p>java --module-path mods/ -m com.domain.module/com.domain.module.Main</p>
+</blockquote>
+</li>
+<li>run with optional dependencies<!-- -->
+<blockquote>
+<p>java --module-path mods/ --add-modules com.domain.optionalmodule -m com.domain.module/com.domain.module.Main</p>
+</blockquote>
+</li>
+</ul>
+<h1>Run Typescript files</h1>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="run-typescript-files-without-compiling-with-ts-node-in-terminal-no-javascript-created">run typescript files without compiling with ts-node in terminal (no javascript created)<a href="#run-typescript-files-without-compiling-with-ts-node-in-terminal-no-javascript-created" class="hash-link" aria-label="Direct link to run typescript files without compiling with ts-node in terminal (no javascript created)" title="Direct link to run typescript files without compiling with ts-node in terminal (no javascript created)" translate="no">​</a></h2>
+<blockquote>
+<p>ts-node xxx.ts</p>
+</blockquote>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="compile-xxxts-file-with-tsc-in-terminal">compile xxx.ts file with tsc in terminal<a href="#compile-xxxts-file-with-tsc-in-terminal" class="hash-link" aria-label="Direct link to compile xxx.ts file with tsc in terminal" title="Direct link to compile xxx.ts file with tsc in terminal" translate="no">​</a></h2>
+<blockquote>
+<p>tsc ./xxx.ts</p>
+</blockquote>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="javascript-file-will-be-created-run-file-with-node">javascript file will be created, run file with node<a href="#javascript-file-will-be-created-run-file-with-node" class="hash-link" aria-label="Direct link to javascript file will be created, run file with node" title="Direct link to javascript file will be created, run file with node" translate="no">​</a></h2>
+<blockquote>
+<p>node xxx.js</p>
+</blockquote>
+<h1>Run Javascript files</h1>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="run-with-nodejs">run with nodeJS<a href="#run-with-nodejs" class="hash-link" aria-label="Direct link to run with nodeJS" title="Direct link to run with nodeJS" translate="no">​</a></h2>
+<blockquote>
+<p>node filename.js</p>
+</blockquote>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="open-nodejs-shell">open nodejs shell<a href="#open-nodejs-shell" class="hash-link" aria-label="Direct link to open nodejs shell" title="Direct link to open nodejs shell" translate="no">​</a></h3>
+<blockquote>
+<p>node</p>
+</blockquote>
+<h1>Run Python files</h1>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="run-with-python-2">run with python 2<a href="#run-with-python-2" class="hash-link" aria-label="Direct link to run with python 2" title="Direct link to run with python 2" translate="no">​</a></h2>
+<blockquote>
+<p>python2 filename.py</p>
+</blockquote>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="open-python-2-shell">open python 2 shell<a href="#open-python-2-shell" class="hash-link" aria-label="Direct link to open python 2 shell" title="Direct link to open python 2 shell" translate="no">​</a></h3>
+<blockquote>
+<p>python2</p>
+</blockquote>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="run-with-python-3">run with python 3<a href="#run-with-python-3" class="hash-link" aria-label="Direct link to run with python 3" title="Direct link to run with python 3" translate="no">​</a></h2>
+<blockquote>
+<p>python3 filename.py</p>
+</blockquote>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="open-python-3-shell">open python 3 shell<a href="#open-python-3-shell" class="hash-link" aria-label="Direct link to open python 3 shell" title="Direct link to open python 3 shell" translate="no">​</a></h3>
+<blockquote>
+<p>python3</p>
+</blockquote>
+<h1>Run Ruby files</h1>
+<blockquote>
+<p>ruby filename.rb</p>
+</blockquote>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="open-ruby-shell">open ruby shell<a href="#open-ruby-shell" class="hash-link" aria-label="Direct link to open ruby shell" title="Direct link to open ruby shell" translate="no">​</a></h2>
+<blockquote>
+<p>irb</p>
+</blockquote>
+<h1>Run assembly files</h1>
+<ul>
+<li>nasm compiler must be installed<!-- -->
+<ul>
+<li>if using MacOS<!-- -->
+<blockquote>
+<p>brew install nasm</p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="compile--run-x86-32-bit-files">compile &amp; run x86 32 bit files<a href="#compile--run-x86-32-bit-files" class="hash-link" aria-label="Direct link to compile &amp; run x86 32 bit files" title="Direct link to compile &amp; run x86 32 bit files" translate="no">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="compile">compile<a href="#compile" class="hash-link" aria-label="Direct link to compile" title="Direct link to compile" translate="no">​</a></h3>
+<blockquote>
+<p>nasm -f macho xxx32.asm &amp;&amp; ld -macosx_version_min 10.7.0 -o xxx32 xxx32.o</p>
+</blockquote>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="run">run<a href="#run" class="hash-link" aria-label="Direct link to run" title="Direct link to run" translate="no">​</a></h3>
+<blockquote>
+<p>./xxx32</p>
+</blockquote>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="compile--run-x86_64-64-bit-files">compile &amp; run x86_64 64 bit files<a href="#compile--run-x86_64-64-bit-files" class="hash-link" aria-label="Direct link to compile &amp; run x86_64 64 bit files" title="Direct link to compile &amp; run x86_64 64 bit files" translate="no">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="compile-1">compile<a href="#compile-1" class="hash-link" aria-label="Direct link to compile" title="Direct link to compile" translate="no">​</a></h3>
+<blockquote>
+<p>nasm -f macho64 xxx64.asm &amp;&amp; ld -macosx_version_min 10.7.0 -lSystem -o xxx64 xxx64.o</p>
+</blockquote>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="run-1">run<a href="#run-1" class="hash-link" aria-label="Direct link to run" title="Direct link to run" translate="no">​</a></h3>
+<blockquote>
+<p>./xxx64</p>
+</blockquote>
+<h1>Run Groovy</h1>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="open-groovyshell-to-use-the-dynamic-interpreter-on-the-terminal">Open GroovyShell to use the dynamic interpreter on the terminal<a href="#open-groovyshell-to-use-the-dynamic-interpreter-on-the-terminal" class="hash-link" aria-label="Direct link to Open GroovyShell to use the dynamic interpreter on the terminal" title="Direct link to Open GroovyShell to use the dynamic interpreter on the terminal" translate="no">​</a></h2>
+<ul>
+<li>in the command line type <code>groovysh</code></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="open-groovyconsole-to-open-an-external-ui-interface-editor">Open GroovyConsole to open an external UI interface editor<a href="#open-groovyconsole-to-open-an-external-ui-interface-editor" class="hash-link" aria-label="Direct link to Open GroovyConsole to open an external UI interface editor" title="Direct link to Open GroovyConsole to open an external UI interface editor" translate="no">​</a></h2>
+<ul>
+<li>in the command line type <code>groovyConsole</code></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="execute-groovy-code-on-the-command-line">Execute groovy code on the command line<a href="#execute-groovy-code-on-the-command-line" class="hash-link" aria-label="Direct link to Execute groovy code on the command line" title="Direct link to Execute groovy code on the command line" translate="no">​</a></h2>
+<ul>
+<li><code>groovy -e &quot;println &#x27;Hello, World!&#x27;&quot;</code></li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="run-groovy-file">Run groovy file<a href="#run-groovy-file" class="hash-link" aria-label="Direct link to Run groovy file" title="Direct link to Run groovy file" translate="no">​</a></h2>
+<ul>
+<li><code>groovy hello.groovy</code> or <code>groovy hello</code></li>
+</ul>
+<h1>Compile Latex file</h1>
+<blockquote>
+<p>xelatex filename.tex</p>
+</blockquote></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col"><a href="https://github.com/facebook/docusaurus/tree/main/packages/create-docusaurus/templates/shared/docs/technologies/languageSpecific/run_language_tutorial.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/docs/technologies/languageSpecific/python/virtualEnv"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Python Virtual Environment</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/docs/technologies/languageSpecific/xml/"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">XML (eXtensible Markup Language)</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#compile-cpp--h-files-together" class="table-of-contents__link toc-highlight">compile .cpp &amp; .h files together</a><ul><li><a href="#syntax--wall-check-for-errors" class="table-of-contents__link toc-highlight">syntax: -Wall: check for errors</a></li></ul></li><li><a href="#same-as-above-but-add--x-c-when-compiling" class="table-of-contents__link toc-highlight">same as above but add -x c when compiling</a></li><li><a href="#or" class="table-of-contents__link toc-highlight">OR</a></li><li><a href="#or-1" class="table-of-contents__link toc-highlight">OR</a><ul><li><a href="#if-h-header-file-is-in-another-directory-need-to-use--i" class="table-of-contents__link toc-highlight">If .h header file is in another directory need to use -I</a></li><li><a href="#use--to-run-file" class="table-of-contents__link toc-highlight">use ./ to run file</a></li><li><a href="#if-no-output-file-name-is-defined-earlier" class="table-of-contents__link toc-highlight">if no output file name is defined earlier</a></li></ul></li><li><a href="#compile-file" class="table-of-contents__link toc-highlight">compile file</a></li><li><a href="#run-file" class="table-of-contents__link toc-highlight">run file</a></li><li><a href="#compile-xxxjava-file-with-javac-in-terminal" class="table-of-contents__link toc-highlight">compile xxx.java file with javac in terminal</a></li><li><a href="#java-class-will-be-created-run-class-file-with-java" class="table-of-contents__link toc-highlight">java class will be created, run class file with java</a></li><li><a href="#java-11-onwards-class-will-not-be-created-javac-not-required" class="table-of-contents__link toc-highlight">java 11 onwards, class will not be created, javac not required</a></li><li><a href="#compile-and-run-at-the-same-time" class="table-of-contents__link toc-highlight">compile and run at the same time</a></li><li><a href="#using-package" class="table-of-contents__link toc-highlight">using package</a><ul><li><a href="#at-root-directory-of-project" class="table-of-contents__link toc-highlight">at root directory of project</a></li></ul></li><li><a href="#using-modularity" class="table-of-contents__link toc-highlight">using modularity</a></li><li><a href="#run-typescript-files-without-compiling-with-ts-node-in-terminal-no-javascript-created" class="table-of-contents__link toc-highlight">run typescript files without compiling with ts-node in terminal (no javascript created)</a></li><li><a href="#compile-xxxts-file-with-tsc-in-terminal" class="table-of-contents__link toc-highlight">compile xxx.ts file with tsc in terminal</a></li><li><a href="#javascript-file-will-be-created-run-file-with-node" class="table-of-contents__link toc-highlight">javascript file will be created, run file with node</a></li><li><a href="#run-with-nodejs" class="table-of-contents__link toc-highlight">run with nodeJS</a><ul><li><a href="#open-nodejs-shell" class="table-of-contents__link toc-highlight">open nodejs shell</a></li></ul></li><li><a href="#run-with-python-2" class="table-of-contents__link toc-highlight">run with python 2</a><ul><li><a href="#open-python-2-shell" class="table-of-contents__link toc-highlight">open python 2 shell</a></li></ul></li><li><a href="#run-with-python-3" class="table-of-contents__link toc-highlight">run with python 3</a><ul><li><a href="#open-python-3-shell" class="table-of-contents__link toc-highlight">open python 3 shell</a></li></ul></li><li><a href="#open-ruby-shell" class="table-of-contents__link toc-highlight">open ruby shell</a></li><li><a href="#compile--run-x86-32-bit-files" class="table-of-contents__link toc-highlight">compile &amp; run x86 32 bit files</a><ul><li><a href="#compile" class="table-of-contents__link toc-highlight">compile</a></li><li><a href="#run" class="table-of-contents__link toc-highlight">run</a></li></ul></li><li><a href="#compile--run-x86_64-64-bit-files" class="table-of-contents__link toc-highlight">compile &amp; run x86_64 64 bit files</a><ul><li><a href="#compile-1" class="table-of-contents__link toc-highlight">compile</a></li><li><a href="#run-1" class="table-of-contents__link toc-highlight">run</a></li></ul></li><li><a href="#open-groovyshell-to-use-the-dynamic-interpreter-on-the-terminal" class="table-of-contents__link toc-highlight">Open GroovyShell to use the dynamic interpreter on the terminal</a></li><li><a href="#open-groovyconsole-to-open-an-external-ui-interface-editor" class="table-of-contents__link toc-highlight">Open GroovyConsole to open an external UI interface editor</a></li><li><a href="#execute-groovy-code-on-the-command-line" class="table-of-contents__link toc-highlight">Execute groovy code on the command line</a></li><li><a href="#run-groovy-file" class="table-of-contents__link toc-highlight">Run groovy file</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/docs/intro">Documentation</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://sg.linkedin.com/in/terence-kong" target="_blank" rel="noopener noreferrer" class="footer__link-item">LinkedIn<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/blog">Blog</a></li><li class="footer__item"><a href="https://github.com/reshinto" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 Terence Kong Portfolio Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>

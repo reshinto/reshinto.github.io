@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkportfolio=self.webpackChunkportfolio||[]).push([[8947],{56600:e=>{e.exports=JSON.parse('{"authors":[{"name":"Terence Kong","title":"Software Engineer","url":"https://github.com/reshinto","imageURL":"https://github.com/reshinto.png","key":"terence","page":null,"count":2}]}')}}]);

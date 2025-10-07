@@ -1,0 +1,131 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 16px;
+}
+
+.filterBar {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.filterLabel {
+  font-weight: 600;
+}
+
+.select {
+  padding: 6px 8px;
+  border-radius: 8px;
+  border: 1px solid var(--ifm-color-emphasis-300);
+  background: var(--ifm-background-surface-color);
+}
+
+.card {
+  border: 1px solid var(--ifm-color-emphasis-300);
+  border-radius: 12px;
+  padding: 16px;
+  background: var(--ifm-background-surface-color);
+  transition: transform 0.05s ease-in-out, box-shadow 0.05s ease-in-out;
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--ifm-global-shadow-lw);
+}
+
+.thumbWrap {
+  overflow: hidden;
+  border-radius: 8px;
+  margin: 8px 0;
+  background: var(--ifm-color-emphasis-100);
+}
+
+.thumb {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.cardHeader {
+  display: flex;
+  align-items: flex-start; /* top-align the stars with the first line of text */
+  justify-content: space-between;
+  gap: 8px;
+  margin-bottom: 8px;
+  min-width: 0;
+}
+
+.repoName {
+  margin: 0;
+  font-size: 1.05rem;
+  font-weight: 600;
+  flex: 1 1 auto;
+  /* allow wrapping */
+  white-space: normal;
+  word-break: break-word; /* wrap long tokens if needed */
+}
+
+.clientBadge {
+  white-space: nowrap;
+  font-size: 0.75rem;
+  border-radius: 999px;
+  padding: 2px 8px;
+  background: var(--ifm-color-primary-lightest);
+  color: var(--ifm-color-primary-contrast-foreground);
+}
+
+.stars {
+  flex: 0 0 auto; /* prevent shrinking */
+  white-space: nowrap;
+  opacity: 0.8;
+  font-variant-numeric: tabular-nums;
+  margin-left: 8px;
+}
+
+.description {
+  margin: 8px 0 12px 0;
+  opacity: 0.95;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--ifm-color-primary-lightest);
+  color: var(--ifm-color-primary-contrast-foreground);
+  font-size: 0.75rem;
+}
+
+.topic {
+  display: inline-block;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--ifm-color-emphasis-200);
+  color: var(--ifm-font-color-base);
+  font-size: 0.72rem;
+}
+
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 4px;
+}
+
+.link {
+  font-weight: 600;
+  text-decoration: none;
+}

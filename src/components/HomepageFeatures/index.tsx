@@ -1,10 +1,10 @@
-import React from "react";
+import type { ReactNode } from "react";
 import clsx from "clsx";
 import styles from "./styles.module.css";
 import Svg from "../../../static/img/undraw_docusaurus_react.svg";
 
 type FeatureItem = {
-  description: JSX.Element;
+  description: ReactNode;
 };
 
 const FeatureList: FeatureItem[] = [
@@ -24,7 +24,7 @@ const FeatureList: FeatureItem[] = [
     description: (
       <>
         Wanting to acquire a broader and varied knowledge of the arts and
-        sciences, I travelled to Japan to pursue an International Liberal Arts
+        sciences, I traveled to Japan to pursue an International Liberal Arts
         Degree at Waseda University instead of a STEM degree in Singapore. Over
         there, I gained the ability to recognize the political, social,
         historical, and philosophical implications of contemporary experience,
@@ -46,11 +46,11 @@ const FeatureList: FeatureItem[] = [
   },
 ];
 
-function Feature({description}: FeatureItem) {
+function Feature({ description }: FeatureItem) {
   return <p>{description}</p>;
 }
 
-export default function HomepageFeatures(): JSX.Element {
+export default function HomepageFeatures(): ReactNode {
   return (
     <section className={styles.features}>
       <div className="container">

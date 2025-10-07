@@ -15,6 +15,8 @@ npx create-react-app demo-cypress --template typescript
 yarn create react-app demo-cypress --template typescript
 ```
 
+<!-- truncate -->
+
 ### Change directory
 
 ```
@@ -114,7 +116,7 @@ describe("App.cy.tsx", () => {
 ```ts
 import * as React from "react";
 import App from "../../src/App";
-import {mount} from "@cypress/react";
+import { mount } from "@cypress/react";
 
 it("renders react app", () => {
   mount(<App />);
@@ -129,7 +131,7 @@ it("renders react app", () => {
 ```ts
 import * as React from "react";
 import App from "../../src/App";
-import {mount} from "@cypress/react";
+import { mount } from "@cypress/react";
 
 it("renders react app", () => {
   mount(<App />);

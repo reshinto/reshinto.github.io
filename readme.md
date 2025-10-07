@@ -8,6 +8,14 @@ This website is built using [Docusaurus](https://docusaurus.io/), a modern stati
 npm i
 ```
 
+## Using the MDX checker CLI
+
+- Run this command on your site to obtain a list of files that will fail to compile under MDX v3.
+
+```bash
+npx docusaurus-mdx-checker
+```
+
 ## Local Development
 
 ```bash

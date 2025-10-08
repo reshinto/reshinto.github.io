@@ -411,7 +411,8 @@ export const remotePlugins: RemotePluginEntry[] = [
         "pre-hooks/javascript/husky/readme.md",
         "pre-hooks/python/pre-commit/readme.md",
         "projectManagementTools/apacheMaven/readme.md",
-        "projectManagementTools/gradle/readme.md"
+        "projectManagementTools/gradle/readme.md",
+        "readme.md"
       ]
     }
   ],
@@ -872,7 +873,8 @@ export const remoteFixMap: RemoteFixMap = [
       "pre-hooks/javascript/husky/readme.md",
       "pre-hooks/python/pre-commit/readme.md",
       "projectManagementTools/apacheMaven/readme.md",
-      "projectManagementTools/gradle/readme.md"
+      "projectManagementTools/gradle/readme.md",
+      "readme.md"
     ]
   },
   {
